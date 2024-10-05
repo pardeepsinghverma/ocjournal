@@ -10,8 +10,15 @@
     "test": "jest"
   },
   "dependencies": {
+    "@tamagui/config": "^1.112.22",
+    "@tamagui/core": "^1.112.22",
+    "@tamagui/scroll-view": "^1.112.22",
+    "axios": "^1.7.7",
+    "install": "^0.13.0",
+    "npm": "^10.9.0",
     "react": "18.3.1",
-    "react-native": "0.75.4"
+    "react-native": "0.75.4",
+    "tamagui": "^1.112.22"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
