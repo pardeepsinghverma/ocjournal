@@ -1,34 +1,34 @@
 import type { CardProps } from 'tamagui'
 import { Button, Card, H2, H3, H4, Image, Paragraph, XStack, YStack } from 'tamagui'
 
-export function ProductCard({products}: any) {
+export function ProductCard() {
  
-  // const products = [
-  //   {
-  //     id: 1,
-  //     name: 'Sony A7IV',
-  //     price: 2499.99,
-  //     image: 'https://site.pardeep.app/image/cache/catalog/journal3/products/home/armchair/9-250x250.png',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'Sony A7IV',
-  //     price: 2499.99,
-  //     image: 'https://site.pardeep.app/image/cache/catalog/journal3/products/home/armchair/9-250x250.png',
-  //   },
-  //   {
-  //     id: 3,
-  //     name: 'Sony A7IV',
-  //     price: 2499.99,
-  //     image: 'https://site.pardeep.app/image/cache/catalog/journal3/products/home/armchair/9-250x250.png',
-  //   },
-  //   {
-  //     id: 4,
-  //     name: 'Sony A7IV',
-  //     price: 2499.99,
-  //     image: 'https://site.pardeep.app/image/cache/catalog/journal3/products/home/armchair/9-250x250.png',
-  //   },
-  // ]
+  const products = [
+    {
+      id: 1,
+      name: 'Sony A7IV',
+      price: 2499.99,
+      image: 'https://site.pardeep.app/image/cache/catalog/journal3/products/home/armchair/9-250x250.png',
+    },
+    {
+      id: 2,
+      name: 'Sony A7IV',
+      price: 2499.99,
+      image: 'https://site.pardeep.app/image/cache/catalog/journal3/products/home/armchair/9-250x250.png',
+    },
+    {
+      id: 3,
+      name: 'Sony A7IV',
+      price: 2499.99,
+      image: 'https://site.pardeep.app/image/cache/catalog/journal3/products/home/armchair/9-250x250.png',
+    },
+    {
+      id: 4,
+      name: 'Sony A7IV',
+      price: 2499.99,
+      image: 'https://site.pardeep.app/image/cache/catalog/journal3/products/home/armchair/9-250x250.png',
+    },
+  ]
   
   return (
     <XStack $sm={{ flexDirection: 'column' }} paddingHorizontal="$4" space>
