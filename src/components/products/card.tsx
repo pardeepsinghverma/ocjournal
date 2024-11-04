@@ -1,7 +1,10 @@
 import type { CardProps } from 'tamagui'
 import { Button, Card, H2, H3, H4, Image, Paragraph, XStack, YStack } from 'tamagui'
 
-export function ProductCard({products}: any) {
+interface Product {
+  products?: any
+}
+export function ProductCard({products}: Product) {
  
   // const products = [
   //   {
@@ -34,28 +37,32 @@ export function ProductCard({products}: any) {
     <XStack $sm={{ flexDirection: 'column' }} paddingHorizontal="$4" space>
       <H3>Products</H3>
       <XStack $sm={{ flexDirection: 'row', flexWrap: 'wrap', gap: 20 }} justifyContent='space-between'>
-        {products.map((product:any) => (
-          <DemoCard key={product.id} maxWidth={'47%'} height={280} />
+        
+        {products &&
+          products?.map((product: any) => (
+          <DemoCard key={product.id} product={product} />
         ))}
       </XStack>
     </XStack>
   )
 }
 
-export function DemoCard(props: CardProps) {
+export function DemoCard({product}: any) {
+  
   return (
-    <Card size="$1" bordered {...props}>
+    <Card key={product.id} size="$1" bordered maxWidth={'47%'} height={280}>
       
       <YStack flex={1} justifyContent="center" alignItems="center">
         <Image
-          src="https://site.pardeep.app/image/cache/catalog/journal3/products/home/armchair/9-250x250.png"
+          src={product?.image}
           width={200}
           height={140}
           background={'$background'}
           borderRadius="$4"
+          objectFit='contain'
         />
-        <H4>Sony A7IV</H4>
-        <Paragraph numberOfLines={1} theme="alt2">$2,499.99</Paragraph>
+        <H4>{product?.name}</H4>
+        <Paragraph numberOfLines={1} theme="alt2">{product.price}</Paragraph>
       </YStack>
       
       <Card.Footer padded justifyContent='center'>
