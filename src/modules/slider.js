@@ -1,11 +1,10 @@
 // src/components/Slider.js
 import React, { useRef, useEffect, useState } from 'react';
 import { View, ScrollView, TouchableOpacity, Animated, Dimensions } from 'react-native';
-import { Image, Text } from 'tamagui';
+import { Image, Text, XStack } from 'tamagui';
 
-const extraWidth = 20;
-const width = Dimensions.get('window').width;
-const croppedWidth = width - extraWidth;
+const width = Dimensions.get('window').width - 28; // 14 is padding on its parent
+const eachslideWidth = width - 28; // to make sure next slide is little visible
 
 export default function Slider({
   slides,
@@ -34,7 +33,7 @@ export default function Slider({
   // Scroll to the specific index
   const scrollToIndex = (index) => {
     scrollViewRef.current?.scrollTo({
-      x: index * width, // assuming each slide width is 300px, adjust as needed
+      x: index * eachslideWidth, // assuming each slide width is 300px, adjust as needed
       animated: true,
     });
   };
@@ -74,26 +73,29 @@ export default function Slider({
       <ScrollView
         ref={scrollViewRef}
         horizontal
-        pagingEnabled
         showsHorizontalScrollIndicator={false}
+        snapToInterval={eachslideWidth + 10} // Snap interval includes the gap
+        decelerationRate="normal" // Smooth snapping
         onMomentumScrollEnd={(e) => {
-          const newIndex = Math.round(e.nativeEvent.contentOffset.x / 300); // Assuming each slide width is 300px
+          const newIndex = Math.round(e.nativeEvent.contentOffset.x / (eachslideWidth + 10));
           setCurrentIndex(newIndex);
           onSlideChange(newIndex);
         }}
       >
+        <XStack alignItems="center" flex={1} gap={10}>
         {slides.map((slide, index) => (
-          <View key={index} style={{ width: width }}>
-            <Image
-              src="https://picsum.photos/seed/picsum/200/300"
-              width={width}
-              height={500}
-              background={'$background'}
-              borderRadius="$4"
-            />
-            {slide.text && <Text>{slide.text}</Text>}
-          </View>
-        ))}
+            <View key={index} style={{ width: eachslideWidth }} pad>
+              <Image
+                src="https://picsum.photos/seed/picsum/200/300"
+                width={eachslideWidth}
+                height={500}
+                background={'$background'}
+                borderRadius="$4"
+              />
+              {slide.text && <Text>{slide.text}</Text>}
+            </View>
+          ))}
+          </XStack>
       </ScrollView>
 
       {/* Left Arrow */}
@@ -156,6 +158,8 @@ export default function Slider({
               outputRange: [0, 100],
             })}`,
             height: 4,
+            border: '8px solid #333',
+            zIndex: 1000,
             backgroundColor: '#333',
           }}
         />

@@ -3,6 +3,9 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import CatalogScreen from '../screens/CatalogScreen';
+import { TouchableOpacity } from 'react-native';
+import { Text } from 'tamagui';
+import DrawerNavigator from './DrawerNavigator';
 
 const Stack = createStackNavigator();
 
@@ -10,23 +13,8 @@ export default function StackNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-      <Stack.Screen
-        name="Category"
-        component={CatalogScreen}
-        options={({ route }) => ({
-          title: route.params.categoryName,
-          headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Text>{'< Back'}</Text>
-            </TouchableOpacity>
-          ),
-          headerRight: () => (
-            <TouchableOpacity>
-              <Text>🛒</Text> {/* Cart Icon */}
-            </TouchableOpacity>
-          ),
-        })}
-      />
+      <Stack.Screen name="category" component={CatalogScreen} />
+      <Stack.Screen name="Navigation2" component={DrawerNavigator} />
     </Stack.Navigator>
   );
 }

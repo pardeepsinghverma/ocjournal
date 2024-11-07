@@ -4,6 +4,7 @@ import { ProductCard } from '../components/products/card';
 import ProductGrid from './productGrid';
 import Banner from './banner';
 import Slider from './slider';
+import Category from './category';
 
 const LayoutRenderer = () => {
     const slides = [
@@ -38,7 +39,8 @@ const LayoutRenderer = () => {
             />
           </Suspense>
           <Suspense fallback={<ActivityIndicator size={"large"} />}><ProductGrid /></Suspense>
-          <Suspense fallback={<ActivityIndicator size={"large"} />}><Banner /></Suspense>
+          <Suspense fallback={<ActivityIndicator size={"large"} />}><Category /></Suspense>
+          {/* <Suspense fallback={<ActivityIndicator size={"large"} />}><Banner /></Suspense> */}
     </View>
   );
 };
