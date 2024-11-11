@@ -1,10 +1,12 @@
 import React from 'react'
 import { Button, Card, H2, H4, H6, Image, Paragraph, ScrollView, Text, View, XStack, YStack } from 'tamagui'
 import MSection from '../components/MSection'
+import { useNavigation } from '@react-navigation/native';
 
 const ProductGridCard = ({ ProductGrid }) => { 
+  const navigation = useNavigation();
     return (
-      <Card key={ProductGrid.id} height={300} width={160} bordered overflow='hidden'>
+      <Card key={ProductGrid.id} height={340} width={160} bordered overflow='hidden'>
         <Image
           src="https://rukminim2.flixcart.com/image/850/1000/xif0q/t-shirt/q/v/0/s-cchenashgry-clothing-culture-original-imaghwmevpffnvsp.jpeg?q=90&crop=false"
           width={160}
@@ -22,7 +24,7 @@ const ProductGridCard = ({ ProductGrid }) => {
               <Paragraph lineHeight={13} marginBottom={6} numberOfLines={1} fontSize={9} textDecorationLine='line-through'>{ProductGrid.oldPrice}</Paragraph>
               <Paragraph lineHeight={13} marginBottom={6} numberOfLines={1} fontSize={10} color={'green'}>{ProductGrid.oldPrice}</Paragraph>
             </XStack>
-            {/* <Button borderRadius="$10" width={'100%'} flex={1}>Add to Cart</Button> */}
+            <Button marginTop={5} onPress={()=>{navigation.navigate('productView')}}>Add to Cart</Button>
           </YStack>
         </Card.Footer>
 

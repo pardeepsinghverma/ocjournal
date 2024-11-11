@@ -3,9 +3,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import { View, ScrollView, TouchableOpacity, Animated, Dimensions } from 'react-native';
 import { Image, Text, XStack } from 'tamagui';
 
-const width = Dimensions.get('window').width - 28; // 14 is padding on its parent
-const eachslideWidth = width - 28; // to make sure next slide is little visible
-
 export default function Slider({
   slides,
   autoSlide = true,
@@ -13,11 +10,16 @@ export default function Slider({
   showArrows = true,
   showBullets = true,
   bulletWithImage = false,
+  slideStyle = 1,
   onSlideChange = () => {},
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollViewRef = useRef(null);
   const slideIntervalRef = useRef(null);
+
+  const width = slideStyle = 1 ? Dimensions.get('window').width : Dimensions.get('window').width - 28; // 14 is padding on its parent
+  const eachslideWidth = slideStyle = 1 ? width : width - 28; // to make sure next slide is little visible
+
 
   // Animated value for bullet progress
   const progress = useRef(new Animated.Value(0)).current;
@@ -90,9 +92,10 @@ export default function Slider({
                 width={eachslideWidth}
                 height={500}
                 background={'$background'}
-                borderRadius="$4"
+                // borderRadius="$4"
+                borderRadius={0}
               />
-              {slide.text && <Text>{slide.text}</Text>}
+              {/* {slide.text && <Text>{slide.text}</Text>} */}
             </View>
           ))}
           </XStack>

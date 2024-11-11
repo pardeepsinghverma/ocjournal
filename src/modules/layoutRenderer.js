@@ -36,7 +36,7 @@ const LayoutRenderer = () => {
             showArrows={true}
             showBullets={false}
             bulletWithImage={true}
-            />
+          />
           </Suspense>
           <Suspense fallback={<ActivityIndicator size={"large"} />}><ProductGrid /></Suspense>
           <Suspense fallback={<ActivityIndicator size={"large"} />}><Category /></Suspense>

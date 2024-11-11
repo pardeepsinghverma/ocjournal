@@ -19,8 +19,8 @@ export default function HomeScreen() {
   const { currentSubDomain, extra } = useSelector(state => state.data);
   const dispatch = useDispatch();
   const clickHanddler = () => {
-    dispatch(setData({ name: "extra", data: "anmol111" }));
-    console.log(extra);
+    // dispatch(setData({ name: "subDomain", data: "anmol111" }));
+    console.log(currentSubDomain);
   }
   const navigation = useNavigation();
   // const [layoutData, setLayoutData] = useState(null);
@@ -57,7 +57,8 @@ export default function HomeScreen() {
             <Stack.Screen name="Details" component={MoreScreen} />
           </Stack.Navigator> */}
         {/* {layoutData ? <LayoutRenderer layoutData={layoutData} /> : <ActivityIndicator size="large" />} */}
-        {/* <Button title="Click me" color={'#000000'} variant='outlined' onPress={clickHanddler} /> */}
+        <Text>{currentSubDomain}</Text>
+        <Button title="Click me" color={'#000000'} variant='outlined' onPress={()=>{clickHanddler()}}>Show SubDomain</Button>
         <LayoutRenderer />
         {/* <Button title="Go to Details" onPress={() => navigation.navigate('category')}>click</Button> */}
       </View>
