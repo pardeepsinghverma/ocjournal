@@ -2,14 +2,14 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { Button, View } from 'tamagui';
-import LayoutRenderer from '../modules/layoutRenderer';
+import LayoutRenderer from '../../modules/layoutRenderer';
 import { useDispatch, useSelector } from 'react-redux';
-import { setData } from '../store/dataSlice';
+import { setData } from '../../store/dataSlice';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { ProductCard } from '../components/products/card';
-import Category from '../modules/category';
-import MoreScreen from './MoreScreen';
-import ProfileScreen from './ProfileScreen';
+import { ProductCard } from '../../components/products/card';
+import Category from '../../modules/category';
+import MoreScreen from '../MoreScreen';
+import ProfileScreen from '../ProfileScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -57,8 +57,8 @@ export default function HomeScreen() {
             <Stack.Screen name="Details" component={MoreScreen} />
           </Stack.Navigator> */}
         {/* {layoutData ? <LayoutRenderer layoutData={layoutData} /> : <ActivityIndicator size="large" />} */}
-        <Text>{currentSubDomain}</Text>
-        <Button title="Click me" color={'#000000'} variant='outlined' onPress={()=>{clickHanddler()}}>Show SubDomain</Button>
+        {/* <Text>{currentSubDomain}</Text>
+        <Button title="Click me" color={'#000000'} variant='outlined' onPress={()=>{clickHanddler()}}>Show SubDomain</Button> */}
         <LayoutRenderer />
         {/* <Button title="Go to Details" onPress={() => navigation.navigate('category')}>click</Button> */}
       </View>

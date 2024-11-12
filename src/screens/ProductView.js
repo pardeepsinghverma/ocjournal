@@ -4,7 +4,7 @@ import Slider from '../modules/slider';
 import MTitle from '../components/MTitle';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DescriptionAccordion from '../components/DescriptionAccordion';
-import { Paragraph, XStack, YStack } from 'tamagui';
+import { Button, Paragraph, XStack, YStack } from 'tamagui';
 import RenderProductOptions from '../components/options';
 
 // products.js

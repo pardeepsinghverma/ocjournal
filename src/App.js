@@ -6,10 +6,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DrawerNavigator from './navigation/DrawerNavigator';
 import StackNavigator from './navigation/stackNavigator';
-import CatalogScreen from './screens/CatalogScreen';
+import CatalogScreen from './Tabs/Catalog/CatalogScreen';
 import linking from './navigation/linkingConfig';
 import handleDeepLinkSetup from './linking/handlers';
 import ProductView from './screens/ProductView';
+import CheckoutNavigation from './screens/checkout/CheckoutNavigation';
+import ProfileNavigation from './screens/profile/ProfileNavigation';
+import MyOrders from './screens/profile/MyOrders';
+import MyAddresses from './screens/profile/MyAddresses';
+import MyProfile from './screens/profile/MyProfile';
+import Login from './screens/auth/Login';
 
 function AppContainer() {
   const subDomainRedux = useSelector(state => state.data.subDomain);
@@ -32,17 +38,15 @@ function AppContainer() {
 
   return (
     <NavigationContainer linking={linking}>
-      <Stack.Navigator initialRouteName="productView">
+      <Stack.Navigator initialRouteName="main">
         <Stack.Screen name="main" component={DrawerNavigator} options={{ headerShown: false }} />
-        <Stack.Screen name="child" component={StackNavigator} />
-        <Stack.Screen name="category" component={CatalogScreen} />
-        <Stack.Screen name="productView" component={ProductView} options={{
-          headerStyle: {
-            // backgroundColor: 'transparent', // Set background to transparent
-            // elevation: 0,                   // Remove Android shadow
-            // shadowOpacity: 0,               // Remove iOS shadow
-          },
-        }} />
+        <Stack.Screen name="catalog" component={CatalogScreen} />
+        <Stack.Screen name="productView" component={ProductView} options={{}} />
+        <Stack.Screen name="checkoutNavigation" component={CheckoutNavigation} options={{ headerShown: false }} />
+        <Stack.Screen name="myorders" component={MyOrders} />
+        <Stack.Screen name="myaddresses" component={MyAddresses} />
+        <Stack.Screen name="myprofile" component={MyProfile} />
+        <Stack.Screen name="login" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
   );
