@@ -60,7 +60,7 @@ export default function HomeScreen() {
         {/* <Text>{currentSubDomain}</Text>
         <Button title="Click me" color={'#000000'} variant='outlined' onPress={()=>{clickHanddler()}}>Show SubDomain</Button> */}
         <LayoutRenderer />
-        {/* <Button title="Go to Details" onPress={() => navigation.navigate('category')}>click</Button> */}
+        <Button title="Go to Details" onPress={() => navigation.navigate('login')}>click</Button>
       </View>
     </ScrollView>
   );

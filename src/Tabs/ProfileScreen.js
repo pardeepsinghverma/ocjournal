@@ -1,7 +1,7 @@
 // src/screens/HomeScreen.js
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text } from 'tamagui';
+import { View, Text, Button } from 'tamagui';
 import { ChevronRight } from '@tamagui/lucide-icons';
 
 
@@ -42,15 +42,18 @@ const Element = ({ link, OnPress }) => {
 };
 
 export default function ProfileScreen() {
-  const navigation = useNavigation();
-  const OnPress = (screen) => {
-      navigation.navigate(screen);
-  };
-  return (
-      <View flex={1} gap={0} flexDirection="column" justifyContent='start' paddingHorizontal={16} paddingVertical={10}>
-          {links.map((link) => (
-              <Element key={link.id} OnPress={OnPress} link={link} />
-          ))}
-      </View>
-  );
+    const navigation = useNavigation();
+    const OnPress = (screen) => {
+        navigation.navigate(screen);
+    };
+    
+    return (
+        <View flex={1} gap={0} flexDirection="column" justifyContent='start' paddingHorizontal={16} paddingVertical={10}>
+            {links.map((link) => (
+                <Element key={link.id} OnPress={OnPress} link={link} />
+            ))}
+                    <Button title="Go to Details" onPress={() => navigation.navigate('login')}>click</Button>
+
+        </View>
+    );
 }
