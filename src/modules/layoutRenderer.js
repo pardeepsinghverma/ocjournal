@@ -81,14 +81,14 @@ const LayoutRenderer = () => {
         </View>
       ))} */}
           <Suspense fallback={<ActivityIndicator size={"large"} />}>
-          <Slider
-            slides={slides}
-            autoSlide={true}
-            slideInterval={5000}
-            showArrows={true}
-            showBullets={false}
-            bulletWithImage={true}
-          />
+            <Slider
+              slides={slides}
+              autoSlide={true}
+              slideInterval={5000}
+              showArrows={true}
+              showBullets={false}
+              bulletWithImage={true}
+            />
           </Suspense>
           <Suspense fallback={<ActivityIndicator size={"large"} />}><ProductGrid title={'Products'} products={products} /></Suspense>
           <Suspense fallback={<ActivityIndicator size={"large"} />}><Category /></Suspense>

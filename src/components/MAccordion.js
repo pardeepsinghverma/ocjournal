@@ -2,11 +2,11 @@ import { Plus } from '@tamagui/lucide-icons';
 import React from 'react';
 import { Accordion, Paragraph, Square } from 'tamagui';
 
-const DescriptionAccordion = ({ title, content, ...props }) => {
+const MAccordion = ({ title, content }) => {
   return (
-    <Accordion overflow="hidden" type="multiple" width={'100%'} props>
+    <Accordion overflow="hidden" type="multiple">
       <Accordion.Item value="a1">
-        <Accordion.Trigger flexDirection="row" width={'100%'} justifyContent="space-between" alignItems="center">
+        <Accordion.Trigger flexDirection="row" justifyContent="space-between" padding={0} borderWidth={0} alignItems="center">
           {({ open }) => (
             <>
               <Paragraph>{title}</Paragraph>
@@ -26,4 +26,4 @@ const DescriptionAccordion = ({ title, content, ...props }) => {
   );
 };
 
-export default DescriptionAccordion;
+export default MAccordion;

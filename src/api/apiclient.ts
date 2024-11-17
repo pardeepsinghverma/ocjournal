@@ -1,25 +1,72 @@
-import axios from 'axios';
-import { API_DOMAIN, HELPING_DOMAIN, API_ENDPOINTS } from './const';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-    // Create an Axios instance with the base URL
-    const apiClient = axios.create({
-    baseURL: `${API_DOMAIN}${HELPING_DOMAIN}`, // Combine the domain and route
+// Define the interface for API request parameters
+interface ApiRequestParams {
+  url: string; // API endpoint
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'; // HTTP methods (default is GET)
+  data?: Record<string, any> | null; // Request body (optional)
+  params?: Record<string, any> | null; // Query parameters (optional)
+  headers?: Record<string, string>; // Custom headers (optional)
+}
+
+// Define the interface for the response or error structure
+interface ApiResponse<T = any> {
+  data?: T; // Response data
+  error?: string; // Error message
+  status?: number; // HTTP status code (optional)
+}
+
+/**
+ * API Helper Function
+ * Handles all API requests with Axios
+ * 
+ * @param {ApiRequestParams} options - The API request options
+ * @returns {Promise<ApiResponse<T>>} - API response or error object
+ */
+const apiRequest = async <T>({
+  url,
+  method = 'GET',
+  data = null,
+  params = null,
+  headers = {},
+}: ApiRequestParams): Promise<ApiResponse<T>> => {
+  try {
+    // Create an axios instance with default settings
+    const axiosInstance = axios.create({
+      baseURL: 'https://dev301.fathershops-test.xyz/?mp=1', // Update with your API base URL
+      timeout: 10000, // Set timeout for the request
     });
 
-    // Example: Fetching products
-    apiClient.get(API_ENDPOINTS.PRODUCTS)
-    .then(response => {
-        console.log('Products:', response.data);
-    })
-    .catch(error => {
-        console.error('Error fetching products:', error);
-    });
+    // Axios request configuration
+    const config: AxiosRequestConfig = {
+      url,
+      method,
+      data,
+      params,
+      headers,
+    };
 
-    // Example: User login
-    apiClient.post(API_ENDPOINTS.USERS, { username: 'test', password: 'password' })
-    .then(response => {
-        console.log('User Login:', response.data);
-    })
-    .catch(error => {
-        console.error('Error logging in:', error);
-    });
+    // Make the request
+    const response: AxiosResponse<T> = await axiosInstance(config);
+
+    // Return the response data
+    return { data: response.data };
+  } catch (error: any) {
+    // Handle errors
+    if (axios.isCancel(error)) {
+      return { error: 'Request canceled' };
+    }
+    if (error.response) {
+      // Server responded with a status outside the range 2xx
+      return { error: error.response.data || 'Server error', status: error.response.status };
+    } else if (error.request) {
+      // Request was made, but no response received
+      return { error: 'No response from server' };
+    } else {
+      // Other errors (e.g., setup issues)
+      return { error: error.message || 'Something went wrong' };
+    }
+  }
+};
+
+export default apiRequest;

@@ -1,7 +1,7 @@
 // src/screens/HomeScreen.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-import { Button, View } from 'tamagui';
+import { Button, Image, View } from 'tamagui';
 import LayoutRenderer from '../../modules/layoutRenderer';
 import { useDispatch, useSelector } from 'react-redux';
 import { setData } from '../../store/dataSlice';
@@ -11,7 +11,10 @@ import Category from '../../modules/category';
 import MoreScreen from '../MoreScreen';
 import ProfileScreen from '../ProfileScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ScrollView } from 'react-native-gesture-handler';
+import { RefreshControl, ScrollView } from 'react-native-gesture-handler';
+import apiRequest from '../../api/apiclient';
+import componentMap from '../../modules';
+import layoutData from './../../data/layout1.json'
 
 const Stack = createNativeStackNavigator();
 
@@ -22,45 +25,127 @@ export default function HomeScreen() {
     // dispatch(setData({ name: "subDomain", data: "anmol111" }));
     console.log(currentSubDomain);
   }
+  const [contentTop, setContentTop] = useState(layoutData.column_top.modules[0].rows);
+  const [header, setHeader] = useState(layoutData.header);
+
+  console.log(header.logo);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    // Perform your data fetching or refresh logic here
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000); // Simulate a 2-second refresh
+
+  };
+
   const navigation = useNavigation();
   // const [layoutData, setLayoutData] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchLayout = async () => {
-  //     try {
-  //       const response = await fetch('https://your-api.com/layout');
-  //       const data = await response.json();
-  //       setLayoutData(data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
+  const fetchLayout = async () => {
+    try {
+      // console.log('fetching layout data ----------------------');
+      // const response = await fetch('https://dev301.fathershops-test.xyz/?mp=1');
+      // const json = await response.json();
 
-  //   fetchLayout();
-  // }, []);
+      // setContentTop(json.column_top.modules[0].rows);
+
+      // console.log(json);
+      // const data = await response.json();
+      // setLayoutData(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    // console.log(contentTop);
+  }, [contentTop]);
+  
+  useEffect(() => {
+    // fetchLayout();
+    // console.log(layoutData)
+  }, []);
+
+  // const ModuleComponent = componentMap['categories'];
+  // // console.log(ModuleComponent);
+  // return ModuleComponent ? (
+
+  //   <ModuleComponent key={1} data={[]} />
+  // ) : null;
+
 
   return (
-    <ScrollView >
+    <ScrollView
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={fetchLayout}
+        />
+      }
+    >
 
+      {/* {
+        header.logo &&
+        <Image src={header.logo} style={{ width: 300, height: 40 }} />
+      } */}
       <View style={{ flex: 1 }} paddingHorizontal={14}>
-        {/* <Stack.Navigator initialRouteName="Profile"
-          screenOptions={{
-            headerShown: true,
-            headerRight: () => 
-              <View marginEnd={10} flex={1} flexDirection='row' gap={10} alignItems='center'>
-                <TouchableOpacity><Text>Search1</Text></TouchableOpacity>
-                <TouchableOpacity><Text>Heart</Text></TouchableOpacity>
-                <TouchableOpacity><Text>Cart</Text></TouchableOpacity>
-              </View>,
-          }}>
-            <Stack.Screen name="Profile" component={ProfileScreen} />
-            <Stack.Screen name="Details" component={MoreScreen} />
-          </Stack.Navigator> */}
-        {/* {layoutData ? <LayoutRenderer layoutData={layoutData} /> : <ActivityIndicator size="large" />} */}
-        {/* <Text>{currentSubDomain}</Text>
-        <Button title="Click me" color={'#000000'} variant='outlined' onPress={()=>{clickHanddler()}}>Show SubDomain</Button> */}
-        <LayoutRenderer />
-        <Button title="Go to Details" onPress={() => navigation.navigate('login')}>click</Button>
+        {/* {
+          contentTop &&
+          Object.keys(contentTop).forEach((key) => {
+            const row = contentTop[key];
+            // console.log(row.columns);
+            const columns = row.columns;
+            Object.keys(columns).forEach((key) => {
+              const items = columns[key].items;
+              Object.keys(items).forEach((key) => {
+                const item = items[key];
+                const mType = item.item.module_type;
+
+                // console.log(item.item.module_type);
+                // console.log(mType === 'categories' ? true : false);
+                const ModuleComponent = componentMap[mType];
+                // console.log(ModuleComponent);
+                return (
+                    
+            
+                  <Category />
+                  )
+                  // <ModuleComponent key={item.item.module_id} data={item.item.options} />
+                  
+              })
+            })
+          })  
+        } */}
+
+        {
+          contentTop &&
+          Object.keys(contentTop).map((key) => {
+            const row = contentTop[key];
+            const columns = row.columns;
+
+            return Object.keys(columns).map((columnKey) => {
+              const items = columns[columnKey].items;
+
+              return Object.keys(items).map((itemKey) => {
+                const item = items[itemKey];
+                const mType = item.item.module_type;
+                console.log(mType)
+                const ModuleComponent = componentMap[mType];
+                return ModuleComponent ? (
+                  <ModuleComponent
+                    key={item.item.module_id}
+                    data={item.item.options}
+                  />
+                ) : null;
+              });
+            });
+          })
+        }
+
+        {/* <LayoutRenderer /> */}
+        {/* 
+        <Button title="Go to Details" onPress={() => navigation.navigate('login')}>click</Button> */}
       </View>
     </ScrollView>
   );

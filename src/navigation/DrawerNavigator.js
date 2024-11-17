@@ -1,60 +1,167 @@
 // src/navigation/DrawerNavigator.js
 import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItem,
+} from '@react-navigation/drawer';
 import BottomTabNavigator from './BottomTabNavigator';
-import { Image, View } from 'tamagui';
+import { Image, Text, View } from 'tamagui';
 import { TouchableOpacity } from 'react-native';
-import { Search, Heart, ShoppingCart, Bell } from '@tamagui/lucide-icons'; // Importing Lucide icons
+import {
+  Search,
+  Heart,
+  ShoppingCart,
+  Bell,
+  User,
+  ShoppingBasket,
+  Locate,
+} from '@tamagui/lucide-icons';
+import DescriptionAccordion from '../components/DescriptionAccordion';
+import MAccordion from '../components/MAccordion';
 import { useNavigation } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
 
+function CustomDrawerContent(props) {
+  const Navigation = [
+    { id: 1, label: 'Login', icon: <User size={22} />, type: 'screen', navigate: 'login' },
+    { id: 2, label: 'Search', icon: <Search size={22} />, type: 'screen', navigate: 'search' },
+    { id: 3, label: 'New Product', icon: <ShoppingBasket size={22} />, type: 'screen', navigate: 'productView', parm: '34' },
+    { id: 4, label: 'My Orders', icon: <ShoppingCart size={22} />, type: 'screen', navigate: 'myorders' },
+    { id: 5, label: 'My Addresses', icon: <Locate size={22} />, type: 'screen', navigate: 'myaddresses' },
+    { id: 6, label: 'My Profile', icon: <User size={22} />, type: 'screen', navigate: 'myprofile' },
+    { id: 7, label: 'Catalog', icon: <ShoppingBasket size={22} />, type: 'screen', navigate: 'Catalog', parm: '34' },
+    {
+      id: 8,
+      label: 'Popular',
+      type: 'menu',
+      child: [
+        { id: 1, label: 'New Product', type: 'screen', navigate: 'productView' },
+        { id: 2, label: 'My Orders', type: 'screen', navigate: 'myorders' },
+        { id: 3, label: 'My Addresses', type: 'screen', navigate: 'myaddresses' },
+        { id: 4, label: 'My Profile', type: 'screen', navigate: 'myprofile' },
+      ],
+    },
+  ];
+
+  return (
+    <DrawerContentScrollView style={{width:'100%'}} {...props}>
+      {Navigation.map((item, index) => (
+        item.type === 'menu' ? (
+          <DrawerItem
+            key={index}
+            style={{
+              backgroundColor: 'transparent', // No background for the container
+              margin: 0, // Remove any margins
+              padding: 0, // Remove padding
+            }}
+            labelStyle={{
+              margin: 0, // Remove any label margins
+              padding: 0, // Remove padding from label
+            }}
+            label={() => (
+              <MAccordion
+                title={item.label}
+                content={item.child.map((child, childIndex) => (
+                  <DrawerItem
+                    key={childIndex}
+                    label={() => (
+                      <View
+                        style={{
+                          height: 30,
+                          overflow: 'hidden',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        <Text style={{ lineHeight: 14 }}>{child.label}</Text>
+                      </View>
+                    )}
+                    onPress={() => props.navigation.navigate(child.navigate)}
+                  />
+                ))}
+              />
+            )}
+            onPress={() => {}}
+          />
+
+        ) : (
+          <DrawerItem
+            key={index}
+            label={() => (
+              <View
+                flexDirection="row"
+                justifyContent="space-between"
+                alignItems="center"
+              >
+                <Text style={{ marginLeft: 10 }}>{item.label}</Text>
+                {item.icon}
+              </View>
+            )}
+            onPress={() =>
+              item.type === 'screen'
+                ? props.navigation.navigate(item.navigate)
+                : null
+            }
+          />
+        )
+      ))}
+    </DrawerContentScrollView>
+  );
+}
+
 export default function DrawerNavigator() {
-  
-  // const NavigationScreens = [
-  //   {
-  //     name: 'MainTabs',
-  //     component: BottomTabNavigator,
-  //     type: '',
-
-  // ]
-
   const navigation = useNavigation();
   return (
-    <Drawer.Navigator>
-      <Drawer.Screen 
-        name="MainTabs" 
-        component={BottomTabNavigator} 
-        options={{
-          headerShown: true,
-          headerStyle: {
-            backgroundColor: '#febf00', // Set your desired background color here
-          },
-          headerTintColor: '#000', // Set your desired text color here
-          headerRight: () => (
-            <View marginEnd={10} flex={1} flexDirection='row' gap={20} alignItems='center'>
-              <TouchableOpacity onPress={()=>navigation.navigate('search')}>
-                <Search size={22} color="#000" />
+    <Drawer.Navigator
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
+      screenOptions={{
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: '#febf00',
+        },
+        drawerItemStyle: {
+          backgroundColor: 'transparent',
+          margin: 0,
+          padding: 0,
+        },
+        headerTintColor: '#000',
+        headerRight: () => (
+          <View
+            marginEnd={10}
+            flexDirection="row"
+            gap={20}
+            alignItems="center"
+          >
+            {[
+              { icon: <Search size={22} color="#000" />, navigate: 'search' },
+              { icon: <Bell size={22} color="#000" />, navigate: 'notification' },
+              { icon: <Heart size={22} color="#000" />, navigate: 'wishlist' },
+              { icon: <ShoppingCart size={22} color="#000" />, navigate: 'cart' },
+            ].map((item, index) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() => navigation.navigate(item.navigate)}
+              >
+                {item.icon}
               </TouchableOpacity>
-              <TouchableOpacity onPress={()=>navigation.navigate('notification')}>
-                <Bell size={22} color="#000" />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={()=>navigation.navigate('wishlist')}>
-                <Heart size={22} color="#000" />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={()=>navigation.navigate('cart')}>
-                <ShoppingCart size={22} color="#000" />
-              </TouchableOpacity>
-            </View>
-          ),
-          headerTitle: () => (
-            <Image 
-              src='https://downloadr2.apkmirror.com/wp-content/uploads/2023/05/37/646153f90d163.png' 
-              style={{ width: 60, height: 30 }} 
-            />
-          ),
-        }}
-      />
+            ))}
+          </View>
+        ),
+        headerTitle: () => (
+          <Image
+            src="https://cdn.fathersolution.com/m/1/1476/0476/image/catalog/undefined/icons/LOGO.png"
+            style={{ width: 150, height: 25 }}
+          />
+        ),
+        drawerItemStyle: {
+          backgroundColor: '#000000',
+          margin: 0,
+          padding: 0,
+        },
+      }}
+    >
+      <Drawer.Screen name="MainTabs" component={BottomTabNavigator} />
     </Drawer.Navigator>
   );
 }
