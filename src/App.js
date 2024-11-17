@@ -16,6 +16,10 @@ import MyOrders from './screens/profile/MyOrders';
 import MyAddresses from './screens/profile/MyAddresses';
 import MyProfile from './screens/profile/MyProfile';
 import Login from './screens/auth/Login';
+import SearchScreen from './screens/SearchScreen';
+import Wishlist from './screens/Wishlist';
+import Cart from './screens/checkout/Cart';
+import Notification from './screens/Notification';
 
 function AppContainer() {
   const subDomainRedux = useSelector(state => state.data.subDomain);
@@ -47,6 +51,10 @@ function AppContainer() {
         <Stack.Screen name="myaddresses" component={MyAddresses} />
         <Stack.Screen name="myprofile" component={MyProfile} />
         <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="search" component={SearchScreen} />
+        <Stack.Screen name="wishlist" component={Wishlist} />
+        <Stack.Screen name="cart" component={Cart} />
+        <Stack.Screen name="notification" component={Notification} />
       </Stack.Navigator>
     </NavigationContainer>
   );

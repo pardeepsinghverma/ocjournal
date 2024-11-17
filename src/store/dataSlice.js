@@ -1,20 +1,20 @@
-// src/store/slices/dataSlice.js
-import { createSlice, current } from '@reduxjs/toolkit';
-import _ from 'lodash';
+import { createSlice } from '@reduxjs/toolkit';
 
 const dataSlice = createSlice({
-  name: 'data',
+    name: 'data',
     initialState: {
         currentSubDomain: "ladykartel",
-        subDomains: [
-            "ladykartel",
-            "anmol"
-        ],
+        subDomains: ["ladykartel", "anmol"],
     },
     reducers: {
         setData: (state, action) => {
             const { name, data, loading, error } = action.payload;
-            _.set(state, name, data, error, loading);
+            if (!state[name]) {
+                state[name] = {};
+            }
+            state[name].data = data || null;
+            state[name].loading = loading || false;
+            state[name].error = error || null;
         },
     },
 });

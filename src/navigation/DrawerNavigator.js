@@ -4,11 +4,22 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import BottomTabNavigator from './BottomTabNavigator';
 import { Image, View } from 'tamagui';
 import { TouchableOpacity } from 'react-native';
-import { Search, Heart, ShoppingCart } from '@tamagui/lucide-icons'; // Importing Lucide icons
+import { Search, Heart, ShoppingCart, Bell } from '@tamagui/lucide-icons'; // Importing Lucide icons
+import { useNavigation } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNavigator() {
+  
+  // const NavigationScreens = [
+  //   {
+  //     name: 'MainTabs',
+  //     component: BottomTabNavigator,
+  //     type: '',
+
+  // ]
+
+  const navigation = useNavigation();
   return (
     <Drawer.Navigator>
       <Drawer.Screen 
@@ -22,13 +33,16 @@ export default function DrawerNavigator() {
           headerTintColor: '#000', // Set your desired text color here
           headerRight: () => (
             <View marginEnd={10} flex={1} flexDirection='row' gap={20} alignItems='center'>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=>navigation.navigate('search')}>
                 <Search size={22} color="#000" />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=>navigation.navigate('notification')}>
+                <Bell size={22} color="#000" />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>navigation.navigate('wishlist')}>
                 <Heart size={22} color="#000" />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=>navigation.navigate('cart')}>
                 <ShoppingCart size={22} color="#000" />
               </TouchableOpacity>
             </View>

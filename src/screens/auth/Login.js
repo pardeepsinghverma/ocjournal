@@ -1,41 +1,28 @@
-'use client'
-import React from 'react'
-import RegisterForm from '../../components/Registerform'
+'use client';
+import React from 'react';
+import RegisterForm from '../../components/Registerform';
 import { View } from 'tamagui';
 
-const Login = () => {
-    const formFields = [
-        {
-            label: 'First Name',
-            type: 'text',
-        },
-        {
-            label: 'Last Name',
-            type: 'text',
-        },
-        {
-            label: 'Email',
-            type: 'text',
-        },
-        {
-            label: 'Password',
-            type: 'text',
-        },
-        {
-            label
-                : 'Role',
-            type: 'selectbox',
-            options: [
-                { label: 'Admin', value: 'admin' },
-                { label: 'User', value: 'user' },
-            ],
-        },
-    ];
-    return (
-        <View flex={1} flexGrow={1} backgroundColor={'#ffffff'}>
-            <RegisterForm formFields={formFields} />
-        </View>
-    )
-}
+const formFields = [
+    { label: 'First Name', type: 'text', validation: 'required' },
+    { label: 'Last Name', type: 'text', validation: 'required' },
+    { label: 'Email', type: 'text', validation: 'required' },
+    { label: 'Password', type: 'text', validation: 'required' },
+    {
+        label: 'Role',
+        type: 'selectbox',
+        options: [
+            { label: 'Admin', value: 'admin' },
+            { label: 'User', value: 'user' },
+        ],
+        validation: 'required',
+    },
+];
 
-export default Login
+const Login = () => (
+    <View flex={1} flexGrow={1} backgroundColor={'#ffffff'} paddingHorizontal="$4">
+        <RegisterForm formFields={formFields} />
+    </View>
+);
+
+export default Login;
