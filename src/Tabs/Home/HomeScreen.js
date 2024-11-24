@@ -85,38 +85,7 @@ export default function HomeScreen() {
       }
     >
 
-      {/* {
-        header.logo &&
-        <Image src={header.logo} style={{ width: 300, height: 40 }} />
-      } */}
       <View style={{ flex: 1 }} paddingHorizontal={14}>
-        {/* {
-          contentTop &&
-          Object.keys(contentTop).forEach((key) => {
-            const row = contentTop[key];
-            // console.log(row.columns);
-            const columns = row.columns;
-            Object.keys(columns).forEach((key) => {
-              const items = columns[key].items;
-              Object.keys(items).forEach((key) => {
-                const item = items[key];
-                const mType = item.item.module_type;
-
-                // console.log(item.item.module_type);
-                // console.log(mType === 'categories' ? true : false);
-                const ModuleComponent = componentMap[mType];
-                // console.log(ModuleComponent);
-                return (
-                    
-            
-                  <Category />
-                  )
-                  // <ModuleComponent key={item.item.module_id} data={item.item.options} />
-                  
-              })
-            })
-          })  
-        } */}
 
         {
           contentTop &&
@@ -130,12 +99,12 @@ export default function HomeScreen() {
               return Object.keys(items).map((itemKey) => {
                 const item = items[itemKey];
                 const mType = item.item.module_type;
-                console.log(mType)
                 const ModuleComponent = componentMap[mType];
+                
                 return ModuleComponent ? (
                   <ModuleComponent
                     key={item.item.module_id}
-                    data={item.item.options}
+                    data={item.item.options.items}
                   />
                 ) : null;
               });
@@ -143,10 +112,8 @@ export default function HomeScreen() {
           })
         }
 
-        {/* <LayoutRenderer /> */}
-        {/* 
-        <Button title="Go to Details" onPress={() => navigation.navigate('login')}>click</Button> */}
       </View>
+      
     </ScrollView>
   );
 }
