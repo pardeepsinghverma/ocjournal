@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { ScrollView } from 'react-native';
-import Slider from '../modules/slider';
+import { Dimensions, ScrollView } from 'react-native';
+// import Slider from '../modules/slider';
 import MTitle from '../components/MTitle';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DescriptionAccordion from '../components/DescriptionAccordion';
-import { Button, Paragraph, XStack, YStack } from 'tamagui';
+import { Button, Image, Paragraph, Text, View, XStack, YStack } from 'tamagui';
 import RenderProductOptions from '../components/options';
+import Slider from '../components/Slider/Slider';
+import Carousel from 'react-native-reanimated-carousel';
+import { renderItem } from '../components/Slider/render-item';
 
 // products.js
 const products = [
@@ -16,7 +19,7 @@ const products = [
     price: 599,
     originalPrice: 1299,
     discount: 53,
-    imageUrl: 'https://placehold.co/400x500',
+    image: 'https://placehold.co/400x500',
     options: [
       {
         type: 'radio',
@@ -41,8 +44,8 @@ const products = [
 const ProductView = () => {
   const product = products[0]; // Assuming we're rendering the first product
   const slides = [
-    { image: product.imageUrl, text: product.name },
-    { image: product.imageUrl, text: product.name },
+    { image: product.image, text: product.name },
+    { image: product.image, text: product.name },
   ];
 
   const [selectedOptions, setSelectedOptions] = useState({});
@@ -54,16 +57,33 @@ const ProductView = () => {
       [optionLabel]: value,
     }));
   };
-
   return (
     <ScrollView style={{ flex: 1 }}>
-      <Slider
-        slides={slides}
-        showArrows={false}
-        showBullets={false}
-        bulletWithImage={true}
-        slideStyle={1}
-        autoSlide={false}
+    
+      <Carousel
+        loop={true}
+        width={Dimensions.get('window').width}
+        height={400}
+        mode="parallax"
+        modeConfig={{
+          parallaxScrollingScale: 1, // Prevent shrinking effect
+          parallaxScrollingOffset: 10, // Controls the offset for alignment
+          parallaxAdjacentItemScale: 1, // Slight scaling for adjacent items
+        }}
+        // itemWidth={Dimensions.get('window').width - 40 * 2}
+        spacing={10}
+        snapEnabled={true}
+        pagingEnabled={true}
+        autoPlayInterval={2000}
+        autoPlay={false}
+        quickSnap={true}
+        panGestureHandlerProps={{
+          activeOffsetX: [-10, 10],
+        }}
+        data={slides}
+        renderItem={({ item, index }) => (
+            <Image src={'https://upload.wikimedia.org/wikipedia/commons/6/65/Product_Photography.jpg'} style={{ width: Dimensions.get('window').width, height: '100%' }} />
+        )}
       />
 
       <YStack padding={14} marginBottom={10} backgroundColor={'#ffffff'}>

@@ -2,64 +2,808 @@
 import React from 'react';
 import { View, Text } from 'tamagui';
 import ProductGrid from '../../modules/productGrid';
-import Products from '../../modules/Products';
 
 export default function CatalogScreen() {
-  // const products = [
-  //   {
-  //     id: 1,
-  //     name: "Classic T-Shirt",
-  //     oldPrice: "₹20.00",
-  //     specialPrice: "₹15.00",
-  //     description: "A classic t-shirt made from 100% organic cotton.",
-  //     wishlistStatus: true, // true if added to wishlist, false otherwise
-  //     productLabel: "Buy 2 For ₹999",
-  //     image: "https://example.com/classic-tshirt.jpg"
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Leather Jacket",
-  //     oldPrice: "₹120.00",
-  //     specialPrice: "₹99.00",
-  //     description: "Genuine leather jacket with a modern fit.",
-  //     wishlistStatus: false,
-  //     productLabel: "Limited Stock",
-  //     image: "https://example.com/leather-jacket.jpg"
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Running Shoes",
-  //     oldPrice: "₹75.00",
-  //     specialPrice: "₹60.00",
-  //     description: "Lightweight and comfortable running shoes for daily wear.",
-  //     wishlistStatus: true,
-  //     productLabel: "Buy 2 For ₹999",
-  //     image: "https://example.com/running-shoes.jpg"
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Summer Shorts",
-  //     oldPrice: "₹25.00",
-  //     specialPrice: "₹20.00",
-  //     description: "Comfortable and breathable shorts for summer.",
-  //     wishlistStatus: false,
-  //     productLabel: "New Arrival",
-  //     image: "https://example.com/summer-shorts.jpg"
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Denim Jeans",
-  //     oldPrice: "₹50.00",
-  //     specialPrice: "₹40.00",
-  //     description: "Stylish denim jeans with a classic straight fit.",
-  //     wishlistStatus: true,
-  //     productLabel: "Discount Offer",
-  //     image: "https://example.com/denim-jeans.jpg"
-  //   }
-  // ];
-  
+
+  const item = {
+    "products": {
+      "59": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/stock-abstract-online-shop-logo-designs-template-illustration-graphic-of-smartphone-free-vector-700x700f.jpg",
+        "second_thumb": false,
+        "second_thumb2x": false,
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005006833620834"
+        },
+        "product_id": "59",
+        "thumb": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/stock-abstract-online-shop-logo-designs-template-illustration-graphic-of-smartphone-free-vector-350x350f.jpg",
+        "name": "Zarikon Romanian bracelets for women, stainless steel, simple, engineering jewelry, friendship, wholesale, simple sale, simple",
+        "description": "window.adminAccountId=2675883498;..",
+        "price": "SR.12.34",
+        "special": false,
+        "tax": "SR.12.34",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=59"
+      },
+      "79": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/fs/no_image-700x700f.jpg",
+        "second_thumb": "https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg",
+        "second_thumb2x": "https://image-test-sa.fathersolution.com/fs/no_image-700x700f.jpg",
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005002697669454"
+        },
+        "product_id": "79",
+        "thumb": "https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg",
+        "name": "Zircon x metals hop earrings for women, neo Gothic girls luxury jewelry collection, simple Korean fashion, wedding party accessories, 2023",
+        "description": "..",
+        "price": "SR.31.58",
+        "special": false,
+        "tax": "SR.31.58",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=79"
+      },
+      "104": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/fatherstock/products/104/product_image_aesa_1005007568708545-700x700f.jpg",
+        "second_thumb": false,
+        "second_thumb2x": false,
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005007568708545"
+        },
+        "product_id": "104",
+        "thumb": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/fatherstock/products/104/product_image_aesa_1005007568708545-350x350f.jpg",
+        "name": "Football mortar for the foot muscles, treatment for relaxation with a remote control, physical therapy with partial current",
+        "description": "&nbsp;\nFoldable foot massage pillow, foot massager, a natural remedy carpet for micro -stream, portable foot treatment equipment to form beautiful leg..",
+        "price": "SR.59.77",
+        "special": false,
+        "tax": "SR.59.77",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=104"
+      },
+      "539": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/stock-abstract-online-shop-logo-designs-template-illustration-graphic-of-smartphone-free-vector-700x700f.jpg",
+        "second_thumb": false,
+        "second_thumb2x": false,
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005006833620834"
+        },
+        "product_id": "59",
+        "thumb": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/stock-abstract-online-shop-logo-designs-template-illustration-graphic-of-smartphone-free-vector-350x350f.jpg",
+        "name": "Zarikon Romanian bracelets for women, stainless steel, simple, engineering jewelry, friendship, wholesale, simple sale, simple",
+        "description": "window.adminAccountId=2675883498;..",
+        "price": "SR.12.34",
+        "special": false,
+        "tax": "SR.12.34",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=59"
+      },
+      "749": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/fs/no_image-700x700f.jpg",
+        "second_thumb": "https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg",
+        "second_thumb2x": "https://image-test-sa.fathersolution.com/fs/no_image-700x700f.jpg",
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005002697669454"
+        },
+        "product_id": "79",
+        "thumb": "https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg",
+        "name": "Zircon x metals hop earrings for women, neo Gothic girls luxury jewelry collection, simple Korean fashion, wedding party accessories, 2023",
+        "description": "..",
+        "price": "SR.31.58",
+        "special": false,
+        "tax": "SR.31.58",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=79"
+      },
+      "1044": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/fatherstock/products/104/product_image_aesa_1005007568708545-700x700f.jpg",
+        "second_thumb": false,
+        "second_thumb2x": false,
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005007568708545"
+        },
+        "product_id": "104",
+        "thumb": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/fatherstock/products/104/product_image_aesa_1005007568708545-350x350f.jpg",
+        "name": "Football mortar for the foot muscles, treatment for relaxation with a remote control, physical therapy with partial current",
+        "description": "&nbsp;\nFoldable foot massage pillow, foot massager, a natural remedy carpet for micro -stream, portable foot treatment equipment to form beautiful leg..",
+        "price": "SR.59.77",
+        "special": false,
+        "tax": "SR.59.77",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=104"
+      },
+      "5139": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/stock-abstract-online-shop-logo-designs-template-illustration-graphic-of-smartphone-free-vector-700x700f.jpg",
+        "second_thumb": false,
+        "second_thumb2x": false,
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005006833620834"
+        },
+        "product_id": "59",
+        "thumb": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/stock-abstract-online-shop-logo-designs-template-illustration-graphic-of-smartphone-free-vector-350x350f.jpg",
+        "name": "Zarikon Romanian bracelets for women, stainless steel, simple, engineering jewelry, friendship, wholesale, simple sale, simple",
+        "description": "window.adminAccountId=2675883498;..",
+        "price": "SR.12.34",
+        "special": false,
+        "tax": "SR.12.34",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=59"
+      },
+      "7429": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/fs/no_image-700x700f.jpg",
+        "second_thumb": "https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg",
+        "second_thumb2x": "https://image-test-sa.fathersolution.com/fs/no_image-700x700f.jpg",
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005002697669454"
+        },
+        "product_id": "79",
+        "thumb": "https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg",
+        "name": "Zircon x metals hop earrings for women, neo Gothic girls luxury jewelry collection, simple Korean fashion, wedding party accessories, 2023",
+        "description": "..",
+        "price": "SR.31.58",
+        "special": false,
+        "tax": "SR.31.58",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=79"
+      },
+      "10424": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/fatherstock/products/104/product_image_aesa_1005007568708545-700x700f.jpg",
+        "second_thumb": false,
+        "second_thumb2x": false,
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005007568708545"
+        },
+        "product_id": "104",
+        "thumb": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/fatherstock/products/104/product_image_aesa_1005007568708545-350x350f.jpg",
+        "name": "Football mortar for the foot muscles, treatment for relaxation with a remote control, physical therapy with partial current",
+        "description": "&nbsp;\nFoldable foot massage pillow, foot massager, a natural remedy carpet for micro -stream, portable foot treatment equipment to form beautiful leg..",
+        "price": "SR.59.77",
+        "special": false,
+        "tax": "SR.59.77",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=104"
+      },
+      "51139": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/stock-abstract-online-shop-logo-designs-template-illustration-graphic-of-smartphone-free-vector-700x700f.jpg",
+        "second_thumb": false,
+        "second_thumb2x": false,
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005006833620834"
+        },
+        "product_id": "59",
+        "thumb": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/stock-abstract-online-shop-logo-designs-template-illustration-graphic-of-smartphone-free-vector-350x350f.jpg",
+        "name": "Zarikon Romanian bracelets for women, stainless steel, simple, engineering jewelry, friendship, wholesale, simple sale, simple",
+        "description": "window.adminAccountId=2675883498;..",
+        "price": "SR.12.34",
+        "special": false,
+        "tax": "SR.12.34",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=59"
+      },
+      "74229": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/fs/no_image-700x700f.jpg",
+        "second_thumb": "https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg",
+        "second_thumb2x": "https://image-test-sa.fathersolution.com/fs/no_image-700x700f.jpg",
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005002697669454"
+        },
+        "product_id": "79",
+        "thumb": "https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg",
+        "name": "Zircon x metals hop earrings for women, neo Gothic girls luxury jewelry collection, simple Korean fashion, wedding party accessories, 2023",
+        "description": "..",
+        "price": "SR.31.58",
+        "special": false,
+        "tax": "SR.31.58",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=79"
+      },
+      "104224": {
+        "classes": {
+          "0": "",
+          "swiper-slide": false,
+          "isotope-item": false
+        },
+        "quantity": "500",
+        "stock_status": "In Stock",
+        "thumb2x": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/fatherstock/products/104/product_image_aesa_1005007568708545-700x700f.jpg",
+        "second_thumb": false,
+        "second_thumb2x": false,
+        "labels": {
+          "29": {
+            "type": "custom",
+            "label": "New",
+            "display": "default"
+          }
+        },
+        "extra_buttons": {
+          "46": {
+            "type": "custom",
+            "label": "Buy Now",
+            "action": "quickbuy",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          },
+          "93": {
+            "type": "custom",
+            "label": "Question",
+            "action": "link",
+            "link": {
+              "type": "popup",
+              "id": "22",
+              "href": "javascript:open_popup(22)",
+              "name": "",
+              "total": null,
+              "attrs": [],
+              "classes": []
+            }
+          }
+        },
+        "date_end": null,
+        "price_value": true,
+        "stat1": null,
+        "stat2": {
+          "label": "Product code",
+          "text": "1005007568708545"
+        },
+        "product_id": "104",
+        "thumb": "https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/fatherstock/products/104/product_image_aesa_1005007568708545-350x350f.jpg",
+        "name": "Football mortar for the foot muscles, treatment for relaxation with a remote control, physical therapy with partial current",
+        "description": "&nbsp;\nFoldable foot massage pillow, foot massager, a natural remedy carpet for micro -stream, portable foot treatment equipment to form beautiful leg..",
+        "price": "SR.59.77",
+        "special": false,
+        "tax": "SR.59.77",
+        "minimum": "1",
+        "rating": 0,
+        "href": "https://dev301.fathershops-test.xyz/?route=product/product&amp;product_id=104"
+      }
+    },
+  }
+
   return (
-    // <Products data={products} />
-    <></>
+    <ProductGrid key={"s"} products={item.products} title={""} scroll={false} />
+    // <></>
   );
 }

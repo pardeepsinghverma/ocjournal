@@ -1,9 +1,9 @@
 import React, { Children } from 'react'
 import { Text } from 'tamagui'
-import Slider from './slider';
+import Slider from '../components/Slider/Slider';
+// import Slider from './slider';
 
-const MasterSlider = ({data}) => {
-    // console.log(data)
+const MasterSlider = ({data, options}) => {
     const mapSlides = (sliderData) => {
         if (!sliderData || typeof sliderData !== 'object') {
           throw new Error('Invalid slider data');
@@ -20,16 +20,21 @@ const MasterSlider = ({data}) => {
                 }))
         }));
     };
+    // console.log(mapSlides(data))
 
     return (
+        // <Slider
+        //     slides={mapSlides(data)}
+        //     autoSlide={true}
+        //     slideInterval={5000}
+        //     showArrows={true}
+        //     slideStyle={0}
+        //     showBullets={false}
+        //     bulletWithImage={true}
+        // />
         <Slider
-            slides={mapSlides(data)}
-            autoSlide={true}
-            slideInterval={5000}
-            showArrows={true}
-            slideStyle={0}
-            showBullets={false}
-            bulletWithImage={true}
+            slideData={mapSlides(data)}
+            options={options.options}
         />
     )
 }

@@ -15,6 +15,7 @@ import { RefreshControl, ScrollView } from 'react-native-gesture-handler';
 import apiRequest from '../../api/apiclient';
 import componentMap from '../../modules';
 import layoutData from './../../data/layout1.json'
+import Slider from '../../components/Slider/Slider';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,12 +24,12 @@ export default function HomeScreen() {
   const dispatch = useDispatch();
   const clickHanddler = () => {
     // dispatch(setData({ name: "subDomain", data: "anmol111" }));
-    console.log(currentSubDomain);
+    // console.log(currentSubDomain);
   }
   const [contentTop, setContentTop] = useState(layoutData.column_top.modules[0].rows);
   const [header, setHeader] = useState(layoutData.header);
 
-  console.log(header.logo);
+  // console.log(header.logo);
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = () => {
@@ -87,6 +88,8 @@ export default function HomeScreen() {
 
       <View style={{ flex: 1 }} paddingHorizontal={14}>
 
+        {/* <Slider /> */}
+
         {
           contentTop &&
           Object.keys(contentTop).map((key) => {
@@ -99,12 +102,14 @@ export default function HomeScreen() {
               return Object.keys(items).map((itemKey) => {
                 const item = items[itemKey];
                 const mType = item.item.module_type;                
+                const mId = item.item.module_id;                
                 const ModuleComponent = componentMap[mType];
                 
                 return ModuleComponent ? (
                   <ModuleComponent
                     key={item.item.module_id}
                     data={item.item.options.items}
+                    options={item.item.options}
                   />
                 ) : null;
               });
