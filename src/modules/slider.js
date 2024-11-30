@@ -87,15 +87,22 @@ export default function Slider({
         <XStack alignItems="center" flex={1} gap={10}>
         {slides.map((slide, index) => (
             <View key={index} style={{ width: eachslideWidth }} pad>
-              <Image
-                src="https://picsum.photos/seed/picsum/200/300"
+              {/* <Image
+                src={slide.image || 'https://picsum.photos/seed/picsum/200/300'}
                 width={eachslideWidth}
                 height={500}
                 background={'$background'}
                 // borderRadius="$4"
                 borderRadius={0}
-              />
-              {/* {slide.text && <Text>{slide.text}</Text>} */}
+            /> */}
+            {
+              slide.children.map((child, index) => {
+                if (child.type === 'text') {
+                  return <Text key={index}>{child.text}</Text>
+                }
+                return null // Add more types here  
+              })
+            }
             </View>
           ))}
           </XStack>

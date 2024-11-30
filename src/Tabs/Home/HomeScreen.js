@@ -98,7 +98,7 @@ export default function HomeScreen() {
 
               return Object.keys(items).map((itemKey) => {
                 const item = items[itemKey];
-                const mType = item.item.module_type;
+                const mType = item.item.module_type;                
                 const ModuleComponent = componentMap[mType];
                 
                 return ModuleComponent ? (
