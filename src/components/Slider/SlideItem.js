@@ -1,9 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Animated, {
-  useAnimatedStyle,
-} from 'react-native-reanimated';
-import { Button, Image } from 'tamagui';
+import Animated, { useAnimatedStyle } from 'react-native-reanimated';
+import { Button } from 'tamagui';
 
 export const SlideItem = (props) => {
   const {
@@ -16,7 +14,6 @@ export const SlideItem = (props) => {
     ...animatedViewProps
   } = props;
 
-  // Animated style for the main image
   const animatedOpacityStyle = useAnimatedStyle(() => {
     return {
       opacity: currentIndex.value === index ? 1 : 0.5,
@@ -39,8 +36,7 @@ export const SlideItem = (props) => {
         source={{ uri: slideData.image }}
         resizeMode="cover"
       />
-      {
-        slideData?.children && 
+      {slideData?.children && (
         <View style={styles.overlay}>
           <View style={styles.overlayTextContainer}>
             {slideData.children.map((child, childIndex) => (
@@ -53,22 +49,22 @@ export const SlideItem = (props) => {
             ))}
           </View>
         </View>
-      }
+      )}
     </Animated.View>
   );
 };
 
 const ChildItem = ({ child, childIndex, currentIndex }) => {
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: currentIndex.value === childIndex ? 1 : 0.5,
+    };
+  });
+
   if (child.type === 'text') {
     return <Text style={styles.overlayText}>{child.text}</Text>;
   }
   if (child.type === 'image') {
-    const imageAnimatedStyle = useAnimatedStyle(() => {
-      return {
-        opacity: currentIndex.value === childIndex ? 1 : 0.5,
-      };
-    });
-
     return (
       <Animated.Image
         source={{ uri: child.data }}
@@ -78,21 +74,19 @@ const ChildItem = ({ child, childIndex, currentIndex }) => {
             height: 30,
             borderRadius: 15,
           },
-          imageAnimatedStyle,
+          animatedStyle,
         ]}
       />
     );
   }
   if (child.type === 'button') {
     return (
-      <Button
-        onPress={() => console.log('Button pressed')}
-      >
+      <Button onPress={() => console.log('Button pressed')}>
         {child.text}
       </Button>
     );
   }
-  return null; // Default case for unsupported types
+  return null;
 };
 
 const styles = StyleSheet.create({

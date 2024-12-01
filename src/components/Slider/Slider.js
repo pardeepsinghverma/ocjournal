@@ -19,9 +19,9 @@ const Slider = ({ slideData, options }) => {
         height={options.height || 200}
         mode="parallax"
         modeConfig={{
-          parallaxScrollingScale: 1, // Prevent shrinking effect
-          parallaxScrollingOffset: 10, // Controls the offset for alignment
-          parallaxAdjacentItemScale: 1, // Slight scaling for adjacent items
+          parallaxScrollingScale: 1,
+          parallaxScrollingOffset: 10,
+          parallaxAdjacentItemScale: 1,
         }}
         itemWidth={width - 40 * 2}
         spacing={0}
