@@ -29,6 +29,23 @@ const CategoryCard = ({ category }) => {
     )
 }
 
+const CategoryRounded = ({ category }) => { 
+  const navigation = useNavigation();
+    return (
+      <View>
+        <Image
+          objectFit='cover'
+          alignSelf="center"
+          height={80}
+          width={80}
+          borderRadius={10}
+          src={category.image}
+        />
+        <Text style={{ textAlign: 'center' }}>{category.name}</Text>  
+      </View>
+    )
+}
+
 const mapCategories = (categoriesData) => {
   if (!categoriesData || typeof categoriesData !== 'object') {
     throw new Error('Invalid categories data');
@@ -42,6 +59,9 @@ const mapCategories = (categoriesData) => {
     subCategories: [] // Add logic for subCategories if available
   }));
 };
+
+const style = 'rounded'
+// const style = 'card'
 
 const Category = ({ data }) => {
   // console.log(data);
@@ -124,9 +144,13 @@ const Category = ({ data }) => {
       {
         Object.keys(data).map((itemKey) => {
         const item = data[itemKey];
-        return mapCategories(item.categories).map((category) => (
+        return mapCategories(item.categories).map((category) => 
+          style == "rounded" ? (
+            <CategoryRounded key={category.id} category={category} />
+          ) : (
             <CategoryCard key={category.id} category={category} />
-          ))
+          )
+        )
         })
       }
     </MSection>

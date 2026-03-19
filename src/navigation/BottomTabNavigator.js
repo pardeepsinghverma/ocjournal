@@ -41,6 +41,11 @@ export default function BottomTabNavigator() {
         tabBarLabelStyle: {
           fontWeight: 'bold',
         },
+        tabBarStyle: {
+          height:50,
+          paddingTop: 8,
+          paddingBottom: 8,
+        }
       })}
     >
       <Tab.Screen

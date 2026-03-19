@@ -20,6 +20,8 @@ import SearchScreen from './screens/SearchScreen';
 import Wishlist from './screens/Wishlist';
 import Cart from './screens/checkout/Cart';
 import Notification from './screens/Notification';
+import { GestureHandlerRootView, TextInput } from 'react-native-gesture-handler';
+import SearchHeader from './components/HeaderSearch';
 
 function AppContainer() {
   const subDomainRedux = useSelector(state => state.data.subDomain);
@@ -51,7 +53,7 @@ function AppContainer() {
         <Stack.Screen name="myaddresses" component={MyAddresses} />
         <Stack.Screen name="myprofile" component={MyProfile} />
         <Stack.Screen name="login" component={Login} />
-        <Stack.Screen name="search" component={SearchScreen} />
+        <Stack.Screen name="search" component={SearchScreen} options={{headerTitle: () => <SearchHeader />}}/>
         <Stack.Screen name="wishlist" component={Wishlist} />
         <Stack.Screen name="cart" component={Cart} />
         <Stack.Screen name="notification" component={Notification} />
@@ -62,9 +64,11 @@ function AppContainer() {
 
 function App() {
   return (
-    <Provider store={store}>
-      <AppContainer />
-    </Provider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </GestureHandlerRootView>
   );
 }
 

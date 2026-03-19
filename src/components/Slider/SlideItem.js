@@ -16,7 +16,8 @@ export const SlideItem = (props) => {
 
   const animatedOpacityStyle = useAnimatedStyle(() => {
     return {
-      opacity: currentIndex.value === index ? 1 : 0.5,
+      // opacity: currentIndex.value === index ? 1 : 0.5,
+      opacity: 1,
     };
   });
 

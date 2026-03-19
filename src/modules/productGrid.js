@@ -1,72 +1,149 @@
 import React from 'react'
-import { Button, Card, H2, H4, H6, Image, Paragraph, ScrollView, Text, View, XStack, YStack } from 'tamagui'
+import { Card, Image, Paragraph, Text, XStack, YStack } from 'tamagui'
 import MSection from '../components/MSection'
 import { useNavigation } from '@react-navigation/native';
 import { Dimensions } from 'react-native';
 
-const screenWidth = Dimensions.get('window').width; 
+const screenWidth = Dimensions.get('window').width;
 const gap = 10;
 const Cardwidth = screenWidth / 2 - gap / 2;
 
-const ProductGridCard = ({ ProductGrid, scroll }) => { 
+const ProductGridCard = ({ ProductGrid, scroll }) => {
   const width = scroll ? 160 : Cardwidth;
-  const height = scroll ? 340 : 380;
+  const height = scroll ? 300 : 340;
   const navigation = useNavigation();
-    return (
-      <Card onPress={()=>{navigation.navigate('productView')}} key={ProductGrid.id} height={height} width={width} bordered overflow='hidden'>
-        <Image
-          src={ProductGrid.image}
-          width={width}
-          height={height - 140}
-          backgroundColor={'#f5f5f5'}
-          borderRadius="$4"
-          objectFit='cover'
-        />
-        <Card.Footer padding={10} marginTop={0}>
-          <YStack gap={0} height={100}>
-            <Paragraph lineHeight={16} marginBottom={6} numberOfLines={2} fontSize={12} theme="alt2" color={'#000000'}>{ProductGrid.name}</Paragraph>
-            {/* <Paragraph lineHeight={13} marginBottom={6} numberOfLines={1} fontSize={10} theme="alt2">{ProductGrid.description}</Paragraph> */}
-            <XStack gap={5} alignItems="center">            
-              <Paragraph lineHeight={13} marginBottom={6} numberOfLines={1} fontSize={13} fontWeight={600} color={'#000000'}>{ProductGrid.price}</Paragraph>
-              <Paragraph lineHeight={13} marginBottom={6} numberOfLines={1} fontSize={9} textDecorationLine='line-through'>{ProductGrid.oldPrice}</Paragraph>
-              <Paragraph lineHeight={13} marginBottom={6} numberOfLines={1} fontSize={10} color={'green'}>{ProductGrid.special}</Paragraph>
-            </XStack>
-            <Button width={width - 20} marginTop={5} onPress={()=>{navigation.navigate('checkoutNavigation')}}>Add to Cart</Button>
-          </YStack>
-        </Card.Footer>
 
-      </Card>
-    )
+  return (
+    <Card
+      onPress={() => { navigation.navigate('productView') }}
+      key={ProductGrid.id}
+      height={height}
+      width={width}
+      bordered
+      overflow='hidden'
+    >
+      
+      {/* LABELS */}
+      <XStack gap={4} flexWrap="wrap" position='absolute' top={0} left={0} zIndex={1}>
+
+        {Object.values(ProductGrid.labels ?? {}).map((label, index) => (
+
+          <Text
+            key={index}
+            fontSize={13}
+            color={'#ffffff'}
+            backgroundColor={'rgba(68, 68, 68, 0.8)'}
+            paddingHorizontal={12}
+            paddingVertical={6}
+          >
+            {label.label}
+          </Text>
+
+        ))}
+
+      </XStack>
+
+      <Image
+        src={ProductGrid.image}
+        width={width}
+        height={height - 90}
+        backgroundColor={'#f5f5f5'}
+        borderRadius="$4"
+        objectFit='cover'
+      />
+
+      <Card.Footer padding={10} marginTop={0}>
+        <YStack gap={0} height={100}>
+
+          <Paragraph
+            lineHeight={16}
+            marginBottom={6}
+            numberOfLines={2}
+            fontSize={14}
+            color={'#000000'}
+          >
+            {ProductGrid.name}
+          </Paragraph>
+
+          {/* PRICE */}
+          <XStack gap={5} alignItems="center">
+
+            <Paragraph
+              marginBottom={0}
+              numberOfLines={1}
+              fontSize={14}
+              fontWeight={600}
+              color={'#000'}
+            >
+              {ProductGrid.price}
+            </Paragraph>
+
+            {ProductGrid.oldPrice && (
+              <Paragraph
+                marginBottom={0}
+                numberOfLines={1}
+                opacity={0.4}
+                fontSize={14}
+                textDecorationLine='line-through'
+              >
+                {ProductGrid.oldPrice}
+              </Paragraph>
+            )}
+
+            {ProductGrid.special && (
+              <Paragraph
+                fontSize={14}
+                color={'green'}
+              >
+                {ProductGrid.special}
+              </Paragraph>
+            )}
+
+          </XStack>
+
+        </YStack>
+      </Card.Footer>
+
+    </Card>
+  )
 }
 
 const mapProducts = (productsData) => {
+
   if (!productsData || typeof productsData !== 'object') {
-    throw new Error('Invalid categories data');
+    return [];
   }
 
-
-  // Transform the input data
-  return Object.values(productsData).map((product) => (
-    {
-      id: parseInt(product.product_id, 10), 
-      name: product.name, // Use the product name
-      image: product.thumb, // Map the thumbnail as the image
-      price: product.price, // Map the price
-      specialPrice: product.special, // Map the special price
-    }
-  ));
+  return Object.values(productsData).map((product) => ({
+    id: parseInt(product.product_id, 10),
+    name: product.name,
+    image: product.thumb,
+    price: product.price,
+    oldPrice: product.tax,
+    special: product.special,
+    labels: product.labels || {}
+  }));
 };
 
 const ProductGrid = ({ products, title, scroll = true }) => {
-  // console.log(products);
+
+  const mappedProducts = mapProducts(products);
+
   return (
-    <MSection title={title ?? false} titleLevel={'4'} ScrollDirection={scroll ? 'horizontal' : false}> 
-      {/* <Text>Product Grid</Text> */}
-      {
-        mapProducts(products).map((ProductGrid) => (
-          <ProductGridCard key={ProductGrid.id} scroll={scroll} ProductGrid={ProductGrid} />
-        ))
-      }
+    <MSection
+      title={title ?? false}
+      titleLevel={'4'}
+      ScrollDirection={scroll ? 'horizontal' : false}
+    >
+
+      {mappedProducts.map((product) => (
+        <ProductGridCard
+          key={product.id}
+          scroll={scroll}
+          ProductGrid={product}
+        />
+      ))}
+
     </MSection>
   )
 }

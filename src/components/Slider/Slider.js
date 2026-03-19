@@ -22,6 +22,7 @@ const Slider = ({ slideData, options }) => {
           parallaxScrollingScale: 1,
           parallaxScrollingOffset: 10,
           parallaxAdjacentItemScale: 1,
+          parallaxAdjacentItemOpacity: 1, // Add this line to ensure full opacity
         }}
         itemWidth={width - 40 * 2}
         spacing={0}

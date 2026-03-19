@@ -1,29 +1,46 @@
+import { Link } from '@react-navigation/native'
 import React from 'react'
-import { H1, H2, H3, H4, H5, H6, View } from 'tamagui'
+import { H1, H2, H3, H4, H5, H6, View, XStack } from 'tamagui'
 
-const MTitle = ({ title, level, marginBottom }) => {
-    const TitleLevel = () => { 
-        if (level === '1') {
-            return <H1 marginBottom={0} paddingBottom={0}>{title}</H1>
-        } else if (level === '2') {
-            return <H2 marginBottom={0} paddingBottom={0}>{title}</H2>
-        } else if (level === '3') {
-            return <H3 marginBottom={0} paddingBottom={0}>{title}</H3>
-        } else if (level === '4') {
-            return <H4 marginBottom={0} paddingBottom={0}>{title}</H4>
-        } else if (level === '5') {
-            return <H5 marginBottom={0} paddingBottom={0}>{title}</H5>
-        } else if (level === '6') {
-            return <H6 marginBottom={0} paddingBottom={0}>{title}</H6>
-        } else {
-            return <H4 marginBottom={0} paddingBottom={0}>{title}</H4>
-        }
-    }
-    return (
-        <View marginBottom={marginBottom}>
-            <TitleLevel />
-        </View>
-    )
+const titleMap = {
+  1: H1,
+  2: H2,
+  3: H3,
+  4: H4,
+  5: H5,
+  6: H6
+}
+
+const MTitle = ({
+  title,
+  level = 4,
+  marginBottom = 12,
+  marginTop = 20,
+  endTitle,
+  endLink
+}) => {
+
+  const TitleComponent = titleMap[level] || H4
+
+  return (
+    <View marginBottom={marginBottom} marginTop={marginTop}>
+      <XStack justifyContent="space-between" alignItems="center">
+
+        <TitleComponent>
+          {title}
+        </TitleComponent>
+
+        {endTitle && endLink && (
+          <Link to={endLink}>
+            <TitleComponent color="$blue10">
+              {endTitle}
+            </TitleComponent>
+          </Link>
+        )}
+
+      </XStack>
+    </View>
+  )
 }
 
 export default MTitle
