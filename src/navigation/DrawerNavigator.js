@@ -20,7 +20,6 @@ import {
 import DescriptionAccordion from '../components/DescriptionAccordion';
 import MAccordion from '../components/MAccordion';
 import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
 import HeaderLogo from '../components/HeaderLogo';
 
 const Drawer = createDrawerNavigator();
@@ -118,8 +117,7 @@ function CustomDrawerContent(props) {
 export default function DrawerNavigator() {
   const navigation = useNavigation();
   
-  const store = useSelector((state) => state.data.currentSubDomain);
-
+  
   return (
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}
@@ -156,7 +154,7 @@ export default function DrawerNavigator() {
             ))}
           </View>
         ),
-        headerTitle: () => <HeaderLogo key={store} />,
+        headerTitle: () => <HeaderLogo />,
         drawerItemStyle: {
           backgroundColor: '#000000',
           margin: 0,

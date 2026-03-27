@@ -1,0 +1,124 @@
+{
+    "breadcrumbs": [
+        {
+            "text": "<i class=\"fas fa-home\"><\/i>",
+            "href": "http:\/\/localhost:8080\/index.php?route=common\/home&amp;language=en-gb"
+        },
+        {
+            "text": "XYXX Men's Nova 100% Combed Cotton Regular Fit Polo T-Shirt",
+            "href": "http:\/\/localhost:8080\/index.php?route=product\/product&amp;language=en-gb&amp;product_id=347"
+        }
+    ],
+    "heading_title": "XYXX Men's Nova 100% Combed Cotton Regular Fit Polo T-Shirt",
+    "text_minimum": "This product has a minimum quantity of 1",
+    "text_login": "Please <a href=\"http:\/\/localhost:8080\/index.php?route=account\/login&amp;language=en-gb\">login<\/a> or <a href=\"http:\/\/localhost:8080\/index.php?route=account\/register&amp;language=en-gb\">register<\/a> to review",
+    "text_reviews": "0 reviews",
+    "tab_review": "Reviews (0)",
+    "error_upload_size": "Warning: The uploaded file exceeds the 20mb max file size!",
+    "config_file_max_size": 20971520,
+    "upload": "http:\/\/localhost:8080\/index.php?route=tool\/upload&amp;language=en-gb&amp;upload_token=f1069bfd237c98e347ca15444a3db40b",
+    "product_id": 347,
+    "manufacturer": "Ron Jones",
+    "manufacturers": "http:\/\/localhost:8080\/index.php?route=product\/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=17",
+    "model": "model-3508",
+    "product_codes": [],
+    "reward": null,
+    "points": "18",
+    "description": "<p>Demo product Green Hoodie description, along with any other tab can be displayed as tabs, accordion or all-visible blocks in grid format or one under the other.&nbsp; You can mix and match tabs and blocks in any order and any position. Each tab can also be set up as a link and point to other pages or open popup modules. Optional \"Show More\" collapsible block content is also available as an option for large and tall descriptions or custom content.<\/p>\r\n\r\n<p><img src=\"https:\/\/storage.journal-theme.com\/apps\/files_sharing\/publicpreview\/W7RH9MKdHoZJex4?x=3992&amp;y=2236&amp;a=true&amp;file=imac.jpg&amp;scalingup=0\" \/><\/p>\r\n\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<\/p>",
+    "stock": "8429",
+    "rating": 0,
+    "review_status": 1,
+    "review": "<form class=\"form-horizontal\" id=\"form-review\">\n  <div id=\"review\">  <p class=\"text-center\">Be the first to write a review for this product.<\/p>\n<\/div>\n  <h4>Write a review<\/h4>\n          <div class=\"form-group mb-3 required\">\n      <label for=\"input-author\" class=\"form-label control-label\">Your Name<\/label>\n      <input type=\"text\" name=\"author\" value=\"\" id=\"input-author\" class=\"form-control\"\/>\n      <div id=\"error-author\" class=\"invalid-feedback\"><\/div>\n    <\/div>\n        <div class=\"form-group mb-3 required\">\n      <label for=\"input-text\" class=\"form-label control-label\">Your Review<\/label>\n      <textarea name=\"text\" rows=\"5\" id=\"input-text\" class=\"form-control\"><\/textarea>\n      <div id=\"error-text\" class=\"invalid-feedback\"><\/div>\n      <div class=\"invalid-feedback\"><span class=\"text-danger\">Note:<\/span> HTML is not translated!<\/div>\n    <\/div>\n    <div class=\"form-group row mb-3 required\">\n      <label class=\"form-label control-label\">Rating<\/label>\n      <div id=\"input-rating\" class=\"rate\">\n        Bad&nbsp;\n        <input type=\"radio\" name=\"rating\" value=\"1\" class=\"form-check-input\"\/>\n        &nbsp;\n        <input type=\"radio\" name=\"rating\" value=\"2\" class=\"form-check-input\"\/>\n        &nbsp;\n        <input type=\"radio\" name=\"rating\" value=\"3\" class=\"form-check-input\"\/>\n        &nbsp;\n        <input type=\"radio\" name=\"rating\" value=\"4\" class=\"form-check-input\"\/>\n        &nbsp;\n        <input type=\"radio\" name=\"rating\" value=\"5\" class=\"form-check-input\"\/>\n        &nbsp;Good\n      <\/div>\n      <div id=\"error-rating\" class=\"invalid-feedback\"><\/div>\n    <\/div>\n    \n    <div class=\"d-inline-block pt-2 pd-2 w-100 buttons\">\n      <div class=\"float-end\">\n        <button type=\"submit\" id=\"button-review\" class=\"btn btn-primary\">Continue<\/button>\n      <\/div>\n    <\/div>\n  <\/form>\n<script type=\"text\/javascript\"><!--\n$('#review').on('click', '.pagination a', function (e) {\n    e.preventDefault();\n\n    $('#review').load(this.href);\n});\n\n\/\/ Forms\n$('#form-review').on('submit', function (e) {\n    e.preventDefault();\n\n    var element = this;\n\n    $.ajax({\n        url: 'index.php?route=product\/review.write&language=en-gb&review_token=__REVIEW_TOKEN__&product_id=347',\n        type: 'post',\n        data: $('#form-review').serialize(),\n        dataType: 'json',\n        cache: false,\n        contentType: 'application\/x-www-form-urlencoded',\n        processData: false,\n        beforeSend: function () {\n            $('#button-review').prop('disabled', true).addClass('loading');\n        },\n        complete: function () {\n            $('#button-review').prop('disabled', false).removeClass('loading');\n        },\n        success: function (json) {\n            $('.alert-dismissible').remove();\n            $('#form-review').find('.is-invalid').removeClass('is-invalid');\n            $('#form-review').find('.has-error').removeClass('has-error');\n            $('#form-review').find('.invalid-feedback').removeClass('d-block');\n\n            if (json['error']) {\n              if (json['error']['warning']) {\n                  $('#form-review').prepend('<div class=\"alert alert-danger alert-dismissible\"><i class=\"fa-solid fa-circle-exclamation\"><\/i> ' + json['error']['warning'] + ' <button type=\"button\" class=\"btn-close close\" data-bs-dismiss=\"alert\"><\/button><\/div>');\n              }\n\n              for (key in json['error']) {\n                  $('#input-' + key.replaceAll('_', '-')).addClass('is-invalid').find('.form-control, .form-select, .form-check-input, .form-check-label').addClass('is-invalid');\n                  $('#input-' + key.replaceAll('_', '-')).closest('.form-group').addClass('has-error');\n                  $('#error-' + key.replaceAll('_', '-')).html(json['error'][key]).addClass('d-block');\n              }\n            }\n\n            if (json['success']) {\n                $('#form-review').prepend('<div class=\"alert alert-success alert-dismissible\"><i class=\"fa-solid fa-circle-exclamation\"><\/i> ' + json['success'] + ' <button type=\"button\" class=\"btn-close close\" data-bs-dismiss=\"alert\"><\/button><\/div>');\n\n                $('#input-text').val('');\n                $('#input-rating input[type=\\'radio\\']').prop('checked', false);\n            }\n        },\n        error: function (xhr, ajaxOptions, thrownError) {\n            console.log(thrownError + \"\\r\\n\" + xhr.statusText + \"\\r\\n\" + xhr.responseText);\n        }\n    });\n});\n\/\/--><\/script>\n",
+    "wishlist_add": "http:\/\/localhost:8080\/index.php?route=account\/wishlist.add&amp;language=en-gb",
+    "compare_add": "http:\/\/localhost:8080\/index.php?route=product\/compare.add&amp;language=en-gb",
+    "popup": "http:\/\/localhost:8080\/image\/cache\/catalog\/again\/61UE51azLWL._SY879_-800x800.jpg",
+    "thumb": "http:\/\/localhost:8080\/image\/cache\/catalog\/again\/61UE51azLWL._SY879_-500x500.jpg",
+    "images": [],
+    "price": "$699.99",
+    "special": false,
+    "tax": "$699.99",
+    "discounts": [],
+    "options": [
+        {
+            "product_option_value": [
+                {
+                    "image": "",
+                    "price": false,
+                    "product_option_value_id": "51",
+                    "product_option_id": "16",
+                    "product_id": "347",
+                    "option_id": "2",
+                    "option_value_id": "10",
+                    "quantity": "1",
+                    "subtract": "0",
+                    "price_prefix": "+",
+                    "points": "0",
+                    "points_prefix": "+",
+                    "weight": "0.00000000",
+                    "weight_prefix": "+",
+                    "sort_order": "1",
+                    "language_id": "1",
+                    "name": "S"
+                },
+                {
+                    "image": "",
+                    "price": false,
+                    "product_option_value_id": "52",
+                    "product_option_id": "16",
+                    "product_id": "347",
+                    "option_id": "2",
+                    "option_value_id": "11",
+                    "quantity": "1",
+                    "subtract": "0",
+                    "price_prefix": "+",
+                    "points": "0",
+                    "points_prefix": "+",
+                    "weight": "0.00000000",
+                    "weight_prefix": "+",
+                    "sort_order": "2",
+                    "language_id": "1",
+                    "name": "M"
+                },
+                {
+                    "image": "",
+                    "price": false,
+                    "product_option_value_id": "53",
+                    "product_option_id": "16",
+                    "product_id": "347",
+                    "option_id": "2",
+                    "option_value_id": "12",
+                    "quantity": "1",
+                    "subtract": "0",
+                    "price_prefix": "+",
+                    "points": "0",
+                    "points_prefix": "+",
+                    "weight": "0.00000000",
+                    "weight_prefix": "+",
+                    "sort_order": "3",
+                    "language_id": "1",
+                    "name": "L"
+                }
+            ],
+            "product_option_id": "16",
+            "product_id": "347",
+            "option_id": "2",
+            "value": null,
+            "required": "1",
+            "type": "radio",
+            "validation": null,
+            "sort_order": "2",
+            "language_id": "1",
+            "name": "Size"
+        }
+    ],
+    "subscription_plans": [],
+    "minimum": "1",
+    "share": "http:\/\/localhost:8080\/index.php?route=product\/product&amp;language=en-gb&amp;product_id=347",
+    "attribute_groups": [],
+    "tags": [
+        {
+            "tag": "XYXX Men's Nova 100% Combed Cotton Regular Fit Polo T-Shirt",
+            "href": "http:\/\/localhost:8080\/index.php?route=product\/search&amp;language=en-gb&amp;tag=XYXX Men's Nova 100% Combed Cotton Regular Fit Polo T-Shirt"
+        }
+    ]
+}

@@ -3,7 +3,9 @@ import React from 'react';
 import { Image } from 'tamagui';
 import { useSelector } from 'react-redux';
 
-const HeaderLogo = ({ store }) => {
+const HeaderLogo = () => {
+  const store = useSelector((state) => state.data.currentSubDomain);
+  
   return (
     <Image
       source={{

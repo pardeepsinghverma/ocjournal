@@ -43,7 +43,7 @@ const BottomDialog = ({ title, dialogTitle, children, buttons }) => {
         />
 
         <Dialog.Content
-          backgroundColor={'yellow'}
+          backgroundColor={'#FDBE00'}
           bordered
           elevate
           key="content"

@@ -5,17 +5,34 @@ import SelectDropdown from './SelectDropdown'; // Make sure this import is corre
 
 const RenderProductOptions = ({ options, selectedOptions, handleOptionChange }) => {
   return options?.map((option, index) => {
-    if (option.type === 'radio') {
+    const optionName = option.name;
+    const values = option.product_option_value || [];
+
+    if (option.type === 'radio' || option.type === 'checkbox') {
       return (
-        <YStack gap={5} marginTop={10} key={index}>
-          <Paragraph>{option.label}</Paragraph>
-          <XStack gap={5}>
-            {option.values.map((value) => (
+        <YStack gap={5} marginTop={10} key={option.product_option_id || index}>
+          <Paragraph fontWeight="600">{optionName}</Paragraph>
+          <XStack gap={8} flexWrap="wrap">
+            {values.map((value) => (
               <RadioButton
-                key={value}
-                label={value.charAt(0).toUpperCase() + value.slice(1)}
-                selected={selectedOptions[option.label] === value}
-                onPress={() => handleOptionChange(option.label, value)}
+                key={value.product_option_value_id}
+                label={value.name}
+                selected={
+                  option.type === 'checkbox'
+                    ? selectedOptions[optionName]?.includes(value.name)
+                    : selectedOptions[optionName] === value.name
+                }
+                onPress={() => {
+                  if (option.type === 'checkbox') {
+                    const current = selectedOptions[optionName] || [];
+                    const next = current.includes(value.name)
+                      ? current.filter(v => v !== value.name)
+                      : [...current, value.name];
+                    handleOptionChange(optionName, next);
+                  } else {
+                    handleOptionChange(optionName, value.name);
+                  }
+                }}
               />
             ))}
           </XStack>
@@ -23,17 +40,19 @@ const RenderProductOptions = ({ options, selectedOptions, handleOptionChange }) 
       );
     }
     else if (option.type === 'select') {
+      const selectOptions = values.map(v => ({ label: v.name, value: v.name }));
       return (
-        <YStack gap={5} marginTop={10} key={index}>
-          <Paragraph>{option.label}</Paragraph>
+        <YStack gap={5} marginTop={10} key={option.product_option_id || index}>
+          <Paragraph fontWeight="600">{optionName}</Paragraph>
           <SelectDropdown
-            options={option?.values}
-            selectedOption={selectedOptions[option?.label]}
-            onSelect={(value) => handleOptionChange(option?.label, value)}
+            options={selectOptions}
+            selectedOption={selectedOptions[optionName]}
+            onSelect={(value) => handleOptionChange(optionName, value)}
           />
         </YStack>
       );
     }
+    return null;
   });
 };
 
