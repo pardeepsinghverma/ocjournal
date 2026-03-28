@@ -6,7 +6,8 @@ import DescriptionAccordion from '../components/DescriptionAccordion';
 import { Button, Image, Paragraph, Text, View, XStack, YStack } from 'tamagui';
 import RenderProductOptions from '../components/options';
 import Carousel from 'react-native-reanimated-carousel';
-import productData from './../data/productView2.json';
+import productData from './../data/productView.json';
+import { Heart, TableOfContents } from '@tamagui/lucide-icons';
 
 const stripHtml = (html) => {
   if (!html) return '';
@@ -73,19 +74,32 @@ const ProductView = () => {
         <YStack padding={14} marginBottom={10} backgroundColor={'#ffffff'}>
           <XStack gap={5} justifyContent="space-between">
             <MTitle title={product.heading_title} marginBottom={0} />
-            <Icon name="heart-o" size={24} color="#000000" />
+            <Heart size="$1" />
           </XStack>
 
           <YStack gap={5}>
-            <Paragraph fontSize={12} lineHeight={16}>
+            {/* <Paragraph fontSize={12} lineHeight={16}>
               {stripHtml(product.description)}
-            </Paragraph>
+            </Paragraph> */}
             <XStack gap={5} alignItems="center">
-              <Paragraph lineHeight={16} marginBottom={6} numberOfLines={1} fontSize={16} fontWeight={600} color={'#000000'}>
+              <Paragraph
+                mb={6}
+                numberOfLines={1}
+                fontSize={18}
+                fontWeight="bold"
+                color="#000000"
+              >
                 {product.special ? product.special : product.price}
               </Paragraph>
+
               {product.special && (
-                <Paragraph lineHeight={12} marginBottom={6} numberOfLines={1} fontSize={12} textDecorationLine='line-through'>
+                <Paragraph
+                  mb={6}
+                  numberOfLines={1}
+                  fontSize={18}
+                  textDecorationLine="line-through"
+                  color="#888"
+                >
                   {product.price}
                 </Paragraph>
               )}
@@ -104,7 +118,18 @@ const ProductView = () => {
         
         <YStack padding={14} marginBottom={10} backgroundColor={'#ffffff'}>
           <DescriptionAccordion 
-            title="Product Details" 
+            title={
+              <XStack alignItems="center" space={4}>
+                <View
+                  padding={4}
+                  backgroundColor="#00000010"
+                  borderRadius={4}
+                >
+                  <TableOfContents size={20} />
+                </View>
+                <Text>Product Description</Text>
+              </XStack>
+            } 
             content={stripHtml(product.description)} 
           />
         </YStack>

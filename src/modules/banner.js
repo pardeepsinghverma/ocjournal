@@ -21,6 +21,7 @@ const Banners = ({ bannerData, imageDimensions }) => {
 };
 
 const Banner = ({ data, options }) => {
+  // console.log();
   return (
     <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
       {Object.keys(data).map((itemKey) => {

@@ -2636,7 +2636,7 @@
                                                     "between": true
                                                 },
                                                 "title": "",
-                                                "carousel": false,
+                                                "carousel": true,
                                                 "itemsPerRow": {
                                                     "c0": {
                                                         "0": {
@@ -2694,7 +2694,7 @@
                                                     "0": "module",
                                                     "1": "module-banners",
                                                     "2": "module-banners-382",
-                                                    "carousel-mode": false
+                                                    "carousel-mode": true
                                                 },
                                                 "carouselOptions": {
                                                     "speed": 800,
@@ -2721,7 +2721,7 @@
                                                         "classes": {
                                                             "0": "module-item",
                                                             "1": "module-item-1",
-                                                            "swiper-slide": false
+                                                            "swiper-slide": true
                                                         },
                                                         "image": "https://media.istockphoto.com/id/1399812399/photo/happy-asia-man-gamer-wear-headphone-competition-play-video-game-online-with-smartphone.jpg?s=612x612&w=0&k=20&c=hS_Xp0BrUdgQCyUZIG61UKYY6n9dtzr7VI7eLVttpLY=",
                                                         "image2x": "https://media.istockphoto.com/id/1399812399/photo/happy-asia-man-gamer-wear-headphone-competition-play-video-game-online-with-smartphone.jpg?s=612x612&w=0&k=20&c=hS_Xp0BrUdgQCyUZIG61UKYY6n9dtzr7VI7eLVttpLY=",
@@ -2746,7 +2746,7 @@
                                                         "classes": {
                                                             "0": "module-item",
                                                             "1": "module-item-2",
-                                                            "swiper-slide": false
+                                                            "swiper-slide": true
                                                         },
                                                         "image": "https://media.istockphoto.com/id/1923331533/photo/woman-tying-shoelace-of-classic-old-school-sneaker-on-brown-background-closeup.jpg?s=2048x2048&w=is&k=20&c=ZSzCw9lw_F177PDfGjVIrCvGNyVYZvL7FoxK-4x-6vs=",
                                                         "image2x": "https://media.istockphoto.com/id/1923331533/photo/woman-tying-shoelace-of-classic-old-school-sneaker-on-brown-background-closeup.jpg?s=2048x2048&w=is&k=20&c=ZSzCw9lw_F177PDfGjVIrCvGNyVYZvL7FoxK-4x-6vs=",
@@ -2771,7 +2771,7 @@
                                                         "classes": {
                                                             "0": "module-item",
                                                             "1": "module-item-3",
-                                                            "swiper-slide": false
+                                                            "swiper-slide": true
                                                         },
                                                         "image": "https://media.istockphoto.com/id/1399812399/photo/happy-asia-man-gamer-wear-headphone-competition-play-video-game-online-with-smartphone.jpg?s=612x612&w=0&k=20&c=hS_Xp0BrUdgQCyUZIG61UKYY6n9dtzr7VI7eLVttpLY=",
                                                         "image2x": "https://media.istockphoto.com/id/1399812399/photo/happy-asia-man-gamer-wear-headphone-competition-play-video-game-online-with-smartphone.jpg?s=612x612&w=0&k=20&c=hS_Xp0BrUdgQCyUZIG61UKYY6n9dtzr7VI7eLVttpLY=",
@@ -2796,7 +2796,7 @@
                                                         "classes": {
                                                             "0": "module-item",
                                                             "1": "module-item-4",
-                                                            "swiper-slide": false
+                                                            "swiper-slide": true
                                                         },
                                                         "image": "https://media.istockphoto.com/id/1457154007/photo/womans-hand-holds-the-laces-of-retro-80s-rubber-sneakers-on-a-yellow-background-fashion.jpg?s=2048x2048&w=is&k=20&c=I-KHtt5AU-K0ACqFfocfUFK5gXFYfk0IANGHGvhJ02w=",
                                                         "image2x": "https://media.istockphoto.com/id/1457154007/photo/womans-hand-holds-the-laces-of-retro-80s-rubber-sneakers-on-a-yellow-background-fashion.jpg?s=2048x2048&w=is&k=20&c=I-KHtt5AU-K0ACqFfocfUFK5gXFYfk0IANGHGvhJ02w=",
@@ -2821,7 +2821,7 @@
                                                         "classes": {
                                                             "0": "module-item",
                                                             "1": "module-item-5",
-                                                            "swiper-slide": false
+                                                            "swiper-slide": true
                                                         },
                                                         "image": "https://www.liveabout.com/thmb/RiNob8Ba9fkYiZWoEv3dpVtrZ9M=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-1305087324-91c290b6bbf84920be5f2c14ccc21eb9.jpg",
                                                         "image2x": "https://www.liveabout.com/thmb/RiNob8Ba9fkYiZWoEv3dpVtrZ9M=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-1305087324-91c290b6bbf84920be5f2c14ccc21eb9.jpg",
