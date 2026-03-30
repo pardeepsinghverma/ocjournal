@@ -7,7 +7,7 @@ import { Button, Image, Paragraph, Text, View, XStack, YStack } from 'tamagui';
 import RenderProductOptions from '../components/options';
 import Carousel from 'react-native-reanimated-carousel';
 import productData from './../data/productView.json';
-import { Heart, TableOfContents } from '@tamagui/lucide-icons';
+import { Heart, Star, TableOfContents } from '@tamagui/lucide-icons';
 
 const stripHtml = (html) => {
   if (!html) return '';
@@ -132,6 +132,67 @@ const ProductView = () => {
             } 
             content={stripHtml(product.description)} 
           />
+        </YStack>
+
+        {/* Product Reviews Section */}
+        <YStack padding={14} backgroundColor={'#ffffff'} marginBottom={100} gap={20}>
+          <XStack justifyContent="space-between" alignItems="center">
+            <MTitle title="Product Reviews" marginBottom={0} />
+            <XStack alignItems="center" gap={4}>
+              <Star size={16} fill="#febf00" color="#febf00" />
+              <Text fontWeight="bold">{product.rating || '4.5'}</Text>
+              <Text color="#888">({product.reviews?.length || 0})</Text>
+            </XStack>
+          </XStack>
+
+          {product.reviews && product.reviews.length > 0 ? (
+            product.reviews.map((item, index) => (
+              <YStack key={item.id} gap={10} borderBottomWidth={index === product.reviews.length - 1 ? 0 : 1} borderBottomColor="#f0f0f0" paddingBottom={15}>
+                <XStack alignItems="center" gap={10}>
+                  <Image 
+                    src={item.avatar} 
+                    style={{ width: 40, height: 40, borderRadius: 20 }} 
+                  />
+                  <YStack>
+                    <Text fontWeight="bold">{item.author}</Text>
+                    <XStack gap={2}>
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Star 
+                          key={star} 
+                          size={12} 
+                          fill={star <= item.rating ? "#febf00" : "transparent"} 
+                          color="#febf00" 
+                        />
+                      ))}
+                    </XStack>
+                  </YStack>
+                </XStack>
+
+                <Paragraph numberOfLines={2} fontSize={14} color="#333">
+                  {item.text}
+                </Paragraph>
+
+                {item.images && item.images.length > 0 && (
+                  <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 12 }}>
+                    {item.images.map((img, imgIndex) => (
+                      <Image 
+                        key={imgIndex}
+                        src={img}
+                        style={{ 
+                          width: (Dimensions.get('window').width - 68) / 3.4, 
+                          height: 100, 
+                          borderRadius: 8,
+                          backgroundColor: '#f5f5f5'
+                        }} 
+                      />
+                    ))}
+                  </ScrollView>
+                )}
+              </YStack>
+            ))
+          ) : (
+            <Text color="#888">No reviews yet.</Text>
+          )}
         </YStack>
       </ScrollView>
 

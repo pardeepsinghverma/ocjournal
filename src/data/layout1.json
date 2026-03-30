@@ -2644,7 +2644,7 @@
                                                             "spacing": 30
                                                         },
                                                         "760": {
-                                                            "items": 3,
+                                                            "items": 2,
                                                             "spacing": 10
                                                         }
                                                     },
@@ -2800,31 +2800,6 @@
                                                         },
                                                         "image": "https://media.istockphoto.com/id/1457154007/photo/womans-hand-holds-the-laces-of-retro-80s-rubber-sneakers-on-a-yellow-background-fashion.jpg?s=2048x2048&w=is&k=20&c=I-KHtt5AU-K0ACqFfocfUFK5gXFYfk0IANGHGvhJ02w=",
                                                         "image2x": "https://media.istockphoto.com/id/1457154007/photo/womans-hand-holds-the-laces-of-retro-80s-rubber-sneakers-on-a-yellow-background-fashion.jpg?s=2048x2048&w=is&k=20&c=I-KHtt5AU-K0ACqFfocfUFK5gXFYfk0IANGHGvhJ02w=",
-                                                        "text": null,
-                                                        "items": []
-                                                    },
-                                                    "5": {
-                                                        "title": "Big Sale",
-                                                        "title2": "Trending Vibes",
-                                                        "title3": "",
-                                                        "alt": "",
-                                                        "link": {
-                                                            "type": "page",
-                                                            "id": "",
-                                                            "href": "https:\/\/dev301.fathershops-test.xyz\/",
-                                                            "name": "",
-                                                            "total": null,
-                                                            "attrs": [],
-                                                            "classes": []
-                                                        },
-                                                        "id": "382-5",
-                                                        "classes": {
-                                                            "0": "module-item",
-                                                            "1": "module-item-5",
-                                                            "swiper-slide": true
-                                                        },
-                                                        "image": "https://www.liveabout.com/thmb/RiNob8Ba9fkYiZWoEv3dpVtrZ9M=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-1305087324-91c290b6bbf84920be5f2c14ccc21eb9.jpg",
-                                                        "image2x": "https://www.liveabout.com/thmb/RiNob8Ba9fkYiZWoEv3dpVtrZ9M=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-1305087324-91c290b6bbf84920be5f2c14ccc21eb9.jpg",
                                                         "text": null,
                                                         "items": []
                                                     }

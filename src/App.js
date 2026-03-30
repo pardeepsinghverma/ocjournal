@@ -47,7 +47,7 @@ function AppContainer() {
       <Stack.Navigator initialRouteName="main">
         <Stack.Screen name="main" component={DrawerNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="catalog" component={CatalogScreen} />
-        <Stack.Screen name="productView" component={ProductView} options={{}} />
+        <Stack.Screen name="productView" component={ProductView} options={{headerTitle: ""}} />
         <Stack.Screen name="checkoutNavigation" component={CheckoutNavigation} options={{ headerShown: false }} />
         <Stack.Screen name="myorders" component={MyOrders} />
         <Stack.Screen name="myaddresses" component={MyAddresses} />
