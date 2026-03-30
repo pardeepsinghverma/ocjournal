@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import { Dimensions, ScrollView } from 'react-native';
 import MTitle from '../components/MTitle';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -26,11 +26,23 @@ const stripHtml = (html) => {
 const ProductView = () => {
   const product = productData;
   const [selectedOptions, setSelectedOptions] = useState({});
+  const [isWishlist, setIsWishlist] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef(null);
 
-  // Carousel images from JSON or fallback
-  const slides = product.images && product.images.length > 0 
-    ? product.images.map(img => ({ image: img.image || img.popup, text: product.heading_title }))
-    : [{ image: 'https://img-cdn.pixlr.com/image-generator/demo/pixlr-image-generator-example-3.webp', text: product.heading_title }];
+  // Memoize slides to prevent unnecessary carousel re-renders
+  const slides = useMemo(() => {
+    if (product.images && product.images.length > 0) {
+      return product.images.map(img => ({ 
+        image: img.image || img.popup, 
+        text: product.heading_title 
+      }));
+    }
+    return [{ 
+      image: 'https://img-cdn.pixlr.com/image-generator/demo/pixlr-image-generator-example-3.webp', 
+      text: product.heading_title 
+    }];
+  }, [product.images, product.heading_title]);
 
   // Function to handle option selection
   const handleOptionChange = (optionLabel, value) => {
@@ -44,6 +56,7 @@ const ProductView = () => {
     <View style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
       <ScrollView style={{ flex: 1 }}>
         <Carousel
+          ref={carouselRef}
           loop={true}
           width={Dimensions.get('window').width}
           height={400}
@@ -62,6 +75,8 @@ const ProductView = () => {
           panGestureHandlerProps={{
             activeOffsetX: [-10, 10],
           }}
+          onSnapToItem={(index) => setActiveIndex(index)}
+          windowSize={3}
           data={slides}
           renderItem={({ item }) => (
             <Image 
@@ -70,11 +85,34 @@ const ProductView = () => {
             />
           )}
         />
+        
+        <XStack gap={5} justifyContent="flex-end" marginBottom={10} marginTop={-50} paddingRight={10}>
+          <Heart size="$1" onPress={() => setIsWishlist(!isWishlist)} color={isWishlist ? '#ff0000' : '#000000'} />
+        </XStack>
 
-        <YStack padding={14} marginBottom={10} backgroundColor={'#ffffff'}>
+        {/* Pagination Dots */}
+        <XStack 
+          width="100%" 
+          justifyContent="center" 
+          gap={6}
+          paddingVertical={15}
+          backgroundColor="#ffffff"
+        >
+          {slides.map((_, index) => (
+            <View 
+              key={index}
+              onPress={() => carouselRef.current?.scrollTo({ index, animated: true })}
+              width={activeIndex === index ? 20 : 8}
+              height={8}
+              borderRadius={4}
+              backgroundColor={activeIndex === index ? '#000000' : '#00000040'}
+            />
+          ))}
+        </XStack>
+
+        <YStack padding={14} marginTop={0}>
           <XStack gap={5} justifyContent="space-between">
             <MTitle title={product.heading_title} marginBottom={0} />
-            <Heart size="$1" />
           </XStack>
 
           <YStack gap={5}>

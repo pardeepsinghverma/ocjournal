@@ -7,17 +7,27 @@ import { Button, Text } from 'tamagui';
 const RadioButton = ({ label, selected, onPress }) => {
   return (
     <Button
-      backgroundColor={selected ? '#FDBE00' : 'transparent'}
+      backgroundColor={selected ? '#000000' : 'transparent'}
       borderWidth={1}
-      borderColor={selected ? '#FDBE00' : '#000000'}
+      borderColor={selected ? '#000000' : '#000000'}
       borderRadius={8}
       padding={10}
       onPress={onPress}
-      hoverStyle={{ backgroundColor: '#f0f0f0' }}
-      focusStyle={{ backgroundColor: '#f0f0f0' }}
+      hoverStyle={{
+        backgroundColor: selected ? '#000000' : 'transparent',
+        borderColor: selected ? '#000000' : '#000000'
+      }}
+      focusStyle={{
+        backgroundColor: selected ? '#000000' : 'transparent',
+        borderColor: selected ? '#000000' : '#000000'
+      }}
+      pressStyle={{
+        backgroundColor: selected ? '#000000' : 'transparent',
+        borderColor: selected ? '#000000' : '#000000'
+      }}
     >
       {/* <Check size={16} color={selected ? 'black' : 'transparent'} /> */}
-      <Text fontSize={14}>{label}</Text>
+      <Text color={selected ? '#ffffff' : '#000000'} fontSize={14}>{label}</Text>
     </Button>
   );
 };
