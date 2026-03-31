@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Animated, { useAnimatedStyle } from 'react-native-reanimated';
 import { Button } from 'tamagui';
 
-export const SlideItem = (props) => {
+export const SlideItem = memo((props) => {
   const {
     style,
     index = 0,
@@ -53,9 +53,9 @@ export const SlideItem = (props) => {
       )}
     </Animated.View>
   );
-};
+});
 
-const ChildItem = ({ child, childIndex, currentIndex }) => {
+const ChildItem = memo(({ child, childIndex, currentIndex }) => {
   const animatedStyle = useAnimatedStyle(() => {
     return {
       opacity: currentIndex.value === Number(childIndex) ? 1 : 0.5,
@@ -88,7 +88,7 @@ const ChildItem = ({ child, childIndex, currentIndex }) => {
     );
   }
   return null;
-};
+});
 
 const styles = StyleSheet.create({
   container: {

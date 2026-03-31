@@ -9,6 +9,7 @@ import Carousel from 'react-native-reanimated-carousel';
 import productData from './../data/productView.json';
 import { Heart, Star, TableOfContents } from '@tamagui/lucide-icons';
 
+// Helper to strip HTML from product descriptions
 const stripHtml = (html) => {
   if (!html) return '';
   return html
@@ -23,12 +24,71 @@ const stripHtml = (html) => {
     .trim();
 };
 
+// Component for the Product Image Carousel to isolate re-renders and fix Reanimated warnings
+const ProductImageCarousel = ({ slides }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef(null);
+
+  return (
+    <>
+      <Carousel
+        ref={carouselRef}
+        loop={true}
+        width={Dimensions.get('window').width}
+        height={400}
+        mode="parallax"
+        modeConfig={{
+          parallaxScrollingScale: 1,
+          parallaxScrollingOffset: 10,
+          parallaxAdjacentItemScale: 1,
+        }}
+        spacing={10}
+        snapEnabled={true}
+        pagingEnabled={true}
+        autoPlayInterval={2000}
+        autoPlay={false}
+        quickSnap={true}
+        panGestureHandlerProps={{
+          activeOffsetX: [-10, 10],
+        }}
+        onSnapToItem={(index) => setActiveIndex(index)}
+        windowSize={3}
+        data={slides}
+        renderItem={({ item }) => (
+          <Image 
+            src={item.image} 
+            style={{ width: Dimensions.get('window').width, height: '100%' }} 
+          />
+        )}
+      />
+
+      {/* Pagination Dots */}
+      <XStack 
+        width="100%" 
+        justifyContent="center" 
+        gap={6}
+        paddingVertical={15}
+        backgroundColor="#ffffff"
+      >
+        {slides.map((_, index) => (
+          <View 
+            key={index}
+            onPress={() => carouselRef.current?.scrollTo({ index, animated: true })}
+            width={activeIndex === index ? 20 : 8}
+            height={8}
+            borderRadius={4}
+            backgroundColor={activeIndex === index ? '#000000' : '#00000040'}
+          />
+        ))}
+      </XStack>
+    </>
+  );
+};
+
 const ProductView = () => {
   const product = productData;
   const [selectedOptions, setSelectedOptions] = useState({});
   const [isWishlist, setIsWishlist] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const carouselRef = useRef(null);
 
   // Memoize slides to prevent unnecessary carousel re-renders
   const slides = useMemo(() => {
@@ -55,59 +115,10 @@ const ProductView = () => {
   return (
     <View style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
       <ScrollView style={{ flex: 1 }}>
-        <Carousel
-          ref={carouselRef}
-          loop={true}
-          width={Dimensions.get('window').width}
-          height={400}
-          mode="parallax"
-          modeConfig={{
-            parallaxScrollingScale: 1,
-            parallaxScrollingOffset: 10,
-            parallaxAdjacentItemScale: 1,
-          }}
-          spacing={10}
-          snapEnabled={true}
-          pagingEnabled={true}
-          autoPlayInterval={2000}
-          autoPlay={false}
-          quickSnap={true}
-          panGestureHandlerProps={{
-            activeOffsetX: [-10, 10],
-          }}
-          onSnapToItem={(index) => setActiveIndex(index)}
-          windowSize={3}
-          data={slides}
-          renderItem={({ item }) => (
-            <Image 
-              src={item.image} 
-              style={{ width: Dimensions.get('window').width, height: '100%' }} 
-            />
-          )}
-        />
-        
-        <XStack gap={5} justifyContent="flex-end" marginBottom={10} marginTop={-50} paddingRight={10}>
-          <Heart size="$1" onPress={() => setIsWishlist(!isWishlist)} color={isWishlist ? '#ff0000' : '#000000'} />
-        </XStack>
+        <ProductImageCarousel slides={slides} />
 
-        {/* Pagination Dots */}
-        <XStack 
-          width="100%" 
-          justifyContent="center" 
-          gap={6}
-          paddingVertical={15}
-          backgroundColor="#ffffff"
-        >
-          {slides.map((_, index) => (
-            <View 
-              key={index}
-              onPress={() => carouselRef.current?.scrollTo({ index, animated: true })}
-              width={activeIndex === index ? 20 : 8}
-              height={8}
-              borderRadius={4}
-              backgroundColor={activeIndex === index ? '#000000' : '#00000040'}
-            />
-          ))}
+        <XStack gap={5} justifyContent="flex-end" marginBottom={40} marginTop={-80} paddingRight={10} zIndex={20}>
+          <Heart size="$1" onPress={() => setIsWishlist(!isWishlist)} color={isWishlist ? '#ff0000' : '#000000'} />
         </XStack>
 
         <YStack padding={14} marginTop={0}>
