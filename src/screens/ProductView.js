@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo, useLayoutEffect } from 'react';
 import { Dimensions, ScrollView } from 'react-native';
 import MTitle from '../components/MTitle';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -8,6 +8,8 @@ import RenderProductOptions from '../components/options';
 import Carousel from 'react-native-reanimated-carousel';
 import productData from './../data/productView.json';
 import { Heart, Star, TableOfContents } from '@tamagui/lucide-icons';
+import { useNavigation } from '@react-navigation/native';
+import HeaderActions from '../components/HeaderActions';
 
 // Helper to strip HTML from product descriptions
 const stripHtml = (html) => {
@@ -87,8 +89,24 @@ const ProductImageCarousel = ({ slides }) => {
 
 const ProductView = () => {
   const product = productData;
+  const navigation = useNavigation();
   const [selectedOptions, setSelectedOptions] = useState({});
   const [isWishlist, setIsWishlist] = useState(false);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <HeaderActions 
+          actions={['share', 'wishlist', 'cart']}
+          shareData={{
+            title: product.heading_title,
+            message: `Check out ${product.heading_title} on OC Journal`,
+            url: `https://yourstore.com/product/${product.product_id || ''}` // Placeholder URL
+          }}
+        />
+      ),
+    });
+  }, [navigation, isWishlist, product.heading_title]);
 
   // Memoize slides to prevent unnecessary carousel re-renders
   const slides = useMemo(() => {
@@ -117,9 +135,26 @@ const ProductView = () => {
       <ScrollView style={{ flex: 1 }}>
         <ProductImageCarousel slides={slides} />
 
-        <XStack gap={5} justifyContent="flex-end" marginBottom={40} marginTop={-80} paddingRight={10} zIndex={20}>
-          <Heart size="$1" onPress={() => setIsWishlist(!isWishlist)} color={isWishlist ? '#ff0000' : '#000000'} />
+        <XStack gap={5} justifyContent="flex-end" marginBottom={40} marginTop={-85} paddingRight={10} zIndex={20}>
+          <View 
+            backgroundColor="#ffffff" 
+            padding={8} 
+            borderRadius={20} 
+            elevation={5} 
+            shadowColor="#000" 
+            shadowOffset={{ width: 0, height: 2 }} 
+            shadowOpacity={0.2} 
+            shadowRadius={3}
+            onPress={() => setIsWishlist(!isWishlist)}
+          >
+            <Heart 
+              size={20} 
+              fill={isWishlist ? '#ff0000' : 'transparent'} 
+              color={isWishlist ? '#ff0000' : '#000000'} 
+            />
+          </View>
         </XStack>
+
 
         <YStack padding={14} marginTop={0}>
           <XStack gap={5} justifyContent="space-between">
@@ -262,10 +297,11 @@ const ProductView = () => {
         shadowRadius={4}
       >
         <Button 
-          icon={<Icon name="heart-o" size={20} color="#000000" />} 
+          icon={<Heart size={20} fill={isWishlist ? '#ff0000' : 'transparent'} color={isWishlist ? '#ff0000' : '#000000'} />} 
           circular 
           backgroundColor={'#f5f5f5'} 
           borderWidth={0}
+          onPress={() => setIsWishlist(!isWishlist)}
         />
         <XStack flex={1} gap={10}>
           <Button 

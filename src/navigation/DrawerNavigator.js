@@ -10,9 +10,7 @@ import { Image, Text, View } from 'tamagui';
 import { TouchableOpacity } from 'react-native';
 import {
   Search,
-  Heart,
   ShoppingCart,
-  Bell,
   User,
   ShoppingBasket,
   Locate,
@@ -21,6 +19,7 @@ import DescriptionAccordion from '../components/DescriptionAccordion';
 import MAccordion from '../components/MAccordion';
 import { useNavigation } from '@react-navigation/native';
 import HeaderLogo from '../components/HeaderLogo';
+import HeaderActions from '../components/HeaderActions';
 
 const Drawer = createDrawerNavigator();
 
@@ -133,26 +132,7 @@ export default function DrawerNavigator() {
         },
         headerTintColor: '#000',
         headerRight: () => (
-          <View
-            marginEnd={10}
-            flexDirection="row"
-            gap={20}
-            alignItems="center"
-          >
-            {[
-              { icon: <Search size={22} color="#000" />, navigate: 'search' },
-              { icon: <Bell size={22} color="#000" />, navigate: 'notification' },
-              { icon: <Heart size={22} color="#000" />, navigate: 'wishlist' },
-              { icon: <ShoppingCart size={22} color="#000" />, navigate: 'cart' },
-            ].map((item, index) => (
-              <TouchableOpacity
-                key={index}
-                onPress={() => navigation.navigate(item.navigate)}
-              >
-                {item.icon}
-              </TouchableOpacity>
-            ))}
-          </View>
+          <HeaderActions actions={['search', 'bell', 'wishlist', 'cart']} />
         ),
         headerTitle: () => <HeaderLogo />,
         drawerItemStyle: {
