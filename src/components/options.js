@@ -17,6 +17,7 @@ const RenderProductOptions = ({ options, selectedOptions, handleOptionChange }) 
               <RadioButton
                 key={value.product_option_value_id}
                 label={value.name}
+                image={value.image}
                 selected={
                   option.type === 'checkbox'
                     ? selectedOptions[optionName]?.includes(value.name)

@@ -1,6 +1,6 @@
 import { Plus } from '@tamagui/lucide-icons';
 import React from 'react';
-import { Accordion, Paragraph, Square } from 'tamagui';
+import { Accordion, Paragraph, Square, View } from 'tamagui';
 
 const DescriptionAccordion = ({ title, content, ...props }) => {
   return (
@@ -9,7 +9,7 @@ const DescriptionAccordion = ({ title, content, ...props }) => {
         <Accordion.Trigger flexDirection="row" width={'100%'} justifyContent="space-between" alignItems="center">
           {({ open }) => (
             <>
-              <Paragraph>{title}</Paragraph>
+              <View flex={1}>{title}</View>
               <Square animation="quick" rotate={open ? '180deg' : '0deg'}>
                 <Plus size={20} />
               </Square>
@@ -18,7 +18,7 @@ const DescriptionAccordion = ({ title, content, ...props }) => {
         </Accordion.Trigger>
         <Accordion.HeightAnimator animation="medium">
           <Accordion.Content animation="medium" exitStyle={{ opacity: 0 }}>
-            <Paragraph>{content}</Paragraph>
+            <Paragraph opacity={0.7}>{content}</Paragraph>
           </Accordion.Content>
         </Accordion.HeightAnimator>
       </Accordion.Item>

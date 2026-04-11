@@ -9,7 +9,7 @@
             "href": "http:\/\/localhost:8080\/index.php?route=product\/product&amp;language=en-gb&amp;product_id=850"
         }
     ],
-    "heading_title": "Shipadoo Wireless Keyboard and Mouse Combo Set, Wireless Gaming Laptop Desk Accessories, Free Wireless Mouse",
+    "heading_title": "Men's Black Go Rogue Color Block Oversized Track Pants",
     "text_minimum": "This product has a minimum quantity of 1",
     "text_login": "Please <a href=\"http:\/\/localhost:8080\/index.php?route=account\/login&amp;language=en-gb\">login<\/a> or <a href=\"http:\/\/localhost:8080\/index.php?route=account\/register&amp;language=en-gb\">register<\/a> to review",
     "text_reviews": "0 reviews",
@@ -24,7 +24,7 @@
     "product_codes": [],
     "reward": null,
     "points": "96",
-    "description": "<p>Demo product Pendant Light description, along with any other tab can be displayed as tabs, accordion or all-visible blocks in grid format or one under the other.&nbsp; You can mix and match tabs and blocks in any order and any position. Each tab can also be set up as a link and point to other pages or open popup modules. Optional \"Show More\" collapsible block content is also available as an option for large and tall descriptions or custom content.<\/p>\r\n\r\n<p><img src=\"https:\/\/storage.journal-theme.com\/apps\/files_sharing\/publicpreview\/W7RH9MKdHoZJex4?x=3992&amp;y=2236&amp;a=true&amp;file=imac.jpg&amp;scalingup=0\" \/><\/p>\r\n\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<\/p>",
+    "description": "<div class=`pb-3 font-medium text-[#737E93] text-[12px] [&amp;_ol]:p-[revert] [&amp;_ul]:p-[revert] [&amp;_li]:p-[revert]`><div class=`pb-3`>These Men's Deep Moss Green Color Block Oversized Track Pants balance earthy tones with edgy vibes. Match with a cropped sweatshirt and chunky sneakers.<br>Country of Origin - india<br><br> Manufactured By - Bewakoof Brands Pvt Ltd,<br> Sairaj logistic hub #A5, BMC pipeline road, Opposite all saints high school, Amane, Bhiwandi, Thane, Maharashtra 421302<br><br> Packed By - Bewakoof Brands Pvt Ltd,<br> Sairaj logistic hub #A5, BMC pipeline road, Opposite all saints high school, Amane, Bhiwandi, Thane, Maharashtra 421302<br><br> Commodity – Men Track Pant<br></div><div class=`pl-3 mb-2`>Product Specifications</div><ul class=`pl-6 list-disc`><li class=`mb-1`>Oversized fit - Super Loose On Body Thoda Hawa Aane De</li><li class=`mb-1`>60/40 Cp, Interlock, 260 Gsm fabric - Soft &amp; Durable</li></ul></div>",
     "stock": "2-3 Days",
     "rating": 0,
     "review_status": 1,
@@ -39,27 +39,27 @@
     "discounts": [],
     "images": [
         {
-            "image": "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_aesa_1005009232552917.jpg",
+            "image": "https://images.bewakoof.com/t1080/men-s-black-go-rogue-color-block-oversized-track-pants-666391-1754630922-1.jpg",
             "sort_order": "h"
         },
         {
-            "image": "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_371453.jpg",
+            "image": "https://images.bewakoof.com/t1080/men-s-black-color-block-oversized-wide-leg-track-pants-666391-1750312328-2.jpg",
             "sort_order": "h"
         },
         {
-            "image": "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_371453_jpg.jpg",
+            "image": "https://images.bewakoof.com/t1080/men-s-black-color-block-oversized-wide-leg-track-pants-666391-1750312332-4.jpg",
             "sort_order": "h"
         },
         {
-            "image": "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_371453_jpg_jpg.jpg",
+            "image": "https://images.bewakoof.com/t1080/men-s-black-color-block-oversized-wide-leg-track-pants-666391-1750312337-5.jpg",
             "sort_order": "h"
         },
         {
-            "image": "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_371453_jpg_jpg_jpg.jpg",
+            "image": "https://images.bewakoof.com/t1080/men-s-black-color-block-oversized-wide-leg-track-pants-666391-1750312342-6.jpg",
             "sort_order": "h"
         },
         {
-            "image": "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_371453_jpg_jpg_jpg_jpg.jpg",
+            "image": "https://images.bewakoof.com/t1080/men-s-black-color-block-oversized-wide-leg-track-pants-666391-1750312351-8.jpg",
             "sort_order": "h"
         }
     ],
@@ -209,7 +209,7 @@
         {
             "product_option_value": [
                 {
-                    "image": "",
+                    "image": "https://images.bewakoof.com/t1080/men-s-black-go-rogue-color-block-oversized-track-pants-666391-1754630922-1.jpg",
                     "price": false,
                     "product_option_value_id": "63",
                     "product_option_id": "24",
@@ -225,10 +225,10 @@
                     "weight_prefix": "+",
                     "sort_order": "1",
                     "language_id": "1",
-                    "name": "Radio 1"
+                    "name": "Black"
                 },
                 {
-                    "image": "",
+                    "image": "https://images.bewakoof.com/t1080/men-s-black-color-block-oversized-wide-leg-track-pants-666391-1750312328-2.jpg",
                     "price": "$20.00",
                     "product_option_value_id": "64",
                     "product_option_id": "24",
@@ -244,7 +244,7 @@
                     "weight_prefix": "+",
                     "sort_order": "2",
                     "language_id": "1",
-                    "name": "Radio 2"
+                    "name": "Grey"
                 },
                 {
                     "image": "",
@@ -351,11 +351,10 @@
             "date": "2024-03-20",
             "text": "Excellent product! The design is sleek and the performance is outstanding. Highly recommend to everyone looking for a quality keyboard and mouse combo.",
             "images": [
-                "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_aesa_1005009232552917.jpg",
-                "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_371453.jpg",
-                "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_371453_jpg.jpg",
-                "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_371453_jpg_jpg.jpg",
-                "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_371453_jpg_jpg_jpg.jpg"
+                "https://images.bewakoof.com/t1080/men-s-black-go-rogue-color-block-oversized-track-pants-666391-1754630922-1.jpg",
+                "https://images.bewakoof.com/t1080/men-s-black-color-block-oversized-wide-leg-track-pants-666391-1750312328-2.jpg",
+                "https://images.bewakoof.com/t1080/men-s-black-color-block-oversized-wide-leg-track-pants-666391-1750312342-6.jpg",
+                "https://images.bewakoof.com/t1080/men-s-black-color-block-oversized-wide-leg-track-pants-666391-1750312356-9.jpg"
             ]
         },
         {
@@ -366,8 +365,8 @@
             "date": "2024-03-18",
             "text": "Good value for money. The keys feel nice and have a satisfying click. The wireless connection is very stable even from a distance.",
             "images": [
-                "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_371453_jpg_jpg_jpg.jpg",
-                "https://cdn.fatherstock.com/f-images/catalog/1005009232552917/product_image_371453_jpg_jpg_jpg_jpg.jpg"
+                "https://images.bewakoof.com/t1080/men-s-black-color-block-oversized-wide-leg-track-pants-666391-1750312328-2.jpg",
+                "https://images.bewakoof.com/t1080/men-s-black-color-block-oversized-wide-leg-track-pants-666391-1750312342-6.jpg"
             ]
         }
     ]

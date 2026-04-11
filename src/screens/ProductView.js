@@ -15,7 +15,9 @@ import HeaderActions from '../components/HeaderActions';
 const stripHtml = (html) => {
   if (!html) return '';
   return html
-    .replace(/<[^>]*>?/gm, '')
+    .replace(/<br\s*\/?>/gi, '\n') // Convert <br> to \n
+    .replace(/<\/p>/gi, '\n\n')    // Convert </p> to double \n
+    .replace(/<[^>]*>?/gm, '')     // Strip remaining tags
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"')
@@ -37,7 +39,7 @@ const ProductImageCarousel = ({ slides }) => {
         ref={carouselRef}
         loop={true}
         width={Dimensions.get('window').width}
-        height={400}
+        height={540}
         mode="parallax"
         modeConfig={{
           parallaxScrollingScale: 1,
@@ -131,24 +133,18 @@ const ProductView = () => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#f5f5f5' }}>
+    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <ScrollView style={{ flex: 1 }}>
         <ProductImageCarousel slides={slides} />
 
-        <XStack gap={5} justifyContent="flex-end" marginBottom={40} marginTop={-85} paddingRight={10} zIndex={20}>
+        <XStack gap={5} justifyContent="flex-end" marginBottom={26} marginTop={-90} paddingRight={20} zIndex={20}>
           <View 
-            backgroundColor="#ffffff" 
             padding={8} 
             borderRadius={20} 
-            elevation={5} 
-            shadowColor="#000" 
-            shadowOffset={{ width: 0, height: 2 }} 
-            shadowOpacity={0.2} 
-            shadowRadius={3}
             onPress={() => setIsWishlist(!isWishlist)}
           >
             <Heart 
-              size={20} 
+              size={26} 
               fill={isWishlist ? '#ff0000' : 'transparent'} 
               color={isWishlist ? '#ff0000' : '#000000'} 
             />
@@ -157,7 +153,7 @@ const ProductView = () => {
 
 
         <YStack padding={14} marginTop={0}>
-          <XStack gap={5} justifyContent="space-between">
+          <XStack gap={5} justifyContent="space-between" marginBottom={10}>
             <MTitle title={product.heading_title} marginBottom={0} />
           </XStack>
 
@@ -192,7 +188,7 @@ const ProductView = () => {
           </YStack>
         </YStack>
 
-        <YStack padding={14} marginBottom={10} backgroundColor={'#ffffff'}>
+        <YStack padding={14} marginBottom={10}>
           <RenderProductOptions
             options={product.options}
             selectedOptions={selectedOptions}
@@ -200,10 +196,10 @@ const ProductView = () => {
           />
         </YStack>
         
-        <YStack padding={14} marginBottom={10} backgroundColor={'#ffffff'}>
+        <YStack padding={14} marginBottom={0}>
           <DescriptionAccordion 
             title={
-              <XStack alignItems="center" space={4}>
+              <XStack alignItems="center" gap={12}>
                 <View
                   padding={4}
                   backgroundColor="#00000010"
@@ -211,7 +207,7 @@ const ProductView = () => {
                 >
                   <TableOfContents size={20} />
                 </View>
-                <Text>Product Description</Text>
+                <Text fontSize={16}>Product Description</Text>
               </XStack>
             } 
             content={stripHtml(product.description)} 
@@ -219,7 +215,7 @@ const ProductView = () => {
         </YStack>
 
         {/* Product Reviews Section */}
-        <YStack padding={14} backgroundColor={'#ffffff'} marginBottom={100} gap={20}>
+        <YStack padding={14} marginBottom={0} gap={20}>
           <XStack justifyContent="space-between" alignItems="center">
             <MTitle title="Product Reviews" marginBottom={0} />
             <XStack alignItems="center" gap={4}>
