@@ -6,19 +6,30 @@ import Slider from '../components/Slider/Slider';
 const MasterSlider = ({data, options}) => {
     const mapSlides = (sliderData) => {
         if (!sliderData || typeof sliderData !== 'object') {
-          throw new Error('Invalid slider data');
+          return [];
         }
       
         // Transform the input data
-        return Object.values(sliderData).map((slide) => ({
-            id: parseInt(slide.category_id, 10), // Convert category_id to integer
-            image: slide.image, // Map the thumbnail as the image
-            children: Object.values(slide.items).map((child) => ({
-                    type: child.type,
-                    text: child.text,
-                    data: child.data,
-                }))
-        }));
+        return Object.values(sliderData).map((slide) => {
+            // In new home.json structure, the image is often a sub-item of type 'image'
+            let slideImage = slide.image;
+            if (!slideImage && slide.items) {
+                const imageLayer = Object.values(slide.items).find(item => item.type === 'image');
+                if (imageLayer) {
+                    slideImage = imageLayer.image;
+                }
+            }
+
+            return {
+                id: slide.id || Math.random().toString(), 
+                image: slideImage,
+                children: slide.items ? Object.values(slide.items).map((child) => ({
+                        type: child.type,
+                        text: child.text,
+                        data: child.data,
+                    })) : []
+            };
+        });
     };
     // console.log(mapSlides(data))
 

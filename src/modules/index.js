@@ -11,6 +11,7 @@ import Banner from './banner';
 
     const componentMap = {
         master_slider: MasterSlider,
+        slider: MasterSlider,
         products: Products,
         // info_blocks: info_blocks,
         banners: Banner,

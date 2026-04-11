@@ -14,7 +14,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RefreshControl, ScrollView } from 'react-native-gesture-handler';
 import apiRequest from '../../api/apiclient';
 import componentMap from '../../modules';
-import layoutData from './../../data/layout1.json'
+import layoutData from './../../data/home.json'
 import Slider from '../../components/Slider/Slider';
 
 const Stack = createNativeStackNavigator();
@@ -26,10 +26,11 @@ export default function HomeScreen() {
     // dispatch(setData({ name: "subDomain", data: "anmol111" }));
     // console.log(currentSubDomain);
   }
-  const [contentTop, setContentTop] = useState(layoutData.column_top.modules[0].rows);
-  const [header, setHeader] = useState(layoutData.header);
+  const [contentTop, setContentTop] = useState(layoutData._storefront.layout.top.rows);
+  const [contentBottom, setContentBottom] = useState(layoutData._storefront.layout.bottom.rows);
+  const [header, setHeader] = useState(null); // home.json lacks a direct header object
 
-  // console.log(header.logo);
+  // console.log(header?.logo);
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = () => {
@@ -50,7 +51,8 @@ export default function HomeScreen() {
       // const response = await fetch('https://dev301.fathershops-test.xyz/?mp=1');
       // const json = await response.json();
 
-      // setContentTop(json.column_top.modules[0].rows);
+      // setContentTop(json._storefront.layout.top.rows);
+      // setContentBottom(json._storefront.layout.bottom.rows);
 
       // console.log(json);
       // const data = await response.json();
@@ -68,13 +70,34 @@ export default function HomeScreen() {
     // console.log(layoutData)
   }, []);
 
-  // const ModuleComponent = componentMap['categories'];
-  // // console.log(ModuleComponent);
-  // return ModuleComponent ? (
+  const renderSection = (sectionRows) => {
+    if (!sectionRows) return null;
+    
+    return Object.keys(sectionRows).map((key) => {
+      const row = sectionRows[key];
+      const columns = row.columns;
 
-  //   <ModuleComponent key={1} data={[]} />
-  // ) : null;
+      return Object.keys(columns).map((columnKey) => {
+        const items = columns[columnKey].items;
 
+        return Object.keys(items).map((itemKey) => {
+          const item = items[itemKey];
+          // Use item.item.type and item.item.data for home.json
+          const mType = item.item.type;                
+          const mId = item.item.id;                
+          const ModuleComponent = componentMap[mType];
+          
+          return ModuleComponent ? (
+            <ModuleComponent
+              key={mId}
+              data={item.item.data.items || []}
+              options={item.item.data}
+            />
+          ) : null;
+        });
+      });
+    });
+  };
 
   return (
     <ScrollView
@@ -90,32 +113,8 @@ export default function HomeScreen() {
 
         {/* <Slider /> */}
 
-        {
-          contentTop &&
-          Object.keys(contentTop).map((key) => {
-            const row = contentTop[key];
-            const columns = row.columns;
-
-            return Object.keys(columns).map((columnKey) => {
-              const items = columns[columnKey].items;
-
-              return Object.keys(items).map((itemKey) => {
-                const item = items[itemKey];
-                const mType = item.item.module_type;                
-                const mId = item.item.module_id;                
-                const ModuleComponent = componentMap[mType];
-                
-                return ModuleComponent ? (
-                  <ModuleComponent
-                    key={item.item.module_id}
-                    data={item.item.options.items}
-                    options={item.item.options}
-                  />
-                ) : null;
-              });
-            });
-          })
-        }
+        {renderSection(contentTop)}
+        {renderSection(contentBottom)}
 
       </View>
       
