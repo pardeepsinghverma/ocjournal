@@ -1,6 +1,6 @@
 // src/linking.js
 const linking = {
-    prefixes: ['example://', 'https://example.com', 'http://example.com'],
+    prefixes: ['ocjournal://', 'example://', 'https://example.com', 'http://example.com'],
     config: {
       screens: {
         main: {
@@ -9,8 +9,12 @@ const linking = {
             subdomain: (subdomain) => `${subdomain}`,
           },
         },
-        child: 'child',
-        category: 'category',
+        productView: 'product/:productId',
+        catalog: 'catalog/:categoryId?',
+        search: 'search',
+        wishlist: 'wishlist',
+        cart: 'cart',
+        login: 'login',
       },
     },
   };

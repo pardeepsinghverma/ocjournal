@@ -22,6 +22,7 @@ import Cart from './screens/checkout/Cart';
 import Notification from './screens/Notification';
 import { GestureHandlerRootView, TextInput } from 'react-native-gesture-handler';
 import SearchHeader from './components/HeaderSearch';
+import CartToast from './components/CartToast';
 
 function AppContainer() {
   const subDomainRedux = useSelector(state => state.data.subDomain);
@@ -58,6 +59,7 @@ function AppContainer() {
         <Stack.Screen name="cart" component={Cart} />
         <Stack.Screen name="notification" component={Notification} />
       </Stack.Navigator>
+      <CartToast />
     </NavigationContainer>
   );
 }

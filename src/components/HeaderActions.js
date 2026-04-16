@@ -1,7 +1,8 @@
 import React from 'react';
 import { Share, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { XStack } from 'tamagui';
+import { useSelector } from 'react-redux';
+import { Text, View, XStack } from 'tamagui';
 import {
   Search,
   Share2,
@@ -9,6 +10,7 @@ import {
   Heart,
   ShoppingCart,
 } from '@tamagui/lucide-icons';
+import { selectCartCount } from '../store/cartSlice';
 
 /**
  * HeaderActions Component
@@ -29,6 +31,7 @@ const HeaderActions = ({
   onWishlistPress,
 }) => {
   const navigation = useNavigation();
+  const cartCount = useSelector(selectCartCount);
 
   const handleAction = async (type) => {
     switch (type) {
@@ -81,7 +84,29 @@ const HeaderActions = ({
           />
         );
       case 'cart':
-        return <ShoppingCart size={size} color={color} />;
+        return (
+          <View width={size + 8} height={size + 8} alignItems="center" justifyContent="center">
+            <ShoppingCart size={size} color={color} />
+            {cartCount > 0 ? (
+              <View
+                position="absolute"
+                top={-4}
+                right={-6}
+                minWidth={16}
+                height={16}
+                borderRadius={8}
+                backgroundColor="#d32f2f"
+                paddingHorizontal={4}
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Text color="#ffffff" fontSize={10} fontWeight="700" lineHeight={12}>
+                  {cartCount > 99 ? '99+' : cartCount}
+                </Text>
+              </View>
+            ) : null}
+          </View>
+        );
       default:
         return null;
     }

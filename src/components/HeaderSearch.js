@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
-import {
-  Search
-} from '@tamagui/lucide-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { Search } from '@tamagui/lucide-icons';
+
 export default function SearchHeader() {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const [query, setQuery] = useState(route?.params?.query ?? '');
+
+  const handleSubmit = () => {
+    const trimmed = query.trim();
+    if (!trimmed) return;
+    navigation.navigate('search', { query: trimmed });
+  };
+
   return (
     <View style={styles.container}>
       <Search size={20} color="#777" style={styles.icon} />
@@ -12,6 +22,10 @@ export default function SearchHeader() {
         style={styles.input}
         placeholderTextColor="#444444"
         color="#000000"
+        value={query}
+        onChangeText={setQuery}
+        onSubmitEditing={handleSubmit}
+        returnKeyType="search"
       />
     </View>
   );

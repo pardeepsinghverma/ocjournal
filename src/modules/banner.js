@@ -1,28 +1,41 @@
 import React from 'react';
-import { View, ImageBackground, Text, StyleSheet, useWindowDimensions } from 'react-native';
+import { View, ImageBackground, Text, StyleSheet, TouchableOpacity, useWindowDimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import getScaledDimensions from '../utils/getScaledDimensions';
 import { getPlaceholderImage } from '../utils/getImage';
 
 const Banners = ({ bannerData, imageDimensions, perRow, spacing }) => {
+  const navigation = useNavigation();
   const { width, height } = getScaledDimensions(
-    imageDimensions.width, 
-    imageDimensions.height, 
-    perRow, 
+    imageDimensions.width,
+    imageDimensions.height,
+    perRow,
     spacing
   );
-  
+
+  const handlePress = () => {
+    const link = bannerData.link || {};
+    if (link.product_id) {
+      navigation.navigate('productView', { productId: link.product_id });
+    } else if (link.category_id) {
+      navigation.navigate('catalog', { categoryId: link.category_id, categoryName: bannerData.title });
+    } else {
+      navigation.navigate('catalog');
+    }
+  };
+
   return (
-    <View style={{ width, height }}>
-      <ImageBackground 
-        source={{ uri: getPlaceholderImage(bannerData.image, width, height, 'Banner') }} 
+    <TouchableOpacity activeOpacity={0.85} onPress={handlePress} style={{ width, height }}>
+      <ImageBackground
+        source={{ uri: getPlaceholderImage(bannerData.image, width, height, 'Banner') }}
         style={[styles.imageBackground, { width, height }]}
-        imageStyle={{ borderRadius: 8 }} // Optional: Add rounded corners
+        imageStyle={{ borderRadius: 8 }}
       >
         <Text style={styles.text}>{bannerData.title}</Text>
         <Text style={styles.text}>{bannerData.title2}</Text>
         <Text style={styles.text}>{bannerData.title3}</Text>
       </ImageBackground>
-    </View>
+    </TouchableOpacity>
   );
 };
 

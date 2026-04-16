@@ -18,20 +18,27 @@ import {
 import DescriptionAccordion from '../components/DescriptionAccordion';
 import MAccordion from '../components/MAccordion';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
 import HeaderLogo from '../components/HeaderLogo';
 import HeaderActions from '../components/HeaderActions';
+import { logout } from '../store/authSlice';
 
 const Drawer = createDrawerNavigator();
 
 function CustomDrawerContent(props) {
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth?.isAuthenticated);
+
   const Navigation = [
-    { id: 1, label: 'Login', icon: <User size={22} />, type: 'screen', navigate: 'login' },
+    isAuthenticated
+      ? { id: 1, label: 'Logout', icon: <User size={22} />, type: 'action', action: 'logout' }
+      : { id: 1, label: 'Login', icon: <User size={22} />, type: 'screen', navigate: 'login' },
     { id: 2, label: 'Search', icon: <Search size={22} />, type: 'screen', navigate: 'search' },
-    { id: 3, label: 'New Product', icon: <ShoppingBasket size={22} />, type: 'screen', navigate: 'productView', parm: '34' },
+    { id: 3, label: 'New Product', icon: <ShoppingBasket size={22} />, type: 'screen', navigate: 'productView', params: { productId: '34' } },
     { id: 4, label: 'My Orders', icon: <ShoppingCart size={22} />, type: 'screen', navigate: 'myorders' },
     { id: 5, label: 'My Addresses', icon: <Locate size={22} />, type: 'screen', navigate: 'myaddresses' },
     { id: 6, label: 'My Profile', icon: <User size={22} />, type: 'screen', navigate: 'myprofile' },
-    { id: 7, label: 'Catalog', icon: <ShoppingBasket size={22} />, type: 'screen', navigate: 'Catalog', parm: '34' },
+    { id: 7, label: 'Catalog', icon: <ShoppingBasket size={22} />, type: 'screen', navigate: 'catalog', params: { categoryId: '34' } },
     {
       id: 8,
       label: 'Popular',
@@ -77,7 +84,7 @@ function CustomDrawerContent(props) {
                         <Text style={{ lineHeight: 14 }}>{child.label}</Text>
                       </View>
                     )}
-                    onPress={() => props.navigation.navigate(child.navigate)}
+                    onPress={() => props.navigation.navigate(child.navigate, child.params)}
                   />
                 ))}
               />
@@ -98,11 +105,14 @@ function CustomDrawerContent(props) {
                 {item.icon}
               </View>
             )}
-            onPress={() =>
-              item.type === 'screen'
-                ? props.navigation.navigate(item.navigate)
-                : null
-            }
+            onPress={() => {
+              if (item.type === 'screen') {
+                props.navigation.navigate(item.navigate, item.params);
+              } else if (item.type === 'action' && item.action === 'logout') {
+                dispatch(logout());
+                props.navigation.closeDrawer();
+              }
+            }}
           />
         )
       ))}

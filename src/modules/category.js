@@ -5,10 +5,10 @@ import MSection from '../components/MSection'
 import { useNavigation } from '@react-navigation/native'
 import { getPlaceholderImage } from '../utils/getImage'
 
-const CategoryCard = ({ category }) => { 
+const CategoryCard = ({ category }) => {
   const navigation = useNavigation();
     return (
-      <Card onPress={()=>{navigation.navigate('catalog')}} key={category.id} height={240} width={160} bordered overflow='hidden'>
+      <Card onPress={() => navigation.navigate('catalog', { categoryId: category.id, categoryName: category.name })} key={category.id} height={240} width={160} bordered overflow='hidden'>
         {/* <Card.Header padded>
           <H2 color={'white'}>Sony A7IV</H2>
         </Card.Header> */}
@@ -30,10 +30,10 @@ const CategoryCard = ({ category }) => {
     )
 }
 
-const CategoryRounded = ({ category }) => { 
+const CategoryRounded = ({ category }) => {
   const navigation = useNavigation();
     return (
-      <View>
+      <View onPress={() => navigation.navigate('catalog', { categoryId: category.id, categoryName: category.name })}>
         <Image
           objectFit='cover'
           alignSelf="center"
@@ -42,7 +42,7 @@ const CategoryRounded = ({ category }) => {
           borderRadius={10}
           src={getPlaceholderImage(category.image, 80, 80, 'Category')}
         />
-        <Text style={{ textAlign: 'center' }}>{category.name}</Text>  
+        <Text style={{ textAlign: 'center' }}>{category.name}</Text>
       </View>
     )
 }

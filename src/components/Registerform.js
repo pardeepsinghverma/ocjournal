@@ -3,7 +3,9 @@ import { Form, Field as FinalFormField } from 'react-final-form';
 import { Button, Spinner, Stack } from 'tamagui';
 import Field from '../modules/Field';
 
-const RegisterForm = ({ formFields }) => {
+const fieldName = (label) => label.toLowerCase().replace(/\s+/g, '_');
+
+const RegisterForm = ({ formFields, onSuccess, initialValues = {}, submitLabel = 'Submit' }) => {
     const [status, setStatus] = useState('idle');
 
     const onSubmit = async (values) => {
@@ -11,7 +13,11 @@ const RegisterForm = ({ formFields }) => {
         console.log(values);
         setTimeout(() => {
             setStatus('idle');
-            alert('Form submitted successfully!');
+            if (onSuccess) {
+                onSuccess(values);
+            } else {
+                alert('Form submitted successfully!');
+            }
         }, 2000);
     };
 
@@ -25,12 +31,13 @@ const RegisterForm = ({ formFields }) => {
     return (
         <Form
             onSubmit={onSubmit}
+            initialValues={initialValues}
             render={({ handleSubmit }) => (
                 <Stack padding="$4" space as="form" onSubmit={handleSubmit}>
                     {formFields.map((field, index) => (
                         <FinalFormField
                             key={index}
-                            name={field.label.toLowerCase().replace(' ', '_')}
+                            name={fieldName(field.label)}
                             validate={validateField(field.validation)}
                             render={({ input, meta }) => (
                                 <Field
@@ -48,7 +55,7 @@ const RegisterForm = ({ formFields }) => {
                         onPress={handleSubmit}
                         icon={status === 'submitting' ? () => <Spinner /> : undefined}
                     >
-                        Submit
+                        {submitLabel}
                     </Button>
                 </Stack>
             )}

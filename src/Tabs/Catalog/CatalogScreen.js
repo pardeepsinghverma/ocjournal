@@ -1,9 +1,20 @@
 // src/screens/HomeScreen.js
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { View, Text } from 'tamagui';
 import ProductGrid from '../../modules/productGrid';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 export default function CatalogScreen() {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const categoryId = route.params?.categoryId;
+  const categoryName = route.params?.categoryName;
+
+  useLayoutEffect(() => {
+    if (categoryName) {
+      navigation.setOptions({ title: categoryName });
+    }
+  }, [navigation, categoryName]);
 
   const item = {
     "products": {
@@ -803,7 +814,6 @@ export default function CatalogScreen() {
   }
 
   return (
-    <ProductGrid key={"s"} products={item.products} title={""} scroll={false} />
-    // <></>
+    <ProductGrid key={categoryId ?? 's'} products={item.products} title={categoryName ?? ''} scroll={false} />
   );
 }

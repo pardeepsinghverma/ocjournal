@@ -18,7 +18,7 @@ const ProductGridCard = ({ ProductGrid, scroll }) => {
 
   return (
     <Card
-      onPress={() => { navigation.navigate('productView') }}
+      onPress={() => navigation.navigate('productView', { productId: ProductGrid.id })}
       key={ProductGrid.id}
       height={height}
       width={width}

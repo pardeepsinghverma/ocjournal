@@ -1,7 +1,27 @@
 import React, { memo } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { useAnimatedStyle } from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native';
 import { Button } from 'tamagui';
+
+const resolveSlideLink = (link) => {
+  if (!link) return null;
+  if (typeof link === 'string') return { type: 'url', url: link };
+  if (link.product_id) return { type: 'product', productId: link.product_id };
+  if (link.category_id) return { type: 'category', categoryId: link.category_id };
+  if (link.href) return { type: 'url', url: link.href };
+  return null;
+};
+
+const navigateFromLink = (navigation, link) => {
+  const resolved = resolveSlideLink(link);
+  if (!resolved) return;
+  if (resolved.type === 'product') {
+    navigation.navigate('productView', { productId: resolved.productId });
+  } else if (resolved.type === 'category') {
+    navigation.navigate('catalog', { categoryId: resolved.categoryId });
+  }
+};
 
 export const SlideItem = memo((props) => {
   const {
@@ -14,6 +34,8 @@ export const SlideItem = memo((props) => {
     ...animatedViewProps
   } = props;
 
+  const navigation = useNavigation();
+
   const animatedOpacityStyle = useAnimatedStyle(() => {
     return {
       // opacity: currentIndex.value === index ? 1 : 0.5,
@@ -21,22 +43,26 @@ export const SlideItem = memo((props) => {
     };
   });
 
+  const handleSlidePress = () => navigateFromLink(navigation, slideData?.link);
+
   return (
     <Animated.View
       testID={testID}
       style={{ width: '95%', flex: 1 }}
       {...animatedViewProps}
     >
-      <Animated.Image
-        style={[
-          style,
-          styles.container,
-          rounded && { borderRadius: 15 },
-          animatedOpacityStyle,
-        ]}
-        source={{ uri: slideData.image }}
-        resizeMode="cover"
-      />
+      <TouchableOpacity activeOpacity={0.9} onPress={handleSlidePress} style={{ flex: 1 }}>
+        <Animated.Image
+          style={[
+            style,
+            styles.container,
+            rounded && { borderRadius: 15 },
+            animatedOpacityStyle,
+          ]}
+          source={{ uri: slideData.image }}
+          resizeMode="cover"
+        />
+      </TouchableOpacity>
       {slideData?.children && (
         <View style={styles.overlay}>
           <View style={styles.overlayTextContainer}>
@@ -56,6 +82,7 @@ export const SlideItem = memo((props) => {
 });
 
 const ChildItem = memo(({ child, childIndex, currentIndex }) => {
+  const navigation = useNavigation();
   const animatedStyle = useAnimatedStyle(() => {
     return {
       opacity: currentIndex.value === Number(childIndex) ? 1 : 0.5,
@@ -82,7 +109,7 @@ const ChildItem = memo(({ child, childIndex, currentIndex }) => {
   }
   if (child.type === 'button') {
     return (
-      <Button onPress={() => console.log('Button pressed')}>
+      <Button onPress={() => navigateFromLink(navigation, child.link || child.data)}>
         {child.text}
       </Button>
     );

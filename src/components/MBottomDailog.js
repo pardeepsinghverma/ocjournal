@@ -79,7 +79,7 @@ const BottomDialog = ({ title, dialogTitle, children, buttons }) => {
             {buttons.map((button, index) => (
               <Button
                 key={index}
-                theme={button.theme || 'default'}
+                {...(button.theme ? { theme: button.theme } : {})}
                 onPress={button.onPress}
               >
                 {button.label}

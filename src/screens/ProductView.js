@@ -3,13 +3,28 @@ import { Dimensions, ScrollView } from 'react-native';
 import MTitle from '../components/MTitle';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DescriptionAccordion from '../components/DescriptionAccordion';
-import { Button, Image, Paragraph, Text, View, XStack, YStack } from 'tamagui';
+import { Button, Image, Paragraph, Sheet, Text, View, XStack, YStack } from 'tamagui';
 import RenderProductOptions from '../components/options';
 import Carousel from 'react-native-reanimated-carousel';
 import productData from './../data/productView.json';
-import { Heart, Star, TableOfContents } from '@tamagui/lucide-icons';
-import { useNavigation } from '@react-navigation/native';
+import { Heart, Star, TableOfContents, X } from '@tamagui/lucide-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
 import HeaderActions from '../components/HeaderActions';
+import { addToCart } from '../store/cartSlice';
+
+const isOptionRequired = (option) =>
+  option?.required === true || option?.required === 1 || option?.required === '1';
+
+const getMissingRequiredOptions = (options, selected) => {
+  if (!Array.isArray(options)) return [];
+  return options.filter((opt) => {
+    if (!isOptionRequired(opt)) return false;
+    const value = selected?.[opt.name];
+    if (Array.isArray(value)) return value.length === 0;
+    return value === undefined || value === null || value === '';
+  });
+};
 
 // Helper to strip HTML from product descriptions
 const stripHtml = (html) => {
@@ -90,10 +105,48 @@ const ProductImageCarousel = ({ slides }) => {
 };
 
 const ProductView = () => {
-  const product = productData;
   const navigation = useNavigation();
+  const route = useRoute();
+  const dispatch = useDispatch();
+  const productId = route.params?.productId;
+  const product = productData;
   const [selectedOptions, setSelectedOptions] = useState({});
   const [isWishlist, setIsWishlist] = useState(false);
+  const [optionsSheetOpen, setOptionsSheetOpen] = useState(false);
+  const [pendingAction, setPendingAction] = useState(null);
+
+  const commitAddToCart = (options, { goToCart = false } = {}) => {
+    dispatch(addToCart({
+      productId: productId ?? product.product_id,
+      name: product.heading_title,
+      image: product.images?.[0]?.image || product.images?.[0]?.popup,
+      price: product.special || product.price,
+      selectedOptions: options,
+      quantity: 1,
+    }));
+    if (goToCart) {
+      navigation.navigate('cart');
+    }
+  };
+
+  const handleAddToCart = ({ goToCart = false } = {}) => {
+    const missing = getMissingRequiredOptions(product.options, selectedOptions);
+    if (missing.length > 0) {
+      setPendingAction({ goToCart });
+      setOptionsSheetOpen(true);
+      return;
+    }
+    commitAddToCart(selectedOptions, { goToCart });
+  };
+
+  const handleSheetConfirm = () => {
+    commitAddToCart(selectedOptions, pendingAction || {});
+    setOptionsSheetOpen(false);
+    setPendingAction(null);
+  };
+
+  const missingInSheet = getMissingRequiredOptions(product.options, selectedOptions);
+  const canConfirmInSheet = missingInSheet.length === 0;
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -103,7 +156,7 @@ const ProductView = () => {
           shareData={{
             title: product.heading_title,
             message: `Check out ${product.heading_title} on OC Journal`,
-            url: `https://yourstore.com/product/${product.product_id || ''}` // Placeholder URL
+            url: `https://yourstore.com/product/${productId || product.product_id || ''}`
           }}
         />
       ),
@@ -300,28 +353,74 @@ const ProductView = () => {
           onPress={() => setIsWishlist(!isWishlist)}
         />
         <XStack flex={1} gap={10}>
-          <Button 
-            flex={1} 
-            backgroundColor={'#000000'} 
-            color="#ffffff" 
+          <Button
+            flex={1}
+            backgroundColor={'#000000'}
+            color="#ffffff"
             borderRadius={10}
             fontWeight="600"
-            onPress={() => console.log('Add to Cart')}
+            onPress={() => handleAddToCart()}
           >
             Add to Cart
           </Button>
-          <Button 
-            flex={1} 
-            backgroundColor={'#febf00'} 
-            color="#000000" 
+          <Button
+            flex={1}
+            backgroundColor={'#febf00'}
+            color="#000000"
             borderRadius={10}
             fontWeight="600"
-            onPress={() => console.log('Buy Now')}
+            onPress={() => handleAddToCart({ goToCart: true })}
           >
             Buy Now
           </Button>
         </XStack>
       </XStack>
+
+      <Sheet
+        modal
+        open={optionsSheetOpen}
+        onOpenChange={(open) => {
+          setOptionsSheetOpen(open);
+          if (!open) setPendingAction(null);
+        }}
+        snapPointsMode="fit"
+        dismissOnSnapToBottom
+      >
+        <Sheet.Overlay />
+        <Sheet.Handle />
+        <Sheet.Frame padding="$4" backgroundColor="#ffffff">
+          <XStack justifyContent="space-between" alignItems="center" marginBottom={10}>
+            <Text fontSize={16} fontWeight="700">
+              {missingInSheet.length > 0
+                ? `Select ${missingInSheet.map((o) => o.name).join(' & ')}`
+                : 'Confirm options'}
+            </Text>
+            <View onPress={() => setOptionsSheetOpen(false)}>
+              <X size={22} color="#000" />
+            </View>
+          </XStack>
+
+          <ScrollView style={{ maxHeight: 360 }}>
+            <RenderProductOptions
+              options={product.options}
+              selectedOptions={selectedOptions}
+              handleOptionChange={(name, value) => setSelectedOptions((prev) => ({ ...prev, [name]: value }))}
+            />
+          </ScrollView>
+
+          <Button
+            marginTop={16}
+            backgroundColor={canConfirmInSheet ? '#febf00' : '#f0e1a8'}
+            color="#000000"
+            borderRadius={10}
+            fontWeight="700"
+            disabled={!canConfirmInSheet}
+            onPress={handleSheetConfirm}
+          >
+            {`ADD TO BAG ${product.special || product.price}`}
+          </Button>
+        </Sheet.Frame>
+      </Sheet>
     </View>
   );
 };

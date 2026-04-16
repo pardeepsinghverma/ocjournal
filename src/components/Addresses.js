@@ -110,15 +110,13 @@ const Addresses = () => {
         buttons={[
         {
             label: 'Cancel',
-            theme: 'secondary',
-                onPress: () => {
-                  console.log('Cancel Button Pressed');
-                  //closeDialog();
+            onPress: () => {
+                console.log('Cancel Button Pressed');
+                //closeDialog();
             },
         },
         {
             label: 'Save',
-            theme: 'active',
             onPress: () => console.log('Save Button Pressed'),
         },
         ]}
