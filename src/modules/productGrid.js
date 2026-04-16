@@ -3,6 +3,7 @@ import { Card, Image, Paragraph, Text, XStack, YStack } from 'tamagui'
 import MSection from '../components/MSection'
 import { useNavigation } from '@react-navigation/native';
 import { Dimensions } from 'react-native';
+import { getPlaceholderImage } from '../utils/getImage';
 
 const screenWidth = Dimensions.get('window').width;
 const gap = 10;
@@ -11,6 +12,8 @@ const Cardwidth = screenWidth / 2 - gap / 2;
 const ProductGridCard = ({ ProductGrid, scroll }) => {
   const width = scroll ? 160 : Cardwidth;
   const height = scroll ? 300 : 340;
+  const imgWidth = width;
+  const imgHeight = height - 90;
   const navigation = useNavigation();
 
   return (
@@ -44,9 +47,9 @@ const ProductGridCard = ({ ProductGrid, scroll }) => {
       </XStack>
 
       <Image
-        src={ProductGrid.image}
-        width={width}
-        height={height - 90}
+        src={getPlaceholderImage(ProductGrid.image, imgWidth, imgHeight, 'Product')}
+        width={imgWidth}
+        height={imgHeight}
         backgroundColor={'#f5f5f5'}
         borderRadius="$4"
         objectFit='cover'

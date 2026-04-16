@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, ImageBackground, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import getScaledDimensions from '../utils/getScaledDimensions';
+import { getPlaceholderImage } from '../utils/getImage';
 
 const Banners = ({ bannerData, imageDimensions, perRow, spacing }) => {
   const { width, height } = getScaledDimensions(
@@ -9,11 +10,11 @@ const Banners = ({ bannerData, imageDimensions, perRow, spacing }) => {
     perRow, 
     spacing
   );
-
+  
   return (
     <View style={{ width, height }}>
       <ImageBackground 
-        source={{ uri: bannerData.image }} 
+        source={{ uri: getPlaceholderImage(bannerData.image, width, height, 'Banner') }} 
         style={[styles.imageBackground, { width, height }]}
         imageStyle={{ borderRadius: 8 }} // Optional: Add rounded corners
       >

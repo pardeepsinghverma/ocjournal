@@ -6,16 +6,17 @@ import Products from './Products';
 import Banner from './banner';
 
     // const Products = lazy(() => import('./Products'));
-    const info_blocks = lazy(() => import('./InfoBlocks'));
-    // const Banner = lazy(() => import('./banner'));
+import Title from './Title';
+import InfoBlocks from './InfoBlocks';
 
     const componentMap = {
         master_slider: MasterSlider,
         slider: MasterSlider,
         products: Products,
-        // info_blocks: info_blocks,
+        info_blocks: InfoBlocks,
         banners: Banner,
-        categories: Category, // Reference to the Category component
+        categories: Category, 
+        title: Title,
     };
 
     export default componentMap;

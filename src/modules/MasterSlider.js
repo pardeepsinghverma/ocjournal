@@ -1,4 +1,5 @@
 import React, { Children } from 'react'
+import { getPlaceholderImage } from '../utils/getImage';
 import { Text } from 'tamagui'
 import Slider from '../components/Slider/Slider';
 // import Slider from './slider';
@@ -22,7 +23,7 @@ const MasterSlider = ({data, options}) => {
 
             return {
                 id: slide.id || Math.random().toString(), 
-                image: slideImage,
+                image: getPlaceholderImage(slideImage, 800, 400, 'Slider'),
                 children: slide.items ? Object.values(slide.items).map((child) => ({
                         type: child.type,
                         text: child.text,

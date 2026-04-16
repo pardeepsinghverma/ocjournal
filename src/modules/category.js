@@ -3,6 +3,7 @@ import { Button, Card, H2, Image, Paragraph, ScrollView, Text, View, XStack } fr
 import MTitle from '../components/MTitle'
 import MSection from '../components/MSection'
 import { useNavigation } from '@react-navigation/native'
+import { getPlaceholderImage } from '../utils/getImage'
 
 const CategoryCard = ({ category }) => { 
   const navigation = useNavigation();
@@ -22,7 +23,7 @@ const CategoryCard = ({ category }) => {
             alignSelf="center"
             height={240}
             width={160}
-            src={category.image}
+            src={getPlaceholderImage(category.image, 160, 240, 'Category')}
           />
         </Card.Background>
       </Card>
@@ -39,7 +40,7 @@ const CategoryRounded = ({ category }) => {
           height={80}
           width={80}
           borderRadius={10}
-          src={category.image}
+          src={getPlaceholderImage(category.image, 80, 80, 'Category')}
         />
         <Text style={{ textAlign: 'center' }}>{category.name}</Text>  
       </View>
