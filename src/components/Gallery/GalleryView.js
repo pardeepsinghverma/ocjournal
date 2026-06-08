@@ -12,10 +12,6 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 // HomeScreen applies paddingHorizontal: 14 on both sides
 const USABLE_WIDTH = SCREEN_WIDTH - 28;
 
-// Extracted separator so it is a stable component reference (avoids
-// react/no-unstable-nested-components and perf regressions)
-const HorizontalSeparator = ({ width }) => <View style={{ width }} />;
-
 /**
  * Grid / carousel shell for the gallery module.
  *
@@ -35,13 +31,19 @@ const GalleryView = ({ items, settings }) => {
   const safeCols = Math.max(1, cols || 3);
   const safeGap = gap >= 0 ? gap : 8;
 
-  // Memoize cellSize so useCallback deps remain stable
+  // Memoize cellSize so useCallback deps remain stable across renders
   const cellSize = useMemo(() => {
     const cellWidth = Math.floor(
       (USABLE_WIDTH - safeGap * (safeCols - 1)) / safeCols,
     );
     return { width: cellWidth, height: cellWidth }; // square cells (1:1 thumb ratio)
   }, [safeCols, safeGap]);
+
+  // Memoize carousel content container style with gap baked in
+  const carouselContentStyle = useMemo(
+    () => ({ paddingVertical: 2, gap: safeGap }),
+    [safeGap],
+  );
 
   const handlePress = useCallback(
     (item) => {
@@ -66,34 +68,23 @@ const GalleryView = ({ items, settings }) => {
     [],
   );
 
-  // Stable separator component bound to safeGap — avoids the
-  // react/no-unstable-nested-components warning from an inline arrow.
-  const ItemSeparator = useMemo(
-    () => function GallerySeparator() {
-      return <View style={{ width: safeGap }} />;
-    },
-    [safeGap],
-  );
-
-  // Guard: hooks are all declared above; safe to bail out here
+  // Guard: all hooks are declared above so this early return is safe
   if (!items || items.length === 0) return null;
 
   return (
     <View style={styles.container}>
       {carousel ? (
-        /* Horizontal carousel: FlatList scrolls one row of cells */
+        /* Horizontal carousel: FlatList with gap via contentContainerStyle */
         <FlatList
           data={items}
           keyExtractor={keyExtractor}
           renderItem={renderItem}
           horizontal
           showsHorizontalScrollIndicator={false}
-          ItemSeparatorComponent={ItemSeparator}
-          contentContainerStyle={styles.carouselContent}
+          contentContainerStyle={carouselContentStyle}
         />
       ) : (
-        /* Grid: laid out in rows of `safeCols` columns.
-           HomeScreen is the scroll root, so no ScrollView needed here. */
+        /* Grid: rows of `safeCols` columns. HomeScreen is the scroll root. */
         <View style={styles.grid}>
           {chunkArray(items, safeCols).map((row, rowIndex) => (
             <View
@@ -141,9 +132,6 @@ function chunkArray(arr, size) {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-  },
-  carouselContent: {
-    paddingVertical: 2,
   },
   grid: {
     width: '100%',
