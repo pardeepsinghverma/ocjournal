@@ -1,134 +1,65 @@
 import React from 'react';
-import { View, ImageBackground, Text, StyleSheet, TouchableOpacity, useWindowDimensions } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import getScaledDimensions from '../utils/getScaledDimensions';
 import { getPlaceholderImage } from '../utils/getImage';
+import BannersView from '../components/Banners/BannersView';
 
-const Banners = ({ bannerData, imageDimensions, perRow, spacing }) => {
-  const navigation = useNavigation();
-  const { width, height } = getScaledDimensions(
-    imageDimensions.width,
-    imageDimensions.height,
-    perRow,
-    spacing
-  );
+// The demo backend serves localhost placeholder images that won't load on a
+// device. Only trust an image URL that looks like a real, remote asset.
+const isRealImage = (src) =>
+  typeof src === 'string' &&
+  src.trim() !== '' &&
+  /^https?:\/\//i.test(src) &&
+  !/localhost|127\.0\.0\.1/i.test(src) &&
+  !/placeholder/i.test(src) &&
+  !/null|undefined/i.test(src);
 
-  const handlePress = () => {
-    const link = bannerData.link || {};
-    if (link.product_id) {
-      navigation.navigate('productView', { productId: link.product_id });
-    } else if (link.category_id) {
-      navigation.navigate('catalog', { categoryId: link.category_id, categoryName: bannerData.title });
-    } else {
-      navigation.navigate('catalog');
-    }
+// Map a raw API item (from the keyed-object) to a clean view-model object
+// that BannerItem consumes.
+const parseBanner = (raw, dims) => {
+  const imgW = raw.image_width || dims.width || 435;
+  const imgH = raw.image_height || dims.height || 435;
+  const src = raw.image2x || raw.image;
+  const imageUri = isRealImage(src)
+    ? src
+    : getPlaceholderImage(src, imgW, imgH, raw.title || 'Banner');
+
+  return {
+    id: raw.id || String(raw.index || Math.random()),
+    colorScheme: raw.color_scheme || '',
+    title: raw.title || '',
+    title2: raw.title2 || '',
+    title3: raw.title3 || '',
+    alt: raw.alt || '',
+    // text is an optional HTML field — may be null
+    text: raw.text || null,
+    link: raw.link || null,
+    imageUri,
+    imageWidth: imgW,
+    imageHeight: imgH,
+  };
+};
+
+// Banner — entry component.
+// HomeScreen calls: <Banner data={item.item.data.items || []} options={item.item.data} />
+// `data` is a keyed object {"1":{...},"2":{...}} — never call .map() directly.
+const Banner = ({ data, options = {} }) => {
+  // Guard: disabled module
+  if (options.status === false) return null;
+
+  // Normalize keyed object → array. HomeScreen passes `data.items || []` so
+  // `data` may arrive as the keyed object OR as an empty array (when items
+  // key is absent). We handle both.
+  const rawList = Array.isArray(data) ? data : Object.values(data || {});
+  if (rawList.length === 0) return null;
+
+  // Module-level image dimensions (shared aspect ratio for all items).
+  const dims = {
+    width: options.imageDimensions?.width || options.width || 435,
+    height: options.imageDimensions?.height || options.height || 435,
   };
 
-  return (
-    <TouchableOpacity activeOpacity={0.85} onPress={handlePress} style={{ width, height }}>
-      <ImageBackground
-        source={{ uri: getPlaceholderImage(bannerData.image, width, height, 'Banner') }}
-        style={[styles.imageBackground, { width, height }]}
-        imageStyle={{ borderRadius: 8 }}
-      >
-        <Text style={styles.text}>{bannerData.title}</Text>
-        <Text style={styles.text}>{bannerData.title2}</Text>
-        <Text style={styles.text}>{bannerData.title3}</Text>
-      </ImageBackground>
-    </TouchableOpacity>
-  );
+  const banners = rawList.map((raw) => parseBanner(raw, dims));
+
+  return <BannersView banners={banners} options={options} />;
 };
-
-const resolveItemsPerRow = (itemsPerRow, windowWidth) => {
-  if (!itemsPerRow || !itemsPerRow.c0) {
-    return { items: 1, spacing: 10 };
-  }
-
-  const c0 = itemsPerRow.c0;
-
-  // Case 1: c0 is an array
-  if (Array.isArray(c0)) {
-    const config = c0[0] || {};
-    return {
-      items: parseInt(config.items) || 1,
-      spacing: parseInt(config.spacing) || 10
-    };
-  }
-
-  // Case 2: c0 is an object with max-width breakpoints
-  if (typeof c0 === 'object') {
-    // Collect all numeric keys greater than 0
-    const numericKeys = Object.keys(c0)
-      .map(Number)
-      .filter(key => key > 0)
-      .sort((a, b) => a - b); // Sort ascending (760, 1080...)
-
-    // Find the smallest key that is >= current width
-    for (const breakpoint of numericKeys) {
-      if (windowWidth <= breakpoint) {
-        const config = c0[breakpoint.toString()];
-        return {
-          items: parseInt(config.items) || 1,
-          spacing: parseInt(config.spacing) || 10
-        };
-      }
-    }
-
-    // Fallback to the default "0" configuration if width exceeds all breakpoints
-    const defaultConfig = c0["0"] || {};
-    return {
-      items: parseInt(defaultConfig.items) || 1,
-      spacing: parseInt(defaultConfig.spacing) || 10
-    };
-  }
-
-  return { items: 1, spacing: 10 };
-};
-
-const Banner = ({ data, options }) => {
-  const { width: windowWidth } = useWindowDimensions();
-  const { items: perRow, spacing } = resolveItemsPerRow(options.itemsPerRow, windowWidth);
-
-  return (
-    <View style={{ 
-      flexDirection: 'row', 
-      flexWrap: 'wrap', 
-      justifyContent: 'flex-start',
-      columnGap: spacing,
-      rowGap: spacing,
-      marginVertical: 10 
-    }}>
-      {Object.keys(data).map((itemKey) => {
-        const item = data[itemKey];
-        return (
-          <Banners 
-            key={itemKey} 
-            bannerData={item} 
-            imageDimensions={options.imageDimensions} 
-            perRow={perRow}
-            spacing={spacing}
-          />
-        );
-      })}
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  imageBackground: {
-    justifyContent: 'flex-end', // Center text vertically
-    alignItems: 'flex-start', // Center text horizontally
-  },
-  text: {
-    color: 'white', // Text color
-    fontSize: 16, // Adjust font size as needed
-    fontWeight: 'bold', // Bold text
-    textShadowColor: 'rgba(0, 0, 0, 0.75)', // Shadow for better contrast
-    textShadowOffset: { width: -1, height: 1 }, // Shadow position
-    textShadowRadius: 5, // Shadow blur
-    paddingHorizontal: 10, // Padding for text
-    textAlign: 'left', // Center align text
-  },
-});
 
 export default Banner;

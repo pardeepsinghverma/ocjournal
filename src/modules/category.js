@@ -1,161 +1,124 @@
-import React from 'react'
-import { Button, Card, H2, Image, Paragraph, ScrollView, Text, View, XStack } from 'tamagui'
-import MTitle from '../components/MTitle'
-import MSection from '../components/MSection'
-import { useNavigation } from '@react-navigation/native'
-import { getPlaceholderImage } from '../utils/getImage'
+import React from 'react';
+import { getPlaceholderImage } from '../utils/getImage';
+import CategoriesView from '../components/Categories/CategoriesView';
 
-const CategoryCard = ({ category }) => {
-  const navigation = useNavigation();
-    return (
-      <Card onPress={() => navigation.navigate('catalog', { categoryId: category.id, categoryName: category.name })} key={category.id} height={240} width={160} bordered overflow='hidden'>
-        {/* <Card.Header padded>
-          <H2 color={'white'}>Sony A7IV</H2>
-        </Card.Header> */}
-        <Card.Footer padding={10}>
-          <Paragraph fontWeight={600} color={'white'}>{category.name}</Paragraph>
-          {/* <XStack flex={1} />
-          <Button borderRadius="$10">Purchase</Button> */}
-        </Card.Footer>
-        <Card.Background>
-          <Image
-            objectFit='cover'
-            alignSelf="center"
-            height={240}
-            width={160}
-            src={getPlaceholderImage(category.image, 160, 240, 'Category')}
-          />
-        </Card.Background>
-      </Card>
-    )
-}
+// Reject localhost / placeholder image URLs — the demo backend returns these.
+const isRealImage = (src) =>
+  typeof src === 'string' &&
+  src.trim() !== '' &&
+  /^https?:\/\//i.test(src) &&
+  !/localhost|127\.0\.0\.1/i.test(src) &&
+  !/placeholder/i.test(src) &&
+  !/null|undefined/i.test(src);
 
-const CategoryRounded = ({ category }) => {
-  const navigation = useNavigation();
-    return (
-      <View onPress={() => navigation.navigate('catalog', { categoryId: category.id, categoryName: category.name })}>
-        <Image
-          objectFit='cover'
-          alignSelf="center"
-          height={80}
-          width={80}
-          borderRadius={10}
-          src={getPlaceholderImage(category.image, 80, 80, 'Category')}
-        />
-        <Text style={{ textAlign: 'center' }}>{category.name}</Text>
-      </View>
-    )
-}
-
-const mapCategories = (categoriesData) => {
-  if (!categoriesData || typeof categoriesData !== 'object') {
-    throw new Error('Invalid categories data');
-  }
-
-  // Transform the input data
-  return Object.values(categoriesData).map((category) => ({
-    id: parseInt(category.category_id, 10), // Convert category_id to integer
-    name: category.name, // Use the category name
-    image: category.thumb, // Map the thumbnail as the image
-    subCategories: [] // Add logic for subCategories if available
-  }));
+/**
+ * Resolve the best image URI for a category.
+ * Prefers thumb2x (higher-res), falls back to thumb, falls back to placeholder.
+ */
+const resolveCategoryImage = (cat, imgW, imgH) => {
+  const src = cat.thumb2x || cat.thumb;
+  if (isRealImage(src)) return src;
+  return getPlaceholderImage(null, imgW, imgH, cat.name || 'Category');
 };
 
-const style = 'rounded'
-// const style = 'card'
+/**
+ * Parse the itemsPerRow config to pick a sensible mobile column count.
+ *
+ * itemsPerRow is structured as:
+ *   { c0: { "0": { items: 4, spacing: 20 }, "500": {...}, ... }, c1: {...}, sc: [...] }
+ *
+ * For a phone in portrait (< 500 CSS px ≈ smallest breakpoint) we use the
+ * c0["500"].items value — that is what Journal3 applies at 500-wide containers
+ * (which maps approximately to phone portrait). If absent we fall back to
+ * c0["0"].items, then 2.
+ */
+const mobileColumns = (itemsPerRow) => {
+  if (!itemsPerRow || typeof itemsPerRow !== 'object') return 2;
+  const c0 = itemsPerRow.c0;
+  if (!c0 || typeof c0 !== 'object') return 2;
+  // Try the 500-breakpoint entry first (closest to a phone width)
+  const bp500 = c0['500'];
+  if (bp500 && bp500.items) return Math.max(1, bp500.items);
+  const bp0 = c0['0'];
+  if (bp0 && bp0.items) return Math.max(1, bp0.items);
+  return 2;
+};
 
-const Category = ({ data }) => {
-  // console.log(data);
-  
+/**
+ * Derive gap size in px from itemsPerRow config.
+ */
+const mobileGap = (itemsPerRow) => {
+  if (!itemsPerRow || typeof itemsPerRow !== 'object') return 12;
+  const c0 = itemsPerRow.c0;
+  if (!c0) return 12;
+  const bp500 = c0['500'];
+  if (bp500 && bp500.spacing != null) return bp500.spacing;
+  const bp0 = c0['0'];
+  if (bp0 && bp0.spacing != null) return bp0.spacing;
+  return 12;
+};
 
-    // const categories = [
-    //     {
-    //       id: 1,
-    //       name: "Men's Clothing",
-    //       image: "https://dummyimage.com/verticalrectangle",
-    //       subCategories: [
-    //         {
-    //           id: 101,
-    //           name: "Shirts",
-    //           image: "https://example.com/mens-shirts.jpg"
-    //         },
-    //         {
-    //           id: 102,
-    //           name: "Trousers",
-    //           image: "https://example.com/mens-trousers.jpg"
-    //         },
-    //         {
-    //           id: 103,
-    //           name: "Jackets",
-    //           image: "https://example.com/mens-jackets.jpg"
-    //         }
-    //       ]
-    //     },
-    //     {
-    //       id: 2,
-    //       name: "Women's Clothing",
-    //       image: "https://example.com/womens-clothing.jpg",
-    //       subCategories: [
-    //         {
-    //           id: 201,
-    //           name: "Dresses",
-    //           image: "https://example.com/womens-dresses.jpg"
-    //         },
-    //         {
-    //           id: 202,
-    //           name: "Tops",
-    //           image: "https://example.com/womens-tops.jpg"
-    //         },
-    //         {
-    //           id: 203,
-    //           name: "Skirts",
-    //           image: "https://example.com/womens-skirts.jpg"
-    //         }
-    //       ]
-    //     },
-    //     {
-    //       id: 3,
-    //       name: "Kids' Clothing",
-    //       image: "https://example.com/kids-clothing.jpg",
-    //       subCategories: [
-    //         {
-    //           id: 301,
-    //           name: "T-Shirts",
-    //           image: "https://example.com/kids-tshirts.jpg"
-    //         },
-    //         {
-    //           id: 302,
-    //           name: "Shorts",
-    //           image: "https://example.com/kids-shorts.jpg"
-    //         },
-    //         {
-    //           id: 303,
-    //           name: "Jackets",
-    //           image: "https://example.com/kids-jackets.jpg"
-    //         }
-    //       ]
-    //     }
-    // ];
-      
-  
-  // console.log(categories);
-      
-  return (
-    <MSection title={'Category'} titleLevel={'4'} ScrollDirection={'horizontal'}> 
-      {
-        Object.keys(data).map((itemKey) => {
-        const item = data[itemKey];
-        return mapCategories(item.categories).map((category) => 
-          style == "rounded" ? (
-            <CategoryRounded key={category.id} category={category} />
-          ) : (
-            <CategoryCard key={category.id} category={category} />
-          )
-        )
-        })
-      }
-    </MSection>
-    )
-}
+/**
+ * Flatten all categories out of all tab-items in the keyed data object.
+ * data = { "1": { categories: { "451": {...}, ... } }, ... }
+ */
+const extractCategories = (data, imgW, imgH) => {
+  // data may be an array (passed as [] when empty) or a keyed object
+  const tabItems = Array.isArray(data) ? data : Object.values(data || {});
 
-export default Category
+  const out = [];
+  tabItems.forEach((tabItem) => {
+    if (!tabItem || !tabItem.categories) return;
+    const cats = Object.values(tabItem.categories);
+    cats.forEach((cat) => {
+      if (!cat || !cat.category_id) return;
+      out.push({
+        categoryId: cat.category_id,
+        name: cat.name || '',
+        description: cat.description || '',
+        total: cat.total != null ? String(cat.total) : '0',
+        imageUri: resolveCategoryImage(cat, imgW, imgH),
+        href: cat.href || '',
+      });
+    });
+  });
+  return out;
+};
+
+const Category = ({ data, options = {} }) => {
+  // Respect status flag — some tenants disable the module entirely
+  if (options.status === false) return null;
+
+  const imgW = options.image_width || options.imageDimensions?.width || 300;
+  const imgH = options.image_height || options.imageDimensions?.height || 300;
+
+  // Normalize data (may arrive as keyed object or empty array)
+  const categories = extractCategories(data, imgW, imgH);
+
+  if (!categories.length) return null;
+
+  // Derive columns and gap for the mobile (phone portrait) breakpoint
+  const columns = mobileColumns(options.itemsPerRow);
+  const gapSize = mobileGap(options.itemsPerRow);
+
+  // Image ratio from configured dimensions
+  const imageRatio = imgH > 0 && imgW > 0 ? imgH / imgW : 1;
+
+  const settings = {
+    columns,
+    gapSize,
+    imageRatio,
+    moduleCategory: options.moduleCategory || 'LARGE',
+    carousel: !!options.carousel,
+    showCount: !!options.productsCount,
+    countText: options.productsCountText || '%s Product(s)',
+    // Only show description text for LARGE style cards
+    showDescription: String(options.moduleCategory || '').toUpperCase() === 'LARGE',
+    descLimit: parseInt(options.descLimit, 10) || 75,
+    colorScheme: options.color_scheme_content || options.color_scheme || '',
+  };
+
+  return <CategoriesView categories={categories} settings={settings} />;
+};
+
+export default Category;
