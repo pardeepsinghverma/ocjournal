@@ -1,0 +1,332 @@
+[
+  {
+    "path": "top.rows[4].columns[1].items[1]",
+    "item": {
+      "id": "1099",
+      "name": "Title / Home / Featured Products Copy",
+      "type": "title",
+      "data": {
+        "schedule": {
+          "from": "",
+          "to": "",
+          "between": true
+        },
+        "type": "custom",
+        "title": "New Arrivals",
+        "label": "",
+        "subtitle": "Just added, shop our latest products before they're gone90.",
+        "style": "DEFAULT",
+        "styleLabelContainerStyle": "MEDIA_LABEL_CAPS",
+        "styleinlineButtonStyle": "LINK_UNDERLINE",
+        "stylebutton1Style": "OUTLINE_FILL",
+        "stylebutton2Style": "LINK_UNDERLINE",
+        "inline_button_text": "Shop all",
+        "inline_button_link": {
+          "type": "page",
+          "id": "",
+          "href": "http://localhost:8080/index.php?route=product/catalog&amp;language=en-gb&amp;sort=p.date_added&amp;order=DESC",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "button_1_text": "",
+        "button_1_link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "button_2_text": "",
+        "button_2_link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "status": true,
+        "module_id": 1099,
+        "classes": [
+          "module",
+          "module-title",
+          "module-title-1099",
+          null,
+          ""
+        ],
+        "edit": "module_layout/title/edit/1099",
+        "name": "Title / Home / New Arrivals",
+        "items": []
+      }
+    }
+  },
+  {
+    "path": "top.rows[6].columns[1].items[1]",
+    "item": {
+      "id": "1048",
+      "name": "Title / Home / Shop by Category",
+      "type": "title",
+      "data": {
+        "schedule": {
+          "from": "",
+          "to": "",
+          "between": true
+        },
+        "type": "custom",
+        "title": "Shop by Room",
+        "label": "",
+        "subtitle": "Display categories as tabs or accordions with optional auto grid or carousel scrolling mode.",
+        "style": "MODULE TITLE",
+        "styleLabelContainerStyle": "MEDIA_LABEL_CAPS",
+        "styleinlineButtonStyle": "LINK_UNDERLINE",
+        "stylebutton1Style": "OUTLINE_FILL",
+        "stylebutton2Style": "LINK_UNDERLINE",
+        "inline_button_text": "All Departments",
+        "inline_button_link": {
+          "type": "information",
+          "id": "9",
+          "href": "http://localhost:8080/index.php?route=information/information&amp;language=en-gb&amp;information_id=9",
+          "name": "All Departments",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "button_1_text": "",
+        "button_1_link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "button_2_text": "",
+        "button_2_link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "status": true,
+        "module_id": 1048,
+        "classes": [
+          "module",
+          "module-title",
+          "module-title-1048",
+          null,
+          ""
+        ],
+        "edit": "module_layout/title/edit/1048",
+        "name": "Title / Home / Shop by Room",
+        "items": []
+      }
+    }
+  },
+  {
+    "path": "bottom.rows[1].columns[1].items[1]",
+    "item": {
+      "id": "639",
+      "name": "Title / Home / Shop by Brand",
+      "type": "title",
+      "data": {
+        "schedule": {
+          "from": "",
+          "to": "",
+          "between": true
+        },
+        "type": "custom",
+        "title": "Our Partners",
+        "label": "",
+        "subtitle": "Shop from our extensive brand catalog",
+        "style": "MODULE TITLE",
+        "styleLabelContainerStyle": "MEDIA_LABEL_CAPS",
+        "styleinlineButtonStyle": "LINK_UNDERLINE",
+        "stylebutton1Style": "OUTLINE_FILL",
+        "stylebutton2Style": "LINK_UNDERLINE",
+        "inline_button_text": "See all brands",
+        "inline_button_link": {
+          "type": "page",
+          "id": "",
+          "href": "http://localhost:8080/index.php?route=product/manufacturer&amp;language=en-gb",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "button_1_text": "",
+        "button_1_link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "button_2_text": "",
+        "button_2_link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "status": true,
+        "module_id": 639,
+        "classes": [
+          "module",
+          "module-title",
+          "module-title-639",
+          null,
+          ""
+        ],
+        "edit": "module_layout/title/edit/639",
+        "name": "Title / Home / Shop by Brand",
+        "items": []
+      }
+    }
+  },
+  {
+    "path": "bottom.rows[2].columns[1].items[1]",
+    "item": {
+      "id": "643",
+      "name": "Title / Home / What are people saying about us",
+      "type": "title",
+      "data": {
+        "schedule": {
+          "from": "",
+          "to": "",
+          "between": true
+        },
+        "type": "custom",
+        "title": "What are people saying about us",
+        "label": "",
+        "subtitle": "Journal has the impressive rating of 4.9 stars from more than 3000 reviews (98% customer satisfaction rate).",
+        "style": "MODULE TITLE",
+        "styleLabelContainerStyle": "MEDIA_LABEL_CAPS",
+        "styleinlineButtonStyle": "LINK_UNDERLINE",
+        "stylebutton1Style": "OUTLINE_FILL",
+        "stylebutton2Style": "LINK_UNDERLINE",
+        "inline_button_text": "",
+        "inline_button_link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "button_1_text": "",
+        "button_1_link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "button_2_text": "",
+        "button_2_link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "status": true,
+        "module_id": 643,
+        "classes": [
+          "module",
+          "module-title",
+          "module-title-643",
+          null,
+          ""
+        ],
+        "edit": "module_layout/title/edit/643",
+        "name": "Title / Home / What are people saying about us",
+        "items": []
+      }
+    }
+  },
+  {
+    "path": "bottom.rows[4].columns[1].items[1]",
+    "item": {
+      "id": "593",
+      "name": "Title / Home / Enhanced Gallery Module",
+      "type": "title",
+      "data": {
+        "schedule": {
+          "from": "",
+          "to": "",
+          "between": true
+        },
+        "type": "custom",
+        "title": "Enhanced Gallery Module",
+        "label": "",
+        "subtitle": "The Gallery module supports images, videos and can also act as banners that can point to any other page or open other Popup modules. Create different modules with images, videos. Add your modules on any page in various grid formats.",
+        "style": "MODULE TITLE",
+        "styleLabelContainerStyle": "MEDIA_LABEL_CAPS",
+        "styleinlineButtonStyle": "LINK_UNDERLINE",
+        "stylebutton1Style": "OUTLINE_FILL",
+        "stylebutton2Style": "LINK_UNDERLINE",
+        "inline_button_text": "",
+        "inline_button_link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "button_1_text": "",
+        "button_1_link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "button_2_text": "More styles",
+        "button_2_link": {
+          "type": "information",
+          "id": "13",
+          "href": "http://localhost:8080/index.php?route=information/information&amp;language=en-gb&amp;information_id=13",
+          "name": "Gallery",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "status": true,
+        "module_id": 593,
+        "classes": [
+          "module",
+          "module-title",
+          "module-title-593",
+          null,
+          ""
+        ],
+        "edit": "module_layout/title/edit/593",
+        "name": "Title / Home / Enhanced Gallery Module",
+        "items": []
+      }
+    }
+  }
+]

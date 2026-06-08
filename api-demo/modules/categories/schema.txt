@@ -1,0 +1,215 @@
+MODULE TYPE: categories
+representative: id=1101  "Categories / Large Card"
+instances on this page: 1
+layout path: top.rows[6].columns[1].items[2]
+data keys: 44
+data.items: keyed-object[1]   <-- iterate with Object.values(items).map(), NOT items.map()
+max structural depth (of full item): 7
+
+SCHEMA TREE (item):
+-------------------
+item: object {4 keys}
+  id: string = "1101"
+  name: string = "Categories / Large Card"
+  type: string = "categories"
+  data: object {44 keys}
+    color_scheme_content: string = ""
+    schedule: object {3 keys}
+      from: string = ""
+      to: string = ""
+      between: boolean = true
+    title: string = ""
+    viewMoreText: string = ""
+    descLimit: string = "75"
+    sectionsDisplay: string = "blocks"
+    sectionsDisplayTablet: string = ""
+    sectionsDisplayPhone: string = ""
+    moduleCategory: string = "LARGE"
+    moduleCategoryButtonDisplay: string = "both"
+    moduleCategoryCountBadge: string = "SIMPLE"
+    moduleCategoryButtonButton: string = "LINK_UNDERLINE"
+    moduleCategoryButtonTooltipStatus: boolean = true
+    moduleCategoryButtonTooltipPosition: string = "top"
+    productsCount: boolean = true
+    productsCountText: string = "%s Product(s)"
+    productsCountTextPosition: string = "name"
+    carousel: boolean = true
+    carouselStyle: string = "DEFAULT"
+    carouselStyleIconButtonsStyle: string = "DEFAULT"
+    tabsStyle: string = "DEFAULT"
+    tabsStyleMenuImage: string = "DEFAULT"
+    tabsStyleDefaultScrollbarStyle: string = "NONE"
+    itemsPerRow: object {4 keys}
+      c0: object {4 keys}
+        0: object {2 keys}
+          items: number = 4
+          spacing: number = 20
+        500: object {2 keys}
+          items: number = 1
+          spacing: number = 20
+        900: object {2 keys}
+          spacing: number = 20
+          items: number = 2
+        1200: object {2 keys}
+          spacing: number = 20
+          items: number = 3
+      c1: object {3 keys}
+        0: object {2 keys}
+          items: number = 3
+          spacing: number = 20
+        500: object {2 keys}
+          items: number = 1
+          spacing: number = 20
+        900: object {2 keys}
+          spacing: number = 20
+          items: number = 2
+      c2: object {2 keys}
+        0: object {2 keys}
+          items: number = 2
+          spacing: number = 20
+        500: object {2 keys}
+          items: number = 1
+          spacing: number = 20
+      sc: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 20
+    default: string = "7252f512-f0e7-4329-ba64-1f0223873b7a"
+    images: boolean = true
+    imageDimensions: object {3 keys}
+      width: number = 300
+      height: number = 300
+      resize: string = "fill"
+    gridType: string = "auto"
+    autoGridStyle: string = "LARGE"
+    autoCarouselStyle: string = "BUTTONS_TOP"
+    autoCarouselStyleAutoCarouselIconButtonsStyle: string = "DEFAULT"
+    status: boolean = true
+    module_id: number = 1101
+    classes: object {8 keys}
+      0: string = "module"
+      1: string = "module-categories"
+      2: string = "module-categories-1101"
+      3: null = null
+      4: string = ""
+      5: string = "module-categories-"
+      carousel-mode: boolean = false
+      align-to-content: boolean = true
+    edit: string = "module_layout/categories/edit/1101"
+    name: string = "Categories / Large Card"
+    swiper_carousel: boolean = false
+    image_width: number = 300
+    image_height: number = 300
+    image_resize: string = "fill"
+    carouselOptions: object {4 keys}
+      speed: number = 500
+      autoplay: boolean = false
+      pauseOnHover: boolean = true
+      loop: boolean = false
+    dummy_image: string = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsAQMAAA…"
+    default_index: number = 1
+    items: object {1 keys}
+      1: object {12 keys}
+        title: string = ""
+        tabType: string = "content"
+        type: string = "sub"
+        limit: string = ""
+        index: number = 1
+        id: string = "1101-1"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-1"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        active: boolean = true
+        tab_classes: object {2 keys}
+          0: string = "tab-1"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        categories: object {7 keys}
+          451: object {9 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            category_id: string = "451"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            name: string = "Bathroom"
+            total: string = "14"
+            total_text: string = "<span class=\"count-badge\">14</span>"
+            description: string = "Category Bathroom description. Lorem Ipsum is simply dummy t…"
+            href: string = "http://localhost:8080/index.php?route=product/category&amp;l…"
+          467: object {9 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            category_id: string = "467"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            name: string = "Bedroom"
+            total: string = "17"
+            total_text: string = "<span class=\"count-badge\">17</span>"
+            description: string = "Category Bedroom description. Lorem Ipsum is simply dummy te…"
+            href: string = "http://localhost:8080/index.php?route=product/category&amp;l…"
+          476: object {9 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            category_id: string = "476"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            name: string = "Dining Room"
+            total: string = "10"
+            total_text: string = "<span class=\"count-badge\">10</span>"
+            description: string = "Category Dining Room description. Lorem Ipsum is simply dumm…"
+            href: string = "http://localhost:8080/index.php?route=product/category&amp;l…"
+          485: object {9 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            category_id: string = "485"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            name: string = "Home Office"
+            total: string = "23"
+            total_text: string = "<span class=\"count-badge\">23</span>"
+            description: string = "Category Home Office description. Lorem Ipsum is simply dumm…"
+            href: string = "http://localhost:8080/index.php?route=product/category&amp;l…"
+          494: object {9 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            category_id: string = "494"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            name: string = "Kitchen"
+            total: string = "0"
+            total_text: string = "<span class=\"count-badge\">0</span>"
+            description: string = "Category Kitchen description. Lorem Ipsum is simply dummy te…"
+            href: string = "http://localhost:8080/index.php?route=product/category&amp;l…"
+          504: object {9 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            category_id: string = "504"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            name: string = "Living Room"
+            total: string = "33"
+            total_text: string = "<span class=\"count-badge\">33</span>"
+            description: string = "Category Living Room description. Lorem Ipsum is simply dumm…"
+            href: string = "http://localhost:8080/index.php?route=product/category&amp;l…"
+          540: object {9 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            category_id: string = "540"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            name: string = "Outdoor"
+            total: string = "3"
+            total_text: string = "<span class=\"count-badge\">3</span>"
+            description: string = "Category Outdoor description. Lorem Ipsum is simply dummy te…"
+            href: string = "http://localhost:8080/index.php?route=product/category&amp;l…"
+        items: array[0]

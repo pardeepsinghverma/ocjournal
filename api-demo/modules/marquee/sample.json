@@ -1,0 +1,80 @@
+{
+  "id": "407",
+  "name": "Marquee / Free Shipping",
+  "type": "marquee",
+  "data": {
+    "color_scheme_module": "",
+    "schedule": {
+      "from": "",
+      "to": "",
+      "between": true
+    },
+    "imageDimensions": {
+      "width": null,
+      "height": null,
+      "resize": "fill"
+    },
+    "repeat": "5",
+    "status": true,
+    "module_id": 407,
+    "classes": [
+      "module",
+      "module-marquee",
+      "module-marquee-407",
+      null,
+      ""
+    ],
+    "edit": "module_layout/marquee/edit/407",
+    "name": "Marquee / Free Shipping",
+    "image_width": null,
+    "image_height": null,
+    "image_resize": "fill",
+    "dummy_image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEUAAAAEAgSXNbeIAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII=",
+    "items": {
+      "1": {
+        "type": "title",
+        "title": "Free Shipping",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 1,
+        "id": "407-1",
+        "classes": [
+          "module-item",
+          "module-item-1",
+          null,
+          ""
+        ],
+        "items": []
+      },
+      "2": {
+        "type": "title",
+        "title": "On orders over $200",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 2,
+        "id": "407-2",
+        "classes": [
+          "module-item",
+          "module-item-2",
+          null,
+          ""
+        ],
+        "items": []
+      }
+    }
+  }
+}

@@ -1,0 +1,455 @@
+MODULE TYPE: testimonials
+representative: id=256  "Testimonials / Default"
+instances on this page: 1
+layout path: bottom.rows[2].columns[1].items[2]
+data keys: 25
+data.items: keyed-object[10]   <-- iterate with Object.values(items).map(), NOT items.map()
+max structural depth (of full item): 6
+
+SCHEMA TREE (item):
+-------------------
+item: object {4 keys}
+  id: string = "256"
+  name: string = "Testimonials / Default"
+  type: string = "testimonials"
+  data: object {25 keys}
+    color_scheme_module: string = "color-scheme-scheme-1"
+    schedule: object {3 keys}
+      from: string = ""
+      to: string = ""
+      between: boolean = true
+    display: string = "grid"
+    displayTablet: string = ""
+    displayPhone: string = ""
+    carousel: boolean = true
+    carouselStyle: string = "SLIDER"
+    carouselStyleIconButtonsStyle: string = "DEFAULT"
+    itemsPerRow: object {4 keys}
+      c0: array[1]
+        [0]: object {2 keys}
+          items: number = 8
+          spacing: number = 0
+      c1: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 20
+      c2: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 20
+      sc: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 20
+    default: string = ""
+    title: string = ""
+    moduleTitle: string = "DEFAULT"
+    imageDimensions: object {3 keys}
+      width: null = null
+      height: null = null
+      resize: string = "fill"
+    gridType: string = "auto"
+    autoCarouselStyle: string = "BUTTONS_TOP"
+    autoCarouselStyleAutoCarouselIconButtonsStyle: string = "DEFAULT"
+    status: boolean = true
+    module_id: number = 256
+    classes: object {8 keys}
+      0: string = "module"
+      1: string = "module-testimonials"
+      2: string = "module-testimonials-256"
+      3: null = null
+      4: string = ""
+      5: string = "blocks-grid"
+      carousel-mode: boolean = false
+      align-to-content: boolean = true
+    edit: string = "module_layout/testimonials/edit/256"
+    name: string = "Testimonials / Default"
+    swiper_carousel: boolean = false
+    carouselOptions: object {4 keys}
+      speed: number = 500
+      autoplay: object {1 keys}
+        delay: number = 3000
+      pauseOnHover: boolean = true
+      loop: boolean = false
+    default_index: number = 0
+    items: object {10 keys}
+      1: object {16 keys}
+        header: string = "icon"
+        contentType: string = "text"
+        expandButton: boolean = false
+        footer: string = "text"
+        footerText: string = "- charlibaltimore"
+        footerButton: string = ""
+        footerButtonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 1
+        id: string = "256-1"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-1"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        tab_classes: object {2 keys}
+          0: string = "tab-1"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        title: null = null
+        content: string = "I've purchased hundreds and hundreds of files over the past …"
+        items: array[0]
+      2: object {16 keys}
+        header: string = "icon"
+        contentType: string = "text"
+        expandButton: boolean = false
+        footer: string = "text"
+        footerText: string = "- chromebandit"
+        footerButton: string = ""
+        footerButtonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 2
+        id: string = "256-2"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-2"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        tab_classes: object {2 keys}
+          0: string = "tab-2"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        title: null = null
+        content: string = "I am a web developer for many years i haven't seen anything …"
+        items: array[0]
+      3: object {16 keys}
+        header: string = "icon"
+        contentType: string = "text"
+        expandButton: boolean = false
+        footer: string = "text"
+        footerText: string = "- kellyhorne"
+        footerButton: string = ""
+        footerButtonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 3
+        id: string = "256-3"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-3"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        tab_classes: object {2 keys}
+          0: string = "tab-3"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        title: null = null
+        content: string = "Great toolkit for Opencart. As a base platform, Opencart can…"
+        items: array[0]
+      4: object {16 keys}
+        header: string = "icon"
+        contentType: string = "text"
+        expandButton: boolean = false
+        footer: string = "text"
+        footerText: string = "- TBNWorld"
+        footerButton: string = ""
+        footerButtonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 4
+        id: string = "256-4"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-4"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        tab_classes: object {2 keys}
+          0: string = "tab-4"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        title: null = null
+        content: string = "This theme is just amazing. With the new version J3 everythi…"
+        items: array[0]
+      5: object {16 keys}
+        header: string = "icon"
+        contentType: string = "text"
+        expandButton: boolean = false
+        footer: string = "text"
+        footerText: string = "- sacredcirclegifts"
+        footerButton: string = ""
+        footerButtonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 5
+        id: string = "256-5"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-5"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        tab_classes: object {2 keys}
+          0: string = "tab-5"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        title: null = null
+        content: string = "Amazing ways to customize so you don't end up with a site lo…"
+        items: array[0]
+      6: object {16 keys}
+        header: string = "icon"
+        contentType: string = "text"
+        expandButton: boolean = false
+        footer: string = "text"
+        footerText: string = "- thewiltingwick"
+        footerButton: string = ""
+        footerButtonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 6
+        id: string = "256-6"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-6"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        tab_classes: object {2 keys}
+          0: string = "tab-6"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        title: null = null
+        content: string = "Outstanding customer support , i've used the support a few t…"
+        items: array[0]
+      7: object {16 keys}
+        header: string = "icon"
+        contentType: string = "text"
+        expandButton: boolean = false
+        footer: string = "text"
+        footerText: string = "- DocDisco81"
+        footerButton: string = ""
+        footerButtonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 7
+        id: string = "256-7"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-7"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        tab_classes: object {2 keys}
+          0: string = "tab-7"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        title: null = null
+        content: string = "It's wonderful! Its look is stunning already with demo style…"
+        items: array[0]
+      8: object {16 keys}
+        header: string = "icon"
+        contentType: string = "text"
+        expandButton: boolean = false
+        footer: string = "text"
+        footerText: string = "- janmakuc"
+        footerButton: string = ""
+        footerButtonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 8
+        id: string = "256-8"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-8"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        tab_classes: object {2 keys}
+          0: string = "tab-8"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        title: null = null
+        content: string = "This theme is amazing. It looks superb, everything works, th…"
+        items: array[0]
+      9: object {16 keys}
+        header: string = "icon"
+        contentType: string = "text"
+        expandButton: boolean = false
+        footer: string = "text"
+        footerText: string = "- graigkarl"
+        footerButton: string = ""
+        footerButtonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 9
+        id: string = "256-9"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-9"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        tab_classes: object {2 keys}
+          0: string = "tab-9"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        title: null = null
+        content: string = "EXCELLENT theme built with purpose and has been constantly u…"
+        items: array[0]
+      10: object {16 keys}
+        header: string = "icon"
+        contentType: string = "text"
+        expandButton: boolean = false
+        footer: string = "text"
+        footerText: string = "- lloydstoltz"
+        footerButton: string = ""
+        footerButtonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 10
+        id: string = "256-10"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-10"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        tab_classes: object {2 keys}
+          0: string = "tab-10"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        title: null = null
+        content: string = "This framework is absolutely super, the level of customizati…"
+        items: array[0]

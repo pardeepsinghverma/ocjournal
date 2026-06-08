@@ -1,0 +1,62 @@
+MODULE TYPE: title
+representative: id=1099  "Title / Home / Featured Products Copy"
+instances on this page: 5  (see _all.json)
+layout path: top.rows[4].columns[1].items[1]
+data keys: 22
+data.items: array[0]
+max structural depth (of full item): 4
+
+SCHEMA TREE (item):
+-------------------
+item: object {4 keys}
+  id: string = "1099"
+  name: string = "Title / Home / Featured Products Copy"
+  type: string = "title"
+  data: object {22 keys}
+    schedule: object {3 keys}
+      from: string = ""
+      to: string = ""
+      between: boolean = true
+    type: string = "custom"
+    title: string = "New Arrivals"
+    label: string = ""
+    subtitle: string = "Just added, shop our latest products before they're gone90."
+    style: string = "DEFAULT"
+    styleLabelContainerStyle: string = "MEDIA_LABEL_CAPS"
+    styleinlineButtonStyle: string = "LINK_UNDERLINE"
+    stylebutton1Style: string = "OUTLINE_FILL"
+    stylebutton2Style: string = "LINK_UNDERLINE"
+    inline_button_text: string = "Shop all"
+    inline_button_link: object {7 keys}
+      type: string = "page"
+      id: string = ""
+      href: string = "http://localhost:8080/index.php?route=product/catalog&amp;la…"
+      name: string = ""
+      total: null = null
+      attrs: array[0]
+      classes: array[0]
+    button_1_text: string = ""
+    button_1_link: object {7 keys}
+      type: string = ""
+      id: string = ""
+      href: string = ""
+      name: string = ""
+      total: null = null
+      attrs: array[0]
+      classes: array[0]
+    button_2_text: string = ""
+    button_2_link: object {7 keys}
+      type: string = ""
+      id: string = ""
+      href: string = ""
+      name: string = ""
+      total: null = null
+      attrs: array[0]
+      classes: array[0]
+    status: boolean = true
+    module_id: number = 1099
+    classes: array[5]
+      [0]: string = "module"
+    edit: string = "module_layout/title/edit/1099"
+    name: string = "Title / Home / New Arrivals"
+    items: array[0]

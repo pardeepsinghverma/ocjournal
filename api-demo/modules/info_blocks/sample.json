@@ -1,0 +1,215 @@
+{
+  "id": "781",
+  "name": "Info Blocks / Site Features",
+  "type": "info_blocks",
+  "data": {
+    "schedule": {
+      "from": "",
+      "to": "",
+      "between": true
+    },
+    "color_scheme": "",
+    "title": "",
+    "description": "",
+    "itemsPerRow": {
+      "c0": [
+        {
+          "items": 3,
+          "spacing": 0
+        }
+      ],
+      "c1": [
+        {
+          "items": 3,
+          "spacing": 0
+        }
+      ],
+      "c2": [
+        {
+          "items": 3,
+          "spacing": 0
+        }
+      ],
+      "sc": [
+        {
+          "items": 1,
+          "spacing": 0
+        }
+      ]
+    },
+    "imageDimensions": {
+      "width": null,
+      "height": null,
+      "resize": "fill"
+    },
+    "style": "SIMPLE",
+    "styleButtonStyle": "LINK_UNDERLINE",
+    "gridType": "auto",
+    "status": true,
+    "module_id": 781,
+    "classes": {
+      "0": "module",
+      "1": "module-info_blocks",
+      "2": "module-info_blocks-781",
+      "3": "",
+      "4": "",
+      "align-to-content": true
+    },
+    "edit": "module_layout/info_blocks/edit/781",
+    "name": "Info Blocks / Site Features",
+    "items": {
+      "1": {
+        "color_scheme": "",
+        "title": "Fast Shipping",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "type": "icon",
+        "content": "Optional secondary info block text",
+        "counter": "",
+        "button": false,
+        "buttonTextNew": "",
+        "buttonLink": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 1,
+        "id": "781-1",
+        "classes": [
+          "module-item",
+          "module-item-1",
+          "",
+          "",
+          "info-blocks",
+          "info-blocks-icon"
+        ],
+        "items": []
+      },
+      "2": {
+        "color_scheme": "",
+        "title": "Secure Shopping",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "type": "icon",
+        "content": "Optional secondary info block text",
+        "counter": "",
+        "button": false,
+        "buttonTextNew": "",
+        "buttonLink": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 2,
+        "id": "781-2",
+        "classes": [
+          "module-item",
+          "module-item-2",
+          "",
+          "",
+          "info-blocks",
+          "info-blocks-icon"
+        ],
+        "items": []
+      },
+      "3": {
+        "color_scheme": "",
+        "title": "Easy Return",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "type": "icon",
+        "content": "Optional secondary info block text",
+        "counter": "",
+        "button": false,
+        "buttonTextNew": "",
+        "buttonLink": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 3,
+        "id": "781-3",
+        "classes": [
+          "module-item",
+          "module-item-3",
+          "",
+          "",
+          "info-blocks",
+          "info-blocks-icon"
+        ],
+        "items": []
+      },
+      "4": {
+        "color_scheme": "",
+        "title": "24h Service",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "type": "icon",
+        "content": "Optional secondary info block text",
+        "counter": "",
+        "button": false,
+        "buttonTextNew": "",
+        "buttonLink": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 4,
+        "id": "781-4",
+        "classes": [
+          "module-item",
+          "module-item-4",
+          "",
+          "",
+          "info-blocks",
+          "info-blocks-icon"
+        ],
+        "items": []
+      }
+    }
+  }
+}

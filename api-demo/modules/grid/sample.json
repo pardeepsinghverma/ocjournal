@@ -1,0 +1,88 @@
+{
+  "id": "800",
+  "name": "Builder / Countdown + Products",
+  "type": "grid",
+  "data": {
+    "grid_classes": [
+      "module",
+      "module-grid",
+      "module-grid-800",
+      "grid-rows",
+      ""
+    ],
+    "rows": {
+      "1": {
+        "color_scheme": "",
+        "videoBgStatus": false,
+        "videoBg": "",
+        "videoInline": false,
+        "waveStatus": false,
+        "waveDirection": "5",
+        "wave2Status": false,
+        "wave2Direction": "5",
+        "classes": [
+          "grid-row",
+          "grid-row-1",
+          "",
+          ""
+        ],
+        "columns": {
+          "1": {
+            "color_scheme": "color-scheme-scheme-3",
+            "name": "New Column",
+            "videoColStatus": false,
+            "videoCol": "",
+            "classes": [
+              "grid-col",
+              "grid-col-1",
+              "",
+              "color-scheme-scheme-3"
+            ],
+            "items": {
+              "1": {
+                "classes": [
+                  "grid-item",
+                  "grid-module-grid-800-1-1-1",
+                  ""
+                ],
+                "item": {
+                  "id": "801",
+                  "name": "Simple Countdown Copy",
+                  "type": "countdown"
+                }
+              }
+            }
+          },
+          "2": {
+            "color_scheme": "color-scheme-scheme-1",
+            "name": "New Column",
+            "videoColStatus": false,
+            "videoCol": "",
+            "classes": [
+              "grid-col",
+              "grid-col-2",
+              "",
+              "color-scheme-scheme-1"
+            ],
+            "items": {
+              "1": {
+                "classes": [
+                  "grid-item",
+                  "grid-module-grid-800-1-2-1",
+                  ""
+                ],
+                "item": {
+                  "id": "921",
+                  "name": "Products / BUILDER Module / Title + Products Copy",
+                  "type": "products"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "edit": "module_layout/grid/edit/800",
+    "name": "Builder / Countdown + Products"
+  }
+}

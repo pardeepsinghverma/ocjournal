@@ -1,0 +1,174 @@
+MODULE TYPE: info_blocks
+representative: id=781  "Info Blocks / Site Features"
+instances on this page: 1
+layout path: top.rows[5].columns[1].items[1]
+data keys: 15
+data.items: keyed-object[4]   <-- iterate with Object.values(items).map(), NOT items.map()
+max structural depth (of full item): 6
+
+SCHEMA TREE (item):
+-------------------
+item: object {4 keys}
+  id: string = "781"
+  name: string = "Info Blocks / Site Features"
+  type: string = "info_blocks"
+  data: object {15 keys}
+    schedule: object {3 keys}
+      from: string = ""
+      to: string = ""
+      between: boolean = true
+    color_scheme: string = ""
+    title: string = ""
+    description: string = ""
+    itemsPerRow: object {4 keys}
+      c0: array[1]
+        [0]: object {2 keys}
+          items: number = 3
+          spacing: number = 0
+      c1: array[1]
+        [0]: object {2 keys}
+          items: number = 3
+          spacing: number = 0
+      c2: array[1]
+        [0]: object {2 keys}
+          items: number = 3
+          spacing: number = 0
+      sc: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 0
+    imageDimensions: object {3 keys}
+      width: null = null
+      height: null = null
+      resize: string = "fill"
+    style: string = "SIMPLE"
+    styleButtonStyle: string = "LINK_UNDERLINE"
+    gridType: string = "auto"
+    status: boolean = true
+    module_id: number = 781
+    classes: object {6 keys}
+      0: string = "module"
+      1: string = "module-info_blocks"
+      2: string = "module-info_blocks-781"
+      3: string = ""
+      4: string = ""
+      align-to-content: boolean = true
+    edit: string = "module_layout/info_blocks/edit/781"
+    name: string = "Info Blocks / Site Features"
+    items: object {4 keys}
+      1: object {13 keys}
+        color_scheme: string = ""
+        title: string = "Fast Shipping"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        type: string = "icon"
+        content: string = "Optional secondary info block text"
+        counter: string = ""
+        button: boolean = false
+        buttonTextNew: string = ""
+        buttonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 1
+        id: string = "781-1"
+        classes: array[6]
+          [0]: string = "module-item"
+        items: array[0]
+      2: object {13 keys}
+        color_scheme: string = ""
+        title: string = "Secure Shopping"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        type: string = "icon"
+        content: string = "Optional secondary info block text"
+        counter: string = ""
+        button: boolean = false
+        buttonTextNew: string = ""
+        buttonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 2
+        id: string = "781-2"
+        classes: array[6]
+          [0]: string = "module-item"
+        items: array[0]
+      3: object {13 keys}
+        color_scheme: string = ""
+        title: string = "Easy Return"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        type: string = "icon"
+        content: string = "Optional secondary info block text"
+        counter: string = ""
+        button: boolean = false
+        buttonTextNew: string = ""
+        buttonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 3
+        id: string = "781-3"
+        classes: array[6]
+          [0]: string = "module-item"
+        items: array[0]
+      4: object {13 keys}
+        color_scheme: string = ""
+        title: string = "24h Service"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        type: string = "icon"
+        content: string = "Optional secondary info block text"
+        counter: string = ""
+        button: boolean = false
+        buttonTextNew: string = ""
+        buttonLink: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 4
+        id: string = "781-4"
+        classes: array[6]
+          [0]: string = "module-item"
+        items: array[0]

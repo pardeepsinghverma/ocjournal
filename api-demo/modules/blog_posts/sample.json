@@ -1,0 +1,341 @@
+{
+  "id": "998",
+  "name": "Blog Posts / Latest Articles / Tabs",
+  "type": "blog_posts",
+  "data": {
+    "schedule": {
+      "from": "",
+      "to": "",
+      "between": true
+    },
+    "title": "",
+    "display": "grid",
+    "sectionsDisplay": "tabs",
+    "sectionsDisplayTablet": "",
+    "sectionsDisplayPhone": "",
+    "carousel": false,
+    "tabsStyle": "DEFAULT_LARGE",
+    "tabsStyleMenuImage": "DEFAULT",
+    "tabsStyleDefaultScrollbarStyle": "NONE",
+    "itemsPerRow": {
+      "c0": {
+        "0": {
+          "items": 4,
+          "spacing": 20
+        },
+        "500": {
+          "items": 1,
+          "spacing": 20
+        },
+        "900": {
+          "spacing": 20,
+          "items": 2
+        },
+        "1200": {
+          "spacing": 20,
+          "items": 3
+        }
+      },
+      "c1": {
+        "0": {
+          "items": 3,
+          "spacing": 20
+        },
+        "500": {
+          "items": 1,
+          "spacing": 20
+        },
+        "900": {
+          "spacing": 20,
+          "items": 2
+        }
+      },
+      "c2": {
+        "0": {
+          "items": 2,
+          "spacing": 20
+        },
+        "500": {
+          "items": 1,
+          "spacing": 20
+        }
+      },
+      "sc": [
+        {
+          "items": 1,
+          "spacing": 20
+        }
+      ]
+    },
+    "default": "",
+    "imageDimensions": {
+      "width": null,
+      "height": null,
+      "resize": "fill"
+    },
+    "modulePostList": "DEFAULT",
+    "modulePostListButtonDisplay": "both",
+    "modulePostListButtonButton": "LINK_UNDERLINE",
+    "modulePostListButtonTooltipStatus": false,
+    "modulePostListButtonTooltipPosition": "top",
+    "gridType": "auto",
+    "autoCarouselStyle": "BUTTONS_TOP",
+    "autoCarouselStyleAutoCarouselIconButtonsStyle": "DEFAULT",
+    "status": true,
+    "module_id": 998,
+    "classes": {
+      "0": "module",
+      "1": "module-blog_posts",
+      "2": "module-blog_posts-998",
+      "3": null,
+      "4": "",
+      "5": "module-blog_posts-grid",
+      "carousel-mode": false,
+      "align-to-content": true
+    },
+    "edit": "module_layout/blog_posts/edit/998",
+    "name": "Blog Posts / Latest Articles / Tabs",
+    "swiper_carousel": false,
+    "image_width": 520,
+    "image_height": 350,
+    "image_resize": "fill",
+    "carouselOptions": {
+      "speed": 0,
+      "autoplay": false,
+      "pauseOnHover": false,
+      "loop": false
+    },
+    "dummy_image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAggAAAFeAQMAAADaDXVXAAAABlBMVEUAAAAEAgSXNbeIAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAC1JREFUeNrtwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeDFaPAABnj9u2AAAAABJRU5ErkJggg==",
+    "text_tax": "text_tax",
+    "button_cart": "Add to Cart",
+    "button_wishlist": "Add to Wish List",
+    "button_compare": "Compare this Product",
+    "default_index": 1,
+    "items": {
+      "1": {
+        "title": "Latest Articles",
+        "tabType": "content",
+        "filter": {
+          "sort": "newest",
+          "order": "ASC",
+          "start": 0,
+          "limit": 8,
+          "preset": "latest"
+        },
+        "index": 1,
+        "id": "998-1",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-1",
+          "2": null,
+          "3": "",
+          "tab-pane": true,
+          "active": true,
+          "panel": false,
+          "panel-active": false,
+          "swiper-slide": false
+        },
+        "active": true,
+        "tab_classes": {
+          "0": "tab-1",
+          "active": true
+        },
+        "panel_classes": {
+          "0": "panel-collapse",
+          "1": "collapse",
+          "in": false
+        },
+        "posts": {
+          "3": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "post_id": "3",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-520x350w.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x673w.png",
+            "author": "brandwik",
+            "name": "Season Essentials",
+            "comments": "17",
+            "views": "12770",
+            "date": "15 <em>Sep</em>",
+            "description": "Seasons come and go but Journal is here to stay. The Journal 3 blog has been greatly improved and it now comes with the most advanced set of typograph..",
+            "href": "http://localhost:8080/index.php?route=journal3/blog.post&amp;language=en-gb&amp;journal_blog_post_id=3"
+          },
+          "4": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "post_id": "4",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-520x350w.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x673w.png",
+            "author": "brandwik",
+            "name": "Office Essentials",
+            "comments": "7",
+            "views": "12928",
+            "date": "30 <em>Sep</em>",
+            "description": "Best Opencart theme around, period. The Journal 3 blog has been greatly improved and it now comes with the most advanced set of typography tools, incl..",
+            "href": "http://localhost:8080/index.php?route=journal3/blog.post&amp;language=en-gb&amp;journal_blog_post_id=4"
+          },
+          "10": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "post_id": "10",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-520x350w.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x673w.png",
+            "author": "brandwik",
+            "name": "Another Blog Post",
+            "comments": "24",
+            "views": "5039",
+            "date": "02 <em>Aug</em>",
+            "description": "Another blog post.  Write unlimited blog articles, or have someone write them for you with partial admin access. The Journal 3 blog has been greatly i..",
+            "href": "http://localhost:8080/index.php?route=journal3/blog.post&amp;language=en-gb&amp;journal_blog_post_id=10"
+          },
+          "11": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "post_id": "11",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-520x350w.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x673w.png",
+            "author": "brandwik",
+            "name": "Best theme options, period.",
+            "comments": "13",
+            "views": "6139",
+            "date": "09 <em>Sep</em>",
+            "description": "The Journal 3 blog has been greatly improved and it now comes with the most advanced set of typography tools, including custom drop-cap support as wel..",
+            "href": "http://localhost:8080/index.php?route=journal3/blog.post&amp;language=en-gb&amp;journal_blog_post_id=11"
+          },
+          "12": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "post_id": "12",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-520x350w.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x673w.png",
+            "author": "brandwik",
+            "name": "Journal Blog is Here",
+            "comments": "85",
+            "views": "17684",
+            "date": "12 <em>Dec</em>",
+            "description": "The Journal 3 blog has been greatly improved and it now comes with the most advanced set of typography tools, including custom drop-cap support as wel..",
+            "href": "http://localhost:8080/index.php?route=journal3/blog.post&amp;language=en-gb&amp;journal_blog_post_id=12"
+          }
+        },
+        "items": []
+      },
+      "2": {
+        "title": "Most Read",
+        "tabType": "content",
+        "filter": {
+          "sort": "views",
+          "order": "ASC",
+          "start": 0,
+          "limit": 8,
+          "preset": "most_viewed"
+        },
+        "index": 2,
+        "id": "998-2",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-2",
+          "2": null,
+          "3": "",
+          "tab-pane": true,
+          "active": false,
+          "panel": false,
+          "panel-active": false,
+          "swiper-slide": false
+        },
+        "active": false,
+        "tab_classes": {
+          "0": "tab-2",
+          "active": false
+        },
+        "panel_classes": {
+          "0": "panel-collapse",
+          "1": "collapse",
+          "in": false
+        },
+        "posts": {
+          "3": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "post_id": "3",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-520x350w.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x673w.png",
+            "author": "brandwik",
+            "name": "Season Essentials",
+            "comments": "17",
+            "views": "12770",
+            "date": "15 <em>Sep</em>",
+            "description": "Seasons come and go but Journal is here to stay. The Journal 3 blog has been greatly improved and it now comes with the most advanced set of typograph..",
+            "href": "http://localhost:8080/index.php?route=journal3/blog.post&amp;language=en-gb&amp;journal_blog_post_id=3"
+          },
+          "4": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "post_id": "4",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-520x350w.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x673w.png",
+            "author": "brandwik",
+            "name": "Office Essentials",
+            "comments": "7",
+            "views": "12928",
+            "date": "30 <em>Sep</em>",
+            "description": "Best Opencart theme around, period. The Journal 3 blog has been greatly improved and it now comes with the most advanced set of typography tools, incl..",
+            "href": "http://localhost:8080/index.php?route=journal3/blog.post&amp;language=en-gb&amp;journal_blog_post_id=4"
+          },
+          "10": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "post_id": "10",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-520x350w.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x673w.png",
+            "author": "brandwik",
+            "name": "Another Blog Post",
+            "comments": "24",
+            "views": "5039",
+            "date": "02 <em>Aug</em>",
+            "description": "Another blog post.  Write unlimited blog articles, or have someone write them for you with partial admin access. The Journal 3 blog has been greatly i..",
+            "href": "http://localhost:8080/index.php?route=journal3/blog.post&amp;language=en-gb&amp;journal_blog_post_id=10"
+          },
+          "11": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "post_id": "11",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-520x350w.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x673w.png",
+            "author": "brandwik",
+            "name": "Best theme options, period.",
+            "comments": "13",
+            "views": "6139",
+            "date": "09 <em>Sep</em>",
+            "description": "The Journal 3 blog has been greatly improved and it now comes with the most advanced set of typography tools, including custom drop-cap support as wel..",
+            "href": "http://localhost:8080/index.php?route=journal3/blog.post&amp;language=en-gb&amp;journal_blog_post_id=11"
+          },
+          "12": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "post_id": "12",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-520x350w.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x673w.png",
+            "author": "brandwik",
+            "name": "Journal Blog is Here",
+            "comments": "85",
+            "views": "17684",
+            "date": "12 <em>Dec</em>",
+            "description": "The Journal 3 blog has been greatly improved and it now comes with the most advanced set of typography tools, including custom drop-cap support as wel..",
+            "href": "http://localhost:8080/index.php?route=journal3/blog.post&amp;language=en-gb&amp;journal_blog_post_id=12"
+          }
+        },
+        "items": []
+      }
+    }
+  }
+}

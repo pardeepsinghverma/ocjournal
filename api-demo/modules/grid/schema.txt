@@ -1,0 +1,58 @@
+MODULE TYPE: grid
+representative: id=800  "Builder / Countdown + Products"
+instances on this page: 1
+layout path: top.rows[7].columns[1].items[1]
+data keys: 4
+data.items: none
+max structural depth (of full item): 9
+
+SCHEMA TREE (item):
+-------------------
+item: object {4 keys}
+  id: string = "800"
+  name: string = "Builder / Countdown + Products"
+  type: string = "grid"
+  data: object {4 keys}
+    grid_classes: array[5]
+      [0]: string = "module"
+    rows: object {1 keys}
+      1: object {10 keys}
+        color_scheme: string = ""
+        videoBgStatus: boolean = false
+        videoBg: string = ""
+        videoInline: boolean = false
+        waveStatus: boolean = false
+        waveDirection: string = "5"
+        wave2Status: boolean = false
+        wave2Direction: string = "5"
+        classes: array[4]
+          [0]: string = "grid-row"
+        columns: object {2 keys}
+          1: object {6 keys}
+            color_scheme: string = "color-scheme-scheme-3"
+            name: string = "New Column"
+            videoColStatus: boolean = false
+            videoCol: string = ""
+            classes: array[4]
+              [0]: string = "grid-col"
+            items: object {1 keys}
+              1: object {2 keys}
+                classes: array[3]
+                  …(depth cap)
+                item: object {3 keys}
+                  …(depth cap)
+          2: object {6 keys}
+            color_scheme: string = "color-scheme-scheme-1"
+            name: string = "New Column"
+            videoColStatus: boolean = false
+            videoCol: string = ""
+            classes: array[4]
+              [0]: string = "grid-col"
+            items: object {1 keys}
+              1: object {2 keys}
+                classes: array[3]
+                  …(depth cap)
+                item: object {3 keys}
+                  …(depth cap)
+    edit: string = "module_layout/grid/edit/800"
+    name: string = "Builder / Countdown + Products"

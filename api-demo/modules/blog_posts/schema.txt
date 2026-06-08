@@ -1,0 +1,297 @@
+MODULE TYPE: blog_posts
+representative: id=998  "Blog Posts / Latest Articles / Tabs"
+instances on this page: 1
+layout path: bottom.rows[3].columns[1].items[1]
+data keys: 38
+data.items: keyed-object[2]   <-- iterate with Object.values(items).map(), NOT items.map()
+max structural depth (of full item): 7
+
+SCHEMA TREE (item):
+-------------------
+item: object {4 keys}
+  id: string = "998"
+  name: string = "Blog Posts / Latest Articles / Tabs"
+  type: string = "blog_posts"
+  data: object {38 keys}
+    schedule: object {3 keys}
+      from: string = ""
+      to: string = ""
+      between: boolean = true
+    title: string = ""
+    display: string = "grid"
+    sectionsDisplay: string = "tabs"
+    sectionsDisplayTablet: string = ""
+    sectionsDisplayPhone: string = ""
+    carousel: boolean = false
+    tabsStyle: string = "DEFAULT_LARGE"
+    tabsStyleMenuImage: string = "DEFAULT"
+    tabsStyleDefaultScrollbarStyle: string = "NONE"
+    itemsPerRow: object {4 keys}
+      c0: object {4 keys}
+        0: object {2 keys}
+          items: number = 4
+          spacing: number = 20
+        500: object {2 keys}
+          items: number = 1
+          spacing: number = 20
+        900: object {2 keys}
+          spacing: number = 20
+          items: number = 2
+        1200: object {2 keys}
+          spacing: number = 20
+          items: number = 3
+      c1: object {3 keys}
+        0: object {2 keys}
+          items: number = 3
+          spacing: number = 20
+        500: object {2 keys}
+          items: number = 1
+          spacing: number = 20
+        900: object {2 keys}
+          spacing: number = 20
+          items: number = 2
+      c2: object {2 keys}
+        0: object {2 keys}
+          items: number = 2
+          spacing: number = 20
+        500: object {2 keys}
+          items: number = 1
+          spacing: number = 20
+      sc: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 20
+    default: string = ""
+    imageDimensions: object {3 keys}
+      width: null = null
+      height: null = null
+      resize: string = "fill"
+    modulePostList: string = "DEFAULT"
+    modulePostListButtonDisplay: string = "both"
+    modulePostListButtonButton: string = "LINK_UNDERLINE"
+    modulePostListButtonTooltipStatus: boolean = false
+    modulePostListButtonTooltipPosition: string = "top"
+    gridType: string = "auto"
+    autoCarouselStyle: string = "BUTTONS_TOP"
+    autoCarouselStyleAutoCarouselIconButtonsStyle: string = "DEFAULT"
+    status: boolean = true
+    module_id: number = 998
+    classes: object {8 keys}
+      0: string = "module"
+      1: string = "module-blog_posts"
+      2: string = "module-blog_posts-998"
+      3: null = null
+      4: string = ""
+      5: string = "module-blog_posts-grid"
+      carousel-mode: boolean = false
+      align-to-content: boolean = true
+    edit: string = "module_layout/blog_posts/edit/998"
+    name: string = "Blog Posts / Latest Articles / Tabs"
+    swiper_carousel: boolean = false
+    image_width: number = 520
+    image_height: number = 350
+    image_resize: string = "fill"
+    carouselOptions: object {4 keys}
+      speed: number = 0
+      autoplay: boolean = false
+      pauseOnHover: boolean = false
+      loop: boolean = false
+    dummy_image: string = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAggAAAFeAQMAAA…"
+    text_tax: string = "text_tax"
+    button_cart: string = "Add to Cart"
+    button_wishlist: string = "Add to Wish List"
+    button_compare: string = "Compare this Product"
+    default_index: number = 1
+    items: object {2 keys}
+      1: object {11 keys}
+        title: string = "Latest Articles"
+        tabType: string = "content"
+        filter: object {5 keys}
+          sort: string = "newest"
+          order: string = "ASC"
+          start: number = 0
+          limit: number = 8
+          preset: string = "latest"
+        index: number = 1
+        id: string = "998-1"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-1"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = true
+          active: boolean = true
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        active: boolean = true
+        tab_classes: object {2 keys}
+          0: string = "tab-1"
+          active: boolean = true
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        posts: object {5 keys}
+          3: object {11 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            post_id: string = "3"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            author: string = "brandwik"
+            name: string = "Season Essentials"
+            comments: string = "17"
+            views: string = "12770"
+            date: string = "15 <em>Sep</em>"
+            description: string = "Seasons come and go but Journal is here to stay. The Journal…"
+            href: string = "http://localhost:8080/index.php?route=journal3/blog.post&amp…"
+          4: object {11 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            post_id: string = "4"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            author: string = "brandwik"
+            name: string = "Office Essentials"
+            comments: string = "7"
+            views: string = "12928"
+            date: string = "30 <em>Sep</em>"
+            description: string = "Best Opencart theme around, period. The Journal 3 blog has b…"
+            href: string = "http://localhost:8080/index.php?route=journal3/blog.post&amp…"
+          10: object {11 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            post_id: string = "10"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            author: string = "brandwik"
+            name: string = "Another Blog Post"
+            comments: string = "24"
+            views: string = "5039"
+            date: string = "02 <em>Aug</em>"
+            description: string = "Another blog post. Write unlimited blog articles, or have so…"
+            href: string = "http://localhost:8080/index.php?route=journal3/blog.post&amp…"
+          11: object {11 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            post_id: string = "11"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            author: string = "brandwik"
+            name: string = "Best theme options, period."
+            comments: string = "13"
+            views: string = "6139"
+            date: string = "09 <em>Sep</em>"
+            description: string = "The Journal 3 blog has been greatly improved and it now come…"
+            href: string = "http://localhost:8080/index.php?route=journal3/blog.post&amp…"
+          12: object {11 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            post_id: string = "12"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            author: string = "brandwik"
+            name: string = "Journal Blog is Here"
+            comments: string = "85"
+            views: string = "17684"
+            date: string = "12 <em>Dec</em>"
+            description: string = "The Journal 3 blog has been greatly improved and it now come…"
+            href: string = "http://localhost:8080/index.php?route=journal3/blog.post&amp…"
+        items: array[0]
+      2: object {11 keys}
+        title: string = "Most Read"
+        tabType: string = "content"
+        filter: object {5 keys}
+          sort: string = "views"
+          order: string = "ASC"
+          start: number = 0
+          limit: number = 8
+          preset: string = "most_viewed"
+        index: number = 2
+        id: string = "998-2"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-2"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = true
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        active: boolean = false
+        tab_classes: object {2 keys}
+          0: string = "tab-2"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        posts: object {5 keys}
+          3: object {11 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            post_id: string = "3"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            author: string = "brandwik"
+            name: string = "Season Essentials"
+            comments: string = "17"
+            views: string = "12770"
+            date: string = "15 <em>Sep</em>"
+            description: string = "Seasons come and go but Journal is here to stay. The Journal…"
+            href: string = "http://localhost:8080/index.php?route=journal3/blog.post&amp…"
+          4: object {11 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            post_id: string = "4"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            author: string = "brandwik"
+            name: string = "Office Essentials"
+            comments: string = "7"
+            views: string = "12928"
+            date: string = "30 <em>Sep</em>"
+            description: string = "Best Opencart theme around, period. The Journal 3 blog has b…"
+            href: string = "http://localhost:8080/index.php?route=journal3/blog.post&amp…"
+          10: object {11 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            post_id: string = "10"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            author: string = "brandwik"
+            name: string = "Another Blog Post"
+            comments: string = "24"
+            views: string = "5039"
+            date: string = "02 <em>Aug</em>"
+            description: string = "Another blog post. Write unlimited blog articles, or have so…"
+            href: string = "http://localhost:8080/index.php?route=journal3/blog.post&amp…"
+          11: object {11 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            post_id: string = "11"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            author: string = "brandwik"
+            name: string = "Best theme options, period."
+            comments: string = "13"
+            views: string = "6139"
+            date: string = "09 <em>Sep</em>"
+            description: string = "The Journal 3 blog has been greatly improved and it now come…"
+            href: string = "http://localhost:8080/index.php?route=journal3/blog.post&amp…"
+          12: object {11 keys}
+            classes: object {1 keys}
+              swiper-slide: boolean = false
+            post_id: string = "12"
+            thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            author: string = "brandwik"
+            name: string = "Journal Blog is Here"
+            comments: string = "85"
+            views: string = "17684"
+            date: string = "12 <em>Dec</em>"
+            description: string = "The Journal 3 blog has been greatly improved and it now come…"
+            href: string = "http://localhost:8080/index.php?route=journal3/blog.post&amp…"
+        items: array[0]

@@ -1,0 +1,68 @@
+MODULE TYPE: marquee
+representative: id=407  "Marquee / Free Shipping"
+instances on this page: 1
+layout path: top.rows[3].columns[1].items[1]
+data keys: 14
+data.items: keyed-object[2]   <-- iterate with Object.values(items).map(), NOT items.map()
+max structural depth (of full item): 6
+
+SCHEMA TREE (item):
+-------------------
+item: object {4 keys}
+  id: string = "407"
+  name: string = "Marquee / Free Shipping"
+  type: string = "marquee"
+  data: object {14 keys}
+    color_scheme_module: string = ""
+    schedule: object {3 keys}
+      from: string = ""
+      to: string = ""
+      between: boolean = true
+    imageDimensions: object {3 keys}
+      width: null = null
+      height: null = null
+      resize: string = "fill"
+    repeat: string = "5"
+    status: boolean = true
+    module_id: number = 407
+    classes: array[5]
+      [0]: string = "module"
+    edit: string = "module_layout/marquee/edit/407"
+    name: string = "Marquee / Free Shipping"
+    image_width: null = null
+    image_height: null = null
+    image_resize: string = "fill"
+    dummy_image: string = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAA…"
+    items: object {2 keys}
+      1: object {7 keys}
+        type: string = "title"
+        title: string = "Free Shipping"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 1
+        id: string = "407-1"
+        classes: array[4]
+          [0]: string = "module-item"
+        items: array[0]
+      2: object {7 keys}
+        type: string = "title"
+        title: string = "On orders over $200"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 2
+        id: string = "407-2"
+        classes: array[4]
+          [0]: string = "module-item"
+        items: array[0]

@@ -1,0 +1,798 @@
+{
+  "id": "838",
+  "name": "Gallery / Simple Carousel",
+  "type": "gallery",
+  "data": {
+    "color_scheme": "",
+    "schedule": {
+      "from": "",
+      "to": "",
+      "between": true
+    },
+    "title": "",
+    "dynamic": true,
+    "dynamicPath": "journal3/assets/demos/9/v1/Gallery/",
+    "productImages": false,
+    "carousel": false,
+    "carouselStyle": "SIDE_ARROWS",
+    "carouselStyleIconButtonsStyle": "DEFAULT",
+    "itemsPerRow": {
+      "c0": [
+        {
+          "items": 4,
+          "spacing": 0
+        }
+      ],
+      "c1": [
+        {
+          "items": 1,
+          "spacing": 0
+        }
+      ],
+      "c2": [
+        {
+          "items": 1,
+          "spacing": 0
+        }
+      ],
+      "sc": [
+        {
+          "items": 3,
+          "spacing": 16
+        }
+      ]
+    },
+    "source": "local",
+    "instagramPage": "",
+    "galleryModuleStyle": "DEFAULT",
+    "thumbsLimit": "16",
+    "thumbsLimitTablet": "",
+    "thumbsLimitPhone": "",
+    "thumbDimensions": {
+      "width": 160,
+      "height": 160,
+      "resize": "fill"
+    },
+    "moduleGallery": "DEFAULT",
+    "moduleGalleryDownload": true,
+    "moduleGalleryActualSizeVisibility": true,
+    "moduleGalleryDownloadVisibility": false,
+    "moduleGalleryFullScreen": false,
+    "moduleGalleryMode": "lg-fade",
+    "moduleGalleryIconButtonsStyle": "DEFAULT",
+    "moduleGalleryThumbToggleStatus": false,
+    "popupImageDimensions": {
+      "width": 2000,
+      "height": null,
+      "resize": "fill"
+    },
+    "popupThumbDimensions": {
+      "width": 90,
+      "height": 90,
+      "resize": "fill"
+    },
+    "button": false,
+    "buttonText": "Open Gallery",
+    "gridType": "auto",
+    "autoGridStyle": "SMALL",
+    "status": true,
+    "module_id": 838,
+    "classes": {
+      "0": "module",
+      "1": "module-gallery",
+      "2": "module-gallery-838",
+      "3": "",
+      "4": "",
+      "carousel-mode": false,
+      "align-to-content": true
+    },
+    "edit": "module_layout/gallery/edit/838",
+    "name": "Gallery / Simple Carousel",
+    "swiper_carousel": false,
+    "images": [
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "video",
+        "src": "https://www.youtube.com/watch?v=CP6DJ2RuBfY",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Video support"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Custom image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Image caption"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Banner Link"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Banner Link"
+      },
+      {
+        "type": "image",
+        "src": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "srcset": null,
+        "width": 1000,
+        "height": 1000,
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "subHtml": "Banner Link"
+      }
+    ],
+    "options": {
+      "addClass": "lg-838",
+      "colorSchemeClass": "",
+      "thumbWidth": 90,
+      "thumbHeight": "90px",
+      "allowMediaOverlap": false
+    },
+    "carouselOptions": {
+      "speed": 500,
+      "autoplay": false,
+      "pauseOnHover": true,
+      "loop": false
+    },
+    "dummy_image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgAQMAAACxAfVuAAAABlBMVEUAAAAEAgSXNbeIAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABlJREFUSMftwQENAAAAwqD3T+3sARQAAAA3DSAAAVxEEY8AAAAASUVORK5CYII=",
+    "items": {
+      "1": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 1,
+        "id": "838-1",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-1",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "2": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 2,
+        "id": "838-2",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-2",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "3": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 3,
+        "id": "838-3",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-3",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "4": {
+        "title": "Video support",
+        "type": "video",
+        "videoType": "youtube",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 4,
+        "id": "838-4",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-4",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Video support",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "5": {
+        "title": "Banners with links",
+        "type": "link",
+        "videoType": "youtube",
+        "link": {
+          "type": "page",
+          "id": "",
+          "href": "http://localhost:8080/index.php?route=product/special&amp;language=en-gb",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 5,
+        "id": "838-5",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-5",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Banners with links",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/index.php?route=product/special&amp;language=en-gb",
+        "items": []
+      },
+      "6": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 6,
+        "id": "838-6",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-6",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "7": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 7,
+        "id": "838-7",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-7",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "8": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 8,
+        "id": "838-8",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-8",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "9": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 9,
+        "id": "838-9",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-9",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "10": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 10,
+        "id": "838-10",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-10",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "11": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 11,
+        "id": "838-11",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-11",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "12": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 12,
+        "id": "838-12",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-12",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "13": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 13,
+        "id": "838-13",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-13",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "14": {
+        "title": "Custom image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 14,
+        "id": "838-14",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-14",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Custom image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "15": {
+        "title": "Image caption",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 15,
+        "id": "838-15",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-15",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Image caption",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "16": {
+        "title": "Banner Link",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 16,
+        "id": "838-16",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-16",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Banner Link",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "17": {
+        "title": "Banner Link",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 17,
+        "id": "838-17",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-17",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Banner Link",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      },
+      "18": {
+        "title": "Banner Link",
+        "type": "image",
+        "videoType": "html5",
+        "link": {
+          "type": "",
+          "id": "",
+          "href": "",
+          "name": "",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 18,
+        "id": "838-18",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-18",
+          "2": null,
+          "3": "",
+          "swiper-slide": false
+        },
+        "alt": "Banner Link",
+        "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+        "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+        "popup": "http://localhost:8080/image/cache/catalog/journal3/placeholder-1000x1000.png",
+        "popup2x": null,
+        "popupThumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-180x180.png",
+        "items": []
+      }
+    }
+  }
+}

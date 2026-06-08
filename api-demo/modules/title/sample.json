@@ -1,0 +1,63 @@
+{
+  "id": "1099",
+  "name": "Title / Home / Featured Products Copy",
+  "type": "title",
+  "data": {
+    "schedule": {
+      "from": "",
+      "to": "",
+      "between": true
+    },
+    "type": "custom",
+    "title": "New Arrivals",
+    "label": "",
+    "subtitle": "Just added, shop our latest products before they're gone90.",
+    "style": "DEFAULT",
+    "styleLabelContainerStyle": "MEDIA_LABEL_CAPS",
+    "styleinlineButtonStyle": "LINK_UNDERLINE",
+    "stylebutton1Style": "OUTLINE_FILL",
+    "stylebutton2Style": "LINK_UNDERLINE",
+    "inline_button_text": "Shop all",
+    "inline_button_link": {
+      "type": "page",
+      "id": "",
+      "href": "http://localhost:8080/index.php?route=product/catalog&amp;language=en-gb&amp;sort=p.date_added&amp;order=DESC",
+      "name": "",
+      "total": null,
+      "attrs": [],
+      "classes": []
+    },
+    "button_1_text": "",
+    "button_1_link": {
+      "type": "",
+      "id": "",
+      "href": "",
+      "name": "",
+      "total": null,
+      "attrs": [],
+      "classes": []
+    },
+    "button_2_text": "",
+    "button_2_link": {
+      "type": "",
+      "id": "",
+      "href": "",
+      "name": "",
+      "total": null,
+      "attrs": [],
+      "classes": []
+    },
+    "status": true,
+    "module_id": 1099,
+    "classes": [
+      "module",
+      "module-title",
+      "module-title-1099",
+      null,
+      ""
+    ],
+    "edit": "module_layout/title/edit/1099",
+    "name": "Title / Home / New Arrivals",
+    "items": []
+  }
+}

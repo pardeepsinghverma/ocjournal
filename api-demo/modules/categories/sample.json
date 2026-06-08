@@ -1,0 +1,246 @@
+{
+  "id": "1101",
+  "name": "Categories / Large Card",
+  "type": "categories",
+  "data": {
+    "color_scheme_content": "",
+    "schedule": {
+      "from": "",
+      "to": "",
+      "between": true
+    },
+    "title": "",
+    "viewMoreText": "",
+    "descLimit": "75",
+    "sectionsDisplay": "blocks",
+    "sectionsDisplayTablet": "",
+    "sectionsDisplayPhone": "",
+    "moduleCategory": "LARGE",
+    "moduleCategoryButtonDisplay": "both",
+    "moduleCategoryCountBadge": "SIMPLE",
+    "moduleCategoryButtonButton": "LINK_UNDERLINE",
+    "moduleCategoryButtonTooltipStatus": true,
+    "moduleCategoryButtonTooltipPosition": "top",
+    "productsCount": true,
+    "productsCountText": "%s Product(s)",
+    "productsCountTextPosition": "name",
+    "carousel": true,
+    "carouselStyle": "DEFAULT",
+    "carouselStyleIconButtonsStyle": "DEFAULT",
+    "tabsStyle": "DEFAULT",
+    "tabsStyleMenuImage": "DEFAULT",
+    "tabsStyleDefaultScrollbarStyle": "NONE",
+    "itemsPerRow": {
+      "c0": {
+        "0": {
+          "items": 4,
+          "spacing": 20
+        },
+        "500": {
+          "items": 1,
+          "spacing": 20
+        },
+        "900": {
+          "spacing": 20,
+          "items": 2
+        },
+        "1200": {
+          "spacing": 20,
+          "items": 3
+        }
+      },
+      "c1": {
+        "0": {
+          "items": 3,
+          "spacing": 20
+        },
+        "500": {
+          "items": 1,
+          "spacing": 20
+        },
+        "900": {
+          "spacing": 20,
+          "items": 2
+        }
+      },
+      "c2": {
+        "0": {
+          "items": 2,
+          "spacing": 20
+        },
+        "500": {
+          "items": 1,
+          "spacing": 20
+        }
+      },
+      "sc": [
+        {
+          "items": 1,
+          "spacing": 20
+        }
+      ]
+    },
+    "default": "7252f512-f0e7-4329-ba64-1f0223873b7a",
+    "images": true,
+    "imageDimensions": {
+      "width": 300,
+      "height": 300,
+      "resize": "fill"
+    },
+    "gridType": "auto",
+    "autoGridStyle": "LARGE",
+    "autoCarouselStyle": "BUTTONS_TOP",
+    "autoCarouselStyleAutoCarouselIconButtonsStyle": "DEFAULT",
+    "status": true,
+    "module_id": 1101,
+    "classes": {
+      "0": "module",
+      "1": "module-categories",
+      "2": "module-categories-1101",
+      "3": null,
+      "4": "",
+      "5": "module-categories-",
+      "carousel-mode": false,
+      "align-to-content": true
+    },
+    "edit": "module_layout/categories/edit/1101",
+    "name": "Categories / Large Card",
+    "swiper_carousel": false,
+    "image_width": 300,
+    "image_height": 300,
+    "image_resize": "fill",
+    "carouselOptions": {
+      "speed": 500,
+      "autoplay": false,
+      "pauseOnHover": true,
+      "loop": false
+    },
+    "dummy_image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsAQMAAABDsxw2AAAABlBMVEUAAAAEAgSXNbeIAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAACJJREFUaN7twTEBAAAAwqD1T20KP6AAAAAAAAAAAAAAAHgZLbQAAf/pCWsAAAAASUVORK5CYII=",
+    "default_index": 1,
+    "items": {
+      "1": {
+        "title": "",
+        "tabType": "content",
+        "type": "sub",
+        "limit": "",
+        "index": 1,
+        "id": "1101-1",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-1",
+          "2": null,
+          "3": "",
+          "tab-pane": false,
+          "active": false,
+          "panel": false,
+          "panel-active": false,
+          "swiper-slide": false
+        },
+        "active": true,
+        "tab_classes": {
+          "0": "tab-1",
+          "active": false
+        },
+        "panel_classes": {
+          "0": "panel-collapse",
+          "1": "collapse",
+          "in": false
+        },
+        "categories": {
+          "451": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "category_id": "451",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-300x300.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-600x600.png",
+            "name": "Bathroom",
+            "total": "14",
+            "total_text": "<span class=\"count-badge\">14</span>",
+            "description": "Category Bathroom description. Lorem Ipsum is simply dummy text of the prin..",
+            "href": "http://localhost:8080/index.php?route=product/category&amp;language=en-gb&amp;path=451"
+          },
+          "467": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "category_id": "467",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-300x300.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-600x600.png",
+            "name": "Bedroom",
+            "total": "17",
+            "total_text": "<span class=\"count-badge\">17</span>",
+            "description": "Category Bedroom description. Lorem Ipsum is simply dummy text of the print..",
+            "href": "http://localhost:8080/index.php?route=product/category&amp;language=en-gb&amp;path=467"
+          },
+          "476": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "category_id": "476",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-300x300.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-600x600.png",
+            "name": "Dining Room",
+            "total": "10",
+            "total_text": "<span class=\"count-badge\">10</span>",
+            "description": "Category Dining Room description. Lorem Ipsum is simply dummy text of the p..",
+            "href": "http://localhost:8080/index.php?route=product/category&amp;language=en-gb&amp;path=476"
+          },
+          "485": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "category_id": "485",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-300x300.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-600x600.png",
+            "name": "Home Office",
+            "total": "23",
+            "total_text": "<span class=\"count-badge\">23</span>",
+            "description": "Category Home Office description. Lorem Ipsum is simply dummy text of the p..",
+            "href": "http://localhost:8080/index.php?route=product/category&amp;language=en-gb&amp;path=485"
+          },
+          "494": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "category_id": "494",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-300x300.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-600x600.png",
+            "name": "Kitchen",
+            "total": "0",
+            "total_text": "<span class=\"count-badge\">0</span>",
+            "description": "Category Kitchen description. Lorem Ipsum is simply dummy text of the print..",
+            "href": "http://localhost:8080/index.php?route=product/category&amp;language=en-gb&amp;path=494"
+          },
+          "504": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "category_id": "504",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-300x300.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-600x600.png",
+            "name": "Living Room",
+            "total": "33",
+            "total_text": "<span class=\"count-badge\">33</span>",
+            "description": "Category Living Room description. Lorem Ipsum is simply dummy text of the p..",
+            "href": "http://localhost:8080/index.php?route=product/category&amp;language=en-gb&amp;path=504"
+          },
+          "540": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "category_id": "540",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-300x300.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-600x600.png",
+            "name": "Outdoor",
+            "total": "3",
+            "total_text": "<span class=\"count-badge\">3</span>",
+            "description": "Category Outdoor description. Lorem Ipsum is simply dummy text of the print..",
+            "href": "http://localhost:8080/index.php?route=product/category&amp;language=en-gb&amp;path=540"
+          }
+        },
+        "items": []
+      }
+    }
+  }
+}

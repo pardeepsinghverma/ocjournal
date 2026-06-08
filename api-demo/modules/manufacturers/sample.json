@@ -1,0 +1,318 @@
+{
+  "id": "997",
+  "name": "Brands / Default",
+  "type": "manufacturers",
+  "data": {
+    "color_scheme_content": "",
+    "schedule": {
+      "from": "",
+      "to": "",
+      "between": true
+    },
+    "title": "",
+    "titleStyle": "DEFAULT",
+    "moduleManufacturers": "DEFAULT",
+    "moduleManufacturersButtonButton": "LINK_UNDERLINE",
+    "sectionsDisplay": "blocks",
+    "sectionsDisplayTablet": "",
+    "sectionsDisplayPhone": "",
+    "viewMoreText": "",
+    "carousel": true,
+    "carouselStyle": "DEFAULT",
+    "carouselStyleIconButtonsStyle": "DEFAULT",
+    "itemsPerRow": {
+      "c0": [
+        {
+          "items": 1,
+          "spacing": 0
+        }
+      ],
+      "c1": [
+        {
+          "items": 1,
+          "spacing": 0
+        }
+      ],
+      "c2": [
+        {
+          "items": 1,
+          "spacing": 0
+        }
+      ],
+      "sc": [
+        {
+          "items": 1,
+          "spacing": 0
+        }
+      ]
+    },
+    "default": "",
+    "imageDimensions": {
+      "width": 160,
+      "height": 160,
+      "resize": "fit"
+    },
+    "gridType": "auto",
+    "autoGridStyle": "SMALL",
+    "autoCarouselStyle": "BUTTONS_TOP",
+    "autoCarouselStyleAutoCarouselIconButtonsStyle": "DEFAULT",
+    "status": true,
+    "module_id": 997,
+    "classes": {
+      "0": "module",
+      "1": "module-manufacturers",
+      "2": "module-manufacturers-997",
+      "3": null,
+      "4": "",
+      "5": "module-manufacturers-",
+      "carousel-mode": false,
+      "align-to-content": true
+    },
+    "edit": "module_layout/manufacturers/edit/997",
+    "name": "Brands / Default",
+    "swiper_carousel": false,
+    "image_width": 160,
+    "image_height": 160,
+    "image_resize": "fit",
+    "carouselOptions": {
+      "speed": 500,
+      "autoplay": false,
+      "pauseOnHover": true,
+      "loop": false
+    },
+    "dummy_image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgAQMAAACxAfVuAAAABlBMVEUAAAAEAgSXNbeIAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABlJREFUSMftwQENAAAAwqD3T+3sARQAAAA3DSAAAVxEEY8AAAAASUVORK5CYII=",
+    "default_index": 0,
+    "items": {
+      "1": {
+        "title": "",
+        "tabType": "content",
+        "index": 1,
+        "id": "997-1",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-1",
+          "2": null,
+          "3": "",
+          "tab-pane": false,
+          "active": false,
+          "panel": false,
+          "panel-active": false,
+          "swiper-slide": false
+        },
+        "active": true,
+        "tab_classes": {
+          "0": "tab-1",
+          "active": false
+        },
+        "panel_classes": {
+          "0": "panel-collapse",
+          "1": "collapse",
+          "in": false
+        },
+        "manufacturers": {
+          "2": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "2",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Bold",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=2"
+          },
+          "3": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "3",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Breally",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=3"
+          },
+          "4": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "4",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Dj Tech",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=4"
+          },
+          "5": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "5",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Drop",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=5"
+          },
+          "6": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "6",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "FYT",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=6"
+          },
+          "7": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "7",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Floral",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=7"
+          },
+          "8": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "8",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Fort Cane",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=8"
+          },
+          "9": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "9",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Furry Family",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=9"
+          },
+          "10": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "10",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Game Tech",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=10"
+          },
+          "11": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "11",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Ginneys",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=11"
+          },
+          "12": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "12",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Iconic",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=12"
+          },
+          "13": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "13",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Jane Austin",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=13"
+          },
+          "15": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "15",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Kent Madisson",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=15"
+          },
+          "16": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "16",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Pfeiffer",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=16"
+          },
+          "17": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "17",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Ron Jones",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=17"
+          },
+          "18": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "18",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Rose",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=18"
+          },
+          "20": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "20",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Moro",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=20"
+          },
+          "21": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "21",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Star Tech",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=21"
+          },
+          "22": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "22",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Sterling",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=22"
+          },
+          "23": {
+            "classes": {
+              "swiper-slide": false
+            },
+            "manufacturer_id": "23",
+            "thumb": "http://localhost:8080/image/cache/catalog/journal3/placeholder-160x160.png",
+            "thumb2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-320x320.png",
+            "name": "Walk",
+            "href": "http://localhost:8080/index.php?route=product/manufacturer.info&amp;language=en-gb&amp;manufacturer_id=23"
+          }
+        },
+        "items": []
+      }
+    }
+  }
+}

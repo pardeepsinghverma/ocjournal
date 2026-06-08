@@ -1,0 +1,135 @@
+{
+  "id": "798",
+  "name": "Simple Banners / Bento 9 / Left",
+  "type": "banners",
+  "data": {
+    "schedule": {
+      "from": "",
+      "to": "",
+      "between": true
+    },
+    "title": "",
+    "carousel": false,
+    "itemsPerRow": {
+      "c0": [
+        {
+          "items": 2,
+          "spacing": 20
+        }
+      ],
+      "c1": [
+        {
+          "items": 1,
+          "spacing": 0
+        }
+      ],
+      "c2": [
+        {
+          "items": 1,
+          "spacing": 0
+        }
+      ],
+      "sc": [
+        {
+          "items": 1,
+          "spacing": 0
+        }
+      ]
+    },
+    "imageDimensions": {
+      "width": 435,
+      "height": 590,
+      "resize": "fill"
+    },
+    "bannerStyle": "BANNERS",
+    "lazyLoad": true,
+    "gridType": "auto",
+    "status": true,
+    "module_id": 798,
+    "classes": {
+      "0": "module",
+      "1": "module-banners",
+      "2": "module-banners-798",
+      "3": null,
+      "4": "",
+      "carousel-mode": false,
+      "align-to-content": false
+    },
+    "edit": "module_layout/banners/edit/798",
+    "name": "Simple Banners / Bento 9 / Left",
+    "swiper_carousel": false,
+    "carouselOptions": {
+      "speed": 0,
+      "autoplay": false,
+      "pauseOnHover": false,
+      "loop": false
+    },
+    "width": 435,
+    "height": 590,
+    "dummy_image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbMAAAJOAQMAAAAHx3ueAAAABlBMVEUAAAAEAgSXNbeIAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAADdJREFUeNrtwTEBAAAAwqD1T+1tB6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AgRAAAVjIHkkAAAAASUVORK5CYII=",
+    "items": {
+      "1": {
+        "color_scheme": "",
+        "title": "Dining",
+        "title2": "See products",
+        "title3": "",
+        "alt": "",
+        "link": {
+          "type": "category",
+          "id": "476",
+          "href": "http://localhost:8080/index.php?route=product/category&amp;language=en-gb&amp;path=476",
+          "name": "Dining Room",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 1,
+        "id": "798-1",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-1",
+          "2": "",
+          "3": "",
+          "swiper-slide": false
+        },
+        "image": "http://localhost:8080/image/cache/catalog/journal3/placeholder-435x590h.png",
+        "image2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-737x1000h.png",
+        "image_width": 435,
+        "image_height": 590,
+        "text": null,
+        "items": []
+      },
+      "2": {
+        "color_scheme": "",
+        "title": "Lighting",
+        "title2": "See products",
+        "title3": "",
+        "alt": "",
+        "link": {
+          "type": "category",
+          "id": "514",
+          "href": "http://localhost:8080/index.php?route=product/category&amp;language=en-gb&amp;path=514",
+          "name": "Lighting",
+          "total": null,
+          "attrs": [],
+          "classes": []
+        },
+        "index": 2,
+        "id": "798-2",
+        "classes": {
+          "0": "module-item",
+          "1": "module-item-2",
+          "2": "",
+          "3": "",
+          "swiper-slide": false
+        },
+        "image": "http://localhost:8080/image/cache/catalog/journal3/placeholder-435x590h.png",
+        "image2x": "http://localhost:8080/image/cache/catalog/journal3/placeholder-737x1000h.png",
+        "image_width": 435,
+        "image_height": 590,
+        "text": null,
+        "items": []
+      }
+    }
+  }
+}

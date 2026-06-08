@@ -1,0 +1,489 @@
+MODULE TYPE: products
+representative: id=867  "Products / Home / New Arrivals from Category"
+instances on this page: 2  (see _all.json)
+layout path: top.rows[4].columns[1].items[2]
+data keys: 75
+data.items: keyed-object[1]   <-- iterate with Object.values(items).map(), NOT items.map()
+max structural depth (of full item): 6
+
+SCHEMA TREE (item):
+-------------------
+item: object {4 keys}
+  id: string = "867"
+  name: string = "Products / Home / New Arrivals from Category"
+  type: string = "products"
+  data: object {75 keys}
+    color_scheme_content: string = ""
+    title: string = ""
+    titleStyle: string = "DEFAULT"
+    inline_button_text: string = ""
+    inline_button_link: object {7 keys}
+      type: string = ""
+      id: string = ""
+      href: string = ""
+      name: string = ""
+      total: null = null
+      attrs: array[0]
+      classes: array[0]
+    schedule: object {3 keys}
+      from: string = ""
+      to: string = ""
+      between: boolean = true
+    display: string = "grid"
+    sectionsDisplay: string = "blocks"
+    sectionsDisplayTablet: string = ""
+    sectionsDisplayPhone: string = ""
+    carousel: boolean = true
+    carouselStyle: string = "SLIDER"
+    carouselStyleIconButtonsStyle: string = "DEFAULT"
+    itemsPerRow: object {4 keys}
+      c0: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 0
+      c1: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 0
+      c2: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 0
+      sc: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 0
+    default: string = "313b0b1f-9a29-4457-856d-1c2b3d5cfde8"
+    imageDimensions: object {3 keys}
+      width: null = null
+      height: null = null
+      resize: string = "fill"
+    limit: string = "8"
+    moduleProductList: string = "SLIDER"
+    moduleProductListSecondImageStatus: boolean = true
+    moduleProductListQuickviewDisplay: string = "icon"
+    moduleProductListQuickviewTooltipStatus: boolean = true
+    moduleProductListQuickviewTooltipPosition: string = "top"
+    moduleProductListQuickviewButton: string = "QUICKVIEW"
+    moduleProductListCountdown: string = "DEFAULT"
+    moduleProductListRatingPosition: string = "top"
+    moduleProductListRatingVisibility: boolean = true
+    moduleProductListRatingStyle: string = "DEFAULT"
+    moduleProductListNamePosition: string = "default"
+    moduleProductListCartDisplay: string = "both"
+    moduleProductListCartButton: string = "MEDIUM"
+    moduleProductListStepper: string = "DEFAULT_FLAT"
+    moduleProductListStepperQtyInput: string = "STEPPER"
+    moduleProductListCartTooltipStatus: boolean = true
+    moduleProductListCartTooltipPosition: string = "top"
+    moduleProductListWishlistDisplay: string = "icon"
+    moduleProductListWishlistButton: string = "OUTLINE_FILL"
+    moduleProductListWishlistTooltipStatus: boolean = true
+    moduleProductListWishlistTooltipPosition: string = "top"
+    moduleProductListCompareDisplay: string = "icon"
+    moduleProductListCompareButton: string = "OUTLINE_FILL"
+    moduleProductListCompareTooltipStatus: boolean = true
+    moduleProductListCompareTooltipPosition: string = "top"
+    moduleProductListExtraButtonDisplay1: string = "both"
+    moduleProductListExtraButtonDisplay2: string = "both"
+    moduleProductListExtraButtonStyle1: string = "LINK_UNDERLINE"
+    moduleProductListExtraButtonStyle2: string = "LINK_UNDERLINE"
+    moduleProductListExtraButtonTooltipStatus: boolean = true
+    moduleProductListExtraButtonTooltipPosition: string = "top"
+    moduleProductListExtraPosition: string = "bottom"
+    moduleProductListButtonsPosition: string = "bottom"
+    moduleProductDescriptionLimit: string = "150"
+    moduleProductStat1: string = "brand"
+    moduleProductStat2: string = "stock"
+    gridType: string = "auto"
+    autoGridStyle: string = "LARGE"
+    autoCarouselStyle: string = "BUTTONS_TOP"
+    autoCarouselStyleAutoCarouselIconButtonsStyle: string = "DEFAULT"
+    status: boolean = true
+    module_id: number = 867
+    classes: object {8 keys}
+      0: string = "module"
+      1: string = "module-products"
+      2: string = "module-products-867"
+      3: null = null
+      4: string = ""
+      5: string = "module-products-grid"
+      carousel-mode: boolean = false
+      align-to-content: boolean = true
+    edit: string = "module_layout/products/edit/867"
+    name: string = "Products / Home / New form Collection"
+    swiper_carousel: boolean = false
+    products_classes: object {2 keys}
+      0: string = "product-grid"
+      main-products-style: boolean = true
+    image_width: number = 350
+    image_height: number = 350
+    image_resize: string = "fill"
+    carouselOptions: object {4 keys}
+      speed: number = 500
+      autoplay: object {1 keys}
+        delay: number = 3000
+      pauseOnHover: boolean = true
+      loop: boolean = false
+    dummy_image: string = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeAQMAAA…"
+    text_tax: string = "Ex Tax:"
+    button_cart: string = "Add to Cart"
+    button_wishlist: string = "Add to Wish List"
+    button_compare: string = "Compare this Product"
+    default_index: number = 1
+    items: object {1 keys}
+      1: object {12 keys}
+        title: string = ""
+        tabType: string = "content"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        filter: object {8 keys}
+          sort: string = "p.sort_order"
+          order: string = "ASC"
+          start: number = 0
+          limit: number = 12
+          preset: string = "advanced"
+          categories: array[1]
+            [0]: string = "1146"
+          price: object {2 keys}
+            min: string = ""
+            max: string = ""
+          quantity: object {2 keys}
+            min: string = ""
+            max: string = ""
+        index: number = 1
+        id: string = "867-1"
+        classes: object {9 keys}
+          0: string = "module-item"
+          1: string = "module-item-1"
+          2: null = null
+          3: string = ""
+          tab-pane: boolean = false
+          active: boolean = false
+          panel: boolean = false
+          panel-active: boolean = false
+          swiper-slide: boolean = false
+        active: boolean = true
+        tab_classes: object {2 keys}
+          0: string = "tab-1"
+          active: boolean = false
+        panel_classes: object {3 keys}
+          0: string = "panel-collapse"
+          1: string = "collapse"
+          in: boolean = false
+        products: object {7 keys}
+          845: object {43 keys}
+            product_id: string = "845"
+            name: string = "Two Seater Sofa"
+            description: string = "<p>Demo product Two Seater Sofa description, along with any …"
+            meta_title: string = "Two Seater Sofa"
+            meta_description: string = "Demo product Two Seater Sofa description, along with ..."
+            meta_keyword: string = ""
+            tag: string = ""
+            model: string = "model-9809"
+            sku: string = ""
+            upc: string = ""
+            ean: string = ""
+            jan: string = ""
+            isbn: string = ""
+            mpn: string = ""
+            location: string = ""
+            quantity: string = "8452"
+            stock_status: string = "Out Of Stock"
+            image: string = "catalog/journal3/catalog/categories/home-furniture/home-coll…"
+            manufacturer_id: string = "20"
+            manufacturer: string = "Moro"
+            price: string = "190.2100"
+            special: null = null
+            reward: null = null
+            points: string = "99"
+            tax_class_id: string = "0"
+            date_available: string = "2022-01-01"
+            weight: string = "0.00000000"
+            weight_class_id: string = "0"
+            length: string = "0.00000000"
+            width: string = "0.00000000"
+            height: string = "0.00000000"
+            length_class_id: string = "0"
+            subtract: string = "0"
+            rating: number = 0
+            reviews: number = 0
+            minimum: string = "1"
+            sort_order: string = "14"
+            status: string = "1"
+            date_added: string = "2022-01-01 00:00:00"
+            date_modified: string = "2022-01-01 00:00:00"
+            viewed: string = ""
+            special_date_end: null = null
+            second_image: string = "catalog/journal3/catalog/categories/home-furniture/home-coll…"
+          846: object {43 keys}
+            product_id: string = "846"
+            name: string = "Modern Armchair"
+            description: string = "<p>Demo product Modern Armchair description, along with any …"
+            meta_title: string = "Modern Armchair"
+            meta_description: string = "Demo product Modern Armchair description, along with ..."
+            meta_keyword: string = ""
+            tag: string = ""
+            model: string = "model-3940"
+            sku: string = ""
+            upc: string = ""
+            ean: string = ""
+            jan: string = ""
+            isbn: string = ""
+            mpn: string = ""
+            location: string = ""
+            quantity: string = "6493"
+            stock_status: string = "Pre-Order"
+            image: string = "catalog/journal3/catalog/categories/home-furniture/home-coll…"
+            manufacturer_id: string = "20"
+            manufacturer: string = "Moro"
+            price: string = "623.6200"
+            special: null = null
+            reward: null = null
+            points: string = "28"
+            tax_class_id: string = "0"
+            date_available: string = "2022-01-01"
+            weight: string = "0.00000000"
+            weight_class_id: string = "0"
+            length: string = "0.00000000"
+            width: string = "0.00000000"
+            height: string = "0.00000000"
+            length_class_id: string = "0"
+            subtract: string = "0"
+            rating: number = 0
+            reviews: number = 0
+            minimum: string = "1"
+            sort_order: string = "14"
+            status: string = "1"
+            date_added: string = "2022-01-01 00:00:00"
+            date_modified: string = "2022-01-01 00:00:00"
+            viewed: string = ""
+            special_date_end: null = null
+            second_image: null = null
+          847: object {43 keys}
+            product_id: string = "847"
+            name: string = "Dining Chair"
+            description: string = "<p>Demo product Dining Chair description, along with any oth…"
+            meta_title: string = "Dining Chair"
+            meta_description: string = "Demo product Dining Chair description, along with ..."
+            meta_keyword: string = ""
+            tag: string = ""
+            model: string = "model-1353"
+            sku: string = ""
+            upc: string = ""
+            ean: string = ""
+            jan: string = ""
+            isbn: string = ""
+            mpn: string = ""
+            location: string = ""
+            quantity: string = "3586"
+            stock_status: string = "Pre-Order"
+            image: string = "catalog/journal3/catalog/categories/home-furniture/home-coll…"
+            manufacturer_id: string = "20"
+            manufacturer: string = "Moro"
+            price: string = "867.5900"
+            special: null = null
+            reward: null = null
+            points: string = "53"
+            tax_class_id: string = "0"
+            date_available: string = "2022-01-01"
+            weight: string = "0.00000000"
+            weight_class_id: string = "0"
+            length: string = "0.00000000"
+            width: string = "0.00000000"
+            height: string = "0.00000000"
+            length_class_id: string = "0"
+            subtract: string = "0"
+            rating: number = 0
+            reviews: number = 0
+            minimum: string = "1"
+            sort_order: string = "14"
+            status: string = "1"
+            date_added: string = "2022-01-01 00:00:00"
+            date_modified: string = "2022-01-01 00:00:00"
+            viewed: string = ""
+            special_date_end: null = null
+            second_image: string = "catalog/journal3/catalog/categories/home-furniture/home-coll…"
+          848: object {43 keys}
+            product_id: string = "848"
+            name: string = "Dresser"
+            description: string = "<p>Demo product Dresser description, along with any other ta…"
+            meta_title: string = "Dresser"
+            meta_description: string = "Demo product Dresser description, along with ..."
+            meta_keyword: string = ""
+            tag: string = ""
+            model: string = "model-6539"
+            sku: string = ""
+            upc: string = ""
+            ean: string = ""
+            jan: string = ""
+            isbn: string = ""
+            mpn: string = ""
+            location: string = ""
+            quantity: string = "0"
+            stock_status: string = "Out Of Stock"
+            image: string = "catalog/journal3/catalog/categories/home-furniture/home-coll…"
+            manufacturer_id: string = "20"
+            manufacturer: string = "Moro"
+            price: string = "802.5800"
+            special: null = null
+            reward: null = null
+            points: string = "57"
+            tax_class_id: string = "0"
+            date_available: string = "2022-01-01"
+            weight: string = "0.00000000"
+            weight_class_id: string = "0"
+            length: string = "0.00000000"
+            width: string = "0.00000000"
+            height: string = "0.00000000"
+            length_class_id: string = "0"
+            subtract: string = "0"
+            rating: number = 0
+            reviews: number = 0
+            minimum: string = "1"
+            sort_order: string = "14"
+            status: string = "1"
+            date_added: string = "2022-01-01 00:00:00"
+            date_modified: string = "2022-01-01 00:00:00"
+            viewed: string = ""
+            special_date_end: null = null
+            second_image: string = "catalog/journal3/catalog/categories/home-furniture/home-coll…"
+          849: object {43 keys}
+            product_id: string = "849"
+            name: string = "Geometric Vase"
+            description: string = "<p>Demo product Geometric Vase description, along with any o…"
+            meta_title: string = "Geometric Vase"
+            meta_description: string = "Demo product Geometric Vase description, along with ..."
+            meta_keyword: string = ""
+            tag: string = ""
+            model: string = "model-3827"
+            sku: string = ""
+            upc: string = ""
+            ean: string = ""
+            jan: string = ""
+            isbn: string = ""
+            mpn: string = ""
+            location: string = ""
+            quantity: string = "7432"
+            stock_status: string = "2-3 Days"
+            image: string = "catalog/journal3/catalog/categories/home-furniture/home-coll…"
+            manufacturer_id: string = "20"
+            manufacturer: string = "Moro"
+            price: string = "251.2000"
+            special: null = null
+            reward: null = null
+            points: string = "90"
+            tax_class_id: string = "0"
+            date_available: string = "2022-01-01"
+            weight: string = "0.00000000"
+            weight_class_id: string = "0"
+            length: string = "0.00000000"
+            width: string = "0.00000000"
+            height: string = "0.00000000"
+            length_class_id: string = "0"
+            subtract: string = "0"
+            rating: number = 0
+            reviews: number = 0
+            minimum: string = "1"
+            sort_order: string = "14"
+            status: string = "1"
+            date_added: string = "2022-01-01 00:00:00"
+            date_modified: string = "2022-01-01 00:00:00"
+            viewed: string = ""
+            special_date_end: null = null
+            second_image: null = null
+          850: object {43 keys}
+            product_id: string = "850"
+            name: string = "Pendant Light"
+            description: string = "<p>Demo product Pendant Light description, along with any ot…"
+            meta_title: string = "Pendant Light"
+            meta_description: string = "Demo product Pendant Light description, along with ..."
+            meta_keyword: string = ""
+            tag: string = ""
+            model: string = "model-6370"
+            sku: string = ""
+            upc: string = ""
+            ean: string = ""
+            jan: string = ""
+            isbn: string = ""
+            mpn: string = ""
+            location: string = ""
+            quantity: string = "7489"
+            stock_status: string = "2-3 Days"
+            image: string = "catalog/journal3/catalog/categories/home-furniture/home-coll…"
+            manufacturer_id: string = "20"
+            manufacturer: string = "Moro"
+            price: string = "800.0200"
+            special: null = null
+            reward: null = null
+            points: string = "96"
+            tax_class_id: string = "0"
+            date_available: string = "2022-01-01"
+            weight: string = "0.00000000"
+            weight_class_id: string = "0"
+            length: string = "0.00000000"
+            width: string = "0.00000000"
+            height: string = "0.00000000"
+            length_class_id: string = "0"
+            subtract: string = "0"
+            rating: number = 0
+            reviews: number = 0
+            minimum: string = "1"
+            sort_order: string = "14"
+            status: string = "1"
+            date_added: string = "2022-01-01 00:00:00"
+            date_modified: string = "2022-01-01 00:00:00"
+            viewed: string = ""
+            special_date_end: null = null
+            second_image: null = null
+          851: object {43 keys}
+            product_id: string = "851"
+            name: string = "Statuette"
+            description: string = "<p>Demo product Statuette description, along with any other …"
+            meta_title: string = "Statuette"
+            meta_description: string = "Demo product Statuette description, along with ..."
+            meta_keyword: string = ""
+            tag: string = ""
+            model: string = "model-5380"
+            sku: string = ""
+            upc: string = ""
+            ean: string = ""
+            jan: string = ""
+            isbn: string = ""
+            mpn: string = ""
+            location: string = ""
+            quantity: string = "5036"
+            stock_status: string = "Out Of Stock"
+            image: string = "catalog/journal3/catalog/categories/home-furniture/home-coll…"
+            manufacturer_id: string = "20"
+            manufacturer: string = "Moro"
+            price: string = "714.9600"
+            special: string = "336.040000000000"
+            reward: null = null
+            points: string = "79"
+            tax_class_id: string = "0"
+            date_available: string = "2022-01-01"
+            weight: string = "0.00000000"
+            weight_class_id: string = "0"
+            length: string = "0.00000000"
+            width: string = "0.00000000"
+            height: string = "0.00000000"
+            length_class_id: string = "0"
+            subtract: string = "0"
+            rating: number = 0
+            reviews: number = 0
+            minimum: string = "1"
+            sort_order: string = "14"
+            status: string = "1"
+            date_added: string = "2022-01-01 00:00:00"
+            date_modified: string = "2022-01-01 00:00:00"
+            viewed: string = ""
+            special_date_end: string = "Sun Dec 27 2026 00:00:00 +0000"
+            second_image: string = "catalog/journal3/catalog/categories/home-furniture/home-coll…"
+        items: array[0]

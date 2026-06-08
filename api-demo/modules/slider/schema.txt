@@ -1,0 +1,1521 @@
+MODULE TYPE: slider
+representative: id=871  "Slider / Default / Image Layer / Hotspots"
+instances on this page: 1
+layout path: top.rows[1].columns[1].items[1]
+data keys: 58
+data.items: keyed-object[3]   <-- iterate with Object.values(items).map(), NOT items.map()
+max structural depth (of full item): 8
+
+SCHEMA TREE (item):
+-------------------
+item: object {4 keys}
+  id: string = "871"
+  name: string = "Slider / Default / Image Layer / Hotspots"
+  type: string = "slider"
+  data: object {58 keys}
+    schedule: object {3 keys}
+      from: string = ""
+      to: string = ""
+      between: boolean = true
+    color_scheme: string = ""
+    imageDimensions: object {3 keys}
+      width: number = 700
+      height: number = 500
+      resize: string = "fill"
+    lazyLoad: boolean = false
+    dynamic: boolean = false
+    dynamicPath: string = ""
+    slidesPerView: string = "1"
+    loop: boolean = false
+    shuffle: boolean = false
+    autoplay: boolean = false
+    parallax: boolean = true
+    parallax_bg: boolean = false
+    parallaxValue: string = "-10%"
+    parallaxImageDimensions: object {3 keys}
+      width: null = null
+      height: null = null
+      resize: string = "fill"
+    thumbnails: boolean = false
+    thumbnailsDimensions: object {3 keys}
+      width: number = 150
+      height: number = 150
+      resize: string = "fill"
+    hotspotStyle: string = "DEFAULT"
+    slidesLayersImageCaptionStyle: string = "SLIDER_IMAGE_CAPTION"
+    button1Style: string = "DEFAULT"
+    button2Style: string = "OUTLINE_FILL"
+    slidesLayersImageDimensions: object {3 keys}
+      width: number = 700
+      height: number = 450
+      resize: string = "fill"
+    slideParallaxOffsetX: string = "-80"
+    slideParallaxOffsetY: string = ""
+    slideParallaxOpacity: string = "0.001"
+    slideParallaxDuration: string = ""
+    slideParallaxScale: string = ".8"
+    colParallaxOffsetX: string = ""
+    colParallaxOffsetY: string = ""
+    colParallaxOpacity: string = ""
+    colParallaxDuration: string = ""
+    colParallaxScale: string = ""
+    timerPagination: boolean = true
+    pagination: string = "bullets"
+    bulletsType: string = "bullets"
+    buttonsStatus: boolean = true
+    iconButtonsStyle: string = "DEFAULT"
+    staticTextType: string = "text"
+    staticText: string = ""
+    staticTextLink: object {7 keys}
+      type: string = ""
+      id: string = ""
+      href: string = ""
+      name: string = ""
+      total: null = null
+      attrs: array[0]
+      classes: array[0]
+    static2TextType: string = "text"
+    static2Text: string = ""
+    static2TextLink: object {7 keys}
+      type: string = ""
+      id: string = ""
+      href: string = ""
+      name: string = ""
+      total: null = null
+      attrs: array[0]
+      classes: array[0]
+    timerPlacement: string = "slider"
+    timerPosition: string = "bottom"
+    timerAlign: string = "center"
+    scrollbar: boolean = false
+    status: boolean = true
+    module_id: number = 871
+    classes: array[5]
+      [0]: string = "module"
+    edit: string = "module_layout/slider/edit/871"
+    name: string = "Slider / Home / Main Slider 9"
+    width: number = 700
+    height: number = 500
+    options: object {20 keys}
+      speed: number = 550
+      pauseOnMouseEnter: boolean = false
+      slidesPerView: number = 1
+      centeredSlides: boolean = true
+      effect: string = "slide"
+      loop: boolean = false
+      threshold: string = ""
+      shuffle: boolean = false
+      centerInsufficientSlides: boolean = false
+      parallax: boolean = true
+      parallax_bg: boolean = false
+      overflow: boolean = false
+      overflowThumbs: boolean = false
+      simulateTouch: boolean = true
+      thumbsFreeMode: boolean = false
+      timerPagination: boolean = true
+      bulletsType: string = "bullets"
+      allowTouchMove: boolean = true
+      timerPlacement: string = "slider"
+      pagination: object {1 keys}
+        type: string = "bullets"
+    syncWith: string = ""
+    lazyload_placeholder: string = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAH0AQMAAA…"
+    lazyload_thumb_placeholder: string = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQMAAA…"
+    items: object {3 keys}
+      1: object {10 keys}
+        color_scheme: string = "color-scheme-scheme-4"
+        type: string = "custom"
+        thumbText: string = ""
+        alt: string = ""
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 1
+        id: string = "871-1"
+        classes: array[5]
+          [0]: string = "module-item"
+        thumb_classes: array[2]
+          [0]: string = "swiper-slide"
+        items: object {5 keys}
+          1: object {42 keys}
+            color_scheme: string = ""
+            type: string = "text"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            textContainerStyle: string = "MEDIA_LABEL_DIVIDER"
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "1-1"
+            id: string = "871-1-1"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            text: string = "Interior"
+          2: object {42 keys}
+            color_scheme: string = ""
+            type: string = "text"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            textContainerStyle: string = "SLIDER_MAIN_TEXT_LARGE_COPY"
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "1-2"
+            id: string = "871-1-2"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            text: string = "New Collection 56"
+          3: object {42 keys}
+            color_scheme: string = ""
+            type: string = "text"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            textContainerStyle: string = "MEDIA_PRICE"
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "1-3"
+            id: string = "871-1-3"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            text: string = "<s>Starting at</s> $199<sup>.99</sup>"
+          4: object {40 keys}
+            color_scheme: string = ""
+            type: string = "button"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            button_1_text: string = "Shop Now"
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = "Learn more"
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "1-4"
+            id: string = "871-1-4"
+            classes: array[5]
+              [0]: string = "module-subitem"
+          5: object {46 keys}
+            color_scheme: string = "color-scheme-scheme-1"
+            type: string = "image"
+            videoType: string = "html5"
+            position: string = "right"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspotTooltip: string = "HOTSPOT"
+            hotspot1: boolean = true
+            hotspot1Type: string = "product"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = "849"
+            hotspot1Content: string = "Pottery Vase <br /> <s>From</s> <b>$249</b>"
+            hotspot2Type: string = "product"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = "829"
+            hotspot2Content: string = "Palm Tree <br /> <s>From</s> <b>$199</b>"
+            hotspot3Type: string = "product"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = "679"
+            hotspot3Content: string = "Sofa <br /> <s>From</s> <b>$999</b>"
+            hotspot2: boolean = true
+            hotspot3: boolean = true
+            hotspotStyle: string = "DEFAULT"
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "1-5"
+            id: string = "871-1-5"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            width: number = 700
+            height: number = 450
+            image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            image2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+      2: object {10 keys}
+        color_scheme: string = "color-scheme-scheme-2"
+        type: string = "custom"
+        thumbText: string = ""
+        alt: string = ""
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 2
+        id: string = "871-2"
+        classes: array[5]
+          [0]: string = "module-item"
+        thumb_classes: array[2]
+          [0]: string = "swiper-slide"
+        items: object {5 keys}
+          1: object {42 keys}
+            color_scheme: string = ""
+            type: string = "text"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            textContainerStyle: string = "MEDIA_LABEL_DIVIDER"
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "2-1"
+            id: string = "871-2-1"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            text: string = "Lighting"
+          2: object {42 keys}
+            color_scheme: string = ""
+            type: string = "text"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            textContainerStyle: string = "SLIDER_MAIN_TEXT_LARGE_COPY"
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "2-2"
+            id: string = "871-2-2"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            text: string = "Modern Lamps"
+          3: object {42 keys}
+            color_scheme: string = ""
+            type: string = "text"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            textContainerStyle: string = "MEDIA_PRICE"
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "2-3"
+            id: string = "871-2-3"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            text: string = "<s>Starting at</s> $99<sup>.99</sup>"
+          4: object {40 keys}
+            color_scheme: string = ""
+            type: string = "button"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            button_1_text: string = "Shop Now"
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = "Learn more"
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "2-4"
+            id: string = "871-2-4"
+            classes: array[5]
+              [0]: string = "module-subitem"
+          5: object {44 keys}
+            color_scheme: string = ""
+            type: string = "image"
+            videoType: string = "html5"
+            position: string = "right"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "2-5"
+            id: string = "871-2-5"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            width: number = 700
+            height: number = 450
+            image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            image2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+      3: object {10 keys}
+        color_scheme: string = "color-scheme-scheme-3"
+        type: string = "custom"
+        thumbText: string = ""
+        alt: string = ""
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 3
+        id: string = "871-3"
+        classes: array[5]
+          [0]: string = "module-item"
+        thumb_classes: array[2]
+          [0]: string = "swiper-slide"
+        items: object {5 keys}
+          1: object {42 keys}
+            color_scheme: string = ""
+            type: string = "text"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            textContainerStyle: string = "MEDIA_LABEL_DIVIDER"
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "3-1"
+            id: string = "871-3-1"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            text: string = "Decorations"
+          2: object {42 keys}
+            color_scheme: string = ""
+            type: string = "text"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            textContainerStyle: string = "SLIDER_MAIN_TEXT_LARGE_COPY"
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "3-2"
+            id: string = "871-3-2"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            text: string = "Home Decor"
+          3: object {42 keys}
+            color_scheme: string = ""
+            type: string = "text"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            textContainerStyle: string = "MEDIA_PRICE"
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "3-3"
+            id: string = "871-3-3"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            text: string = "<s>Starting at</s> $40<sup>.99</sup>"
+          4: object {40 keys}
+            color_scheme: string = ""
+            type: string = "button"
+            videoType: string = "html5"
+            position: string = "left"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            button_1_text: string = "Shop Now"
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = "Learn more"
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "3-4"
+            id: string = "871-3-4"
+            classes: array[5]
+              [0]: string = "module-subitem"
+          5: object {44 keys}
+            color_scheme: string = ""
+            type: string = "image"
+            videoType: string = "html5"
+            position: string = "right"
+            iconAbsolute: boolean = true
+            svgCode: string = ""
+            iconSVGCode-hold: string = ""
+            iconText: string = ""
+            imageDimensions: object {3 keys}
+              width: null = null
+              height: null = null
+              resize: string = "fill"
+            imageLink: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            shapeType-hold: string = "icon"
+            alt: string = ""
+            caption: string = ""
+            hotspot1: boolean = false
+            hotspot1Type: string = "link"
+            hotspot1Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot1Product: string = ""
+            hotspot1Content: string = ""
+            hotspot2Type: string = "link"
+            hotspot2Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot2Product: string = ""
+            hotspot2Content: string = ""
+            hotspot3Type: string = "link"
+            hotspot3Link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            hotspot3Product: string = ""
+            hotspot3Content: string = ""
+            hotspot2: boolean = false
+            hotspot3: boolean = false
+            button_1_text: string = ""
+            button_1_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            button_2_text: string = ""
+            button_2_link: object {7 keys}
+              type: string = ""
+              id: string = ""
+              href: string = ""
+              name: string = ""
+              total: null = null
+              attrs: array[0]
+              classes: array[0]
+            layerParallaxOffsetX: string = ""
+            layerParallaxOffsetY: string = ""
+            layerParallaxOpacity: string = ""
+            layerParallaxScale: string = ""
+            layerParallaxDuration: string = ""
+            index: string = "3-5"
+            id: string = "871-3-5"
+            classes: array[5]
+              [0]: string = "module-subitem"
+            width: number = 700
+            height: number = 450
+            image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+            image2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"

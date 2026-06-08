@@ -1,0 +1,123 @@
+MODULE TYPE: banners
+representative: id=798  "Simple Banners / Bento 9 / Left"
+instances on this page: 2  (see _all.json)
+layout path: top.rows[2].columns[1].items[1]
+data keys: 19
+data.items: keyed-object[2]   <-- iterate with Object.values(items).map(), NOT items.map()
+max structural depth (of full item): 6
+
+SCHEMA TREE (item):
+-------------------
+item: object {4 keys}
+  id: string = "798"
+  name: string = "Simple Banners / Bento 9 / Left"
+  type: string = "banners"
+  data: object {19 keys}
+    schedule: object {3 keys}
+      from: string = ""
+      to: string = ""
+      between: boolean = true
+    title: string = ""
+    carousel: boolean = false
+    itemsPerRow: object {4 keys}
+      c0: array[1]
+        [0]: object {2 keys}
+          items: number = 2
+          spacing: number = 20
+      c1: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 0
+      c2: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 0
+      sc: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 0
+    imageDimensions: object {3 keys}
+      width: number = 435
+      height: number = 590
+      resize: string = "fill"
+    bannerStyle: string = "BANNERS"
+    lazyLoad: boolean = true
+    gridType: string = "auto"
+    status: boolean = true
+    module_id: number = 798
+    classes: object {7 keys}
+      0: string = "module"
+      1: string = "module-banners"
+      2: string = "module-banners-798"
+      3: null = null
+      4: string = ""
+      carousel-mode: boolean = false
+      align-to-content: boolean = false
+    edit: string = "module_layout/banners/edit/798"
+    name: string = "Simple Banners / Bento 9 / Left"
+    swiper_carousel: boolean = false
+    carouselOptions: object {4 keys}
+      speed: number = 0
+      autoplay: boolean = false
+      pauseOnHover: boolean = false
+      loop: boolean = false
+    width: number = 435
+    height: number = 590
+    dummy_image: string = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbMAAAJOAQMAAA…"
+    items: object {2 keys}
+      1: object {15 keys}
+        color_scheme: string = ""
+        title: string = "Dining"
+        title2: string = "See products"
+        title3: string = ""
+        alt: string = ""
+        link: object {7 keys}
+          type: string = "category"
+          id: string = "476"
+          href: string = "http://localhost:8080/index.php?route=product/category&amp;l…"
+          name: string = "Dining Room"
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 1
+        id: string = "798-1"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-1"
+          2: string = ""
+          3: string = ""
+          swiper-slide: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        image2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        image_width: number = 435
+        image_height: number = 590
+        text: null = null
+        items: array[0]
+      2: object {15 keys}
+        color_scheme: string = ""
+        title: string = "Lighting"
+        title2: string = "See products"
+        title3: string = ""
+        alt: string = ""
+        link: object {7 keys}
+          type: string = "category"
+          id: string = "514"
+          href: string = "http://localhost:8080/index.php?route=product/category&amp;l…"
+          name: string = "Lighting"
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 2
+        id: string = "798-2"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-2"
+          2: string = ""
+          3: string = ""
+          swiper-slide: boolean = false
+        image: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        image2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        image_width: number = 435
+        image_height: number = 590
+        text: null = null
+        items: array[0]

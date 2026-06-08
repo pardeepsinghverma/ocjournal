@@ -1,0 +1,14 @@
+MODULE TYPE: countdown
+representative: id=801  "Simple Countdown Copy"
+instances on this page: 1
+layout path: top.rows[7].columns[1].items[1].data.rows[1].columns[1].items[1]
+data keys: 0
+data.items: none
+max structural depth (of full item): 1
+
+SCHEMA TREE (item):
+-------------------
+item: object {3 keys}
+  id: string = "801"
+  name: string = "Simple Countdown Copy"
+  type: string = "countdown"

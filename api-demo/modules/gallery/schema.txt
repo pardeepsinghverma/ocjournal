@@ -1,0 +1,592 @@
+MODULE TYPE: gallery
+representative: id=838  "Gallery / Simple Carousel"
+instances on this page: 1
+layout path: bottom.rows[4].columns[1].items[2]
+data keys: 42
+data.items: keyed-object[18]   <-- iterate with Object.values(items).map(), NOT items.map()
+max structural depth (of full item): 6
+
+SCHEMA TREE (item):
+-------------------
+item: object {4 keys}
+  id: string = "838"
+  name: string = "Gallery / Simple Carousel"
+  type: string = "gallery"
+  data: object {42 keys}
+    color_scheme: string = ""
+    schedule: object {3 keys}
+      from: string = ""
+      to: string = ""
+      between: boolean = true
+    title: string = ""
+    dynamic: boolean = true
+    dynamicPath: string = "journal3/assets/demos/9/v1/Gallery/"
+    productImages: boolean = false
+    carousel: boolean = false
+    carouselStyle: string = "SIDE_ARROWS"
+    carouselStyleIconButtonsStyle: string = "DEFAULT"
+    itemsPerRow: object {4 keys}
+      c0: array[1]
+        [0]: object {2 keys}
+          items: number = 4
+          spacing: number = 0
+      c1: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 0
+      c2: array[1]
+        [0]: object {2 keys}
+          items: number = 1
+          spacing: number = 0
+      sc: array[1]
+        [0]: object {2 keys}
+          items: number = 3
+          spacing: number = 16
+    source: string = "local"
+    instagramPage: string = ""
+    galleryModuleStyle: string = "DEFAULT"
+    thumbsLimit: string = "16"
+    thumbsLimitTablet: string = ""
+    thumbsLimitPhone: string = ""
+    thumbDimensions: object {3 keys}
+      width: number = 160
+      height: number = 160
+      resize: string = "fill"
+    moduleGallery: string = "DEFAULT"
+    moduleGalleryDownload: boolean = true
+    moduleGalleryActualSizeVisibility: boolean = true
+    moduleGalleryDownloadVisibility: boolean = false
+    moduleGalleryFullScreen: boolean = false
+    moduleGalleryMode: string = "lg-fade"
+    moduleGalleryIconButtonsStyle: string = "DEFAULT"
+    moduleGalleryThumbToggleStatus: boolean = false
+    popupImageDimensions: object {3 keys}
+      width: number = 2000
+      height: null = null
+      resize: string = "fill"
+    popupThumbDimensions: object {3 keys}
+      width: number = 90
+      height: number = 90
+      resize: string = "fill"
+    button: boolean = false
+    buttonText: string = "Open Gallery"
+    gridType: string = "auto"
+    autoGridStyle: string = "SMALL"
+    status: boolean = true
+    module_id: number = 838
+    classes: object {7 keys}
+      0: string = "module"
+      1: string = "module-gallery"
+      2: string = "module-gallery-838"
+      3: string = ""
+      4: string = ""
+      carousel-mode: boolean = false
+      align-to-content: boolean = true
+    edit: string = "module_layout/gallery/edit/838"
+    name: string = "Gallery / Simple Carousel"
+    swiper_carousel: boolean = false
+    images: array[17]
+      [0]: object {7 keys}
+        type: string = "image"
+        src: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        srcset: null = null
+        width: number = 1000
+        height: number = 1000
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        subHtml: string = "Custom image caption"
+    options: object {5 keys}
+      addClass: string = "lg-838"
+      colorSchemeClass: string = ""
+      thumbWidth: number = 90
+      thumbHeight: string = "90px"
+      allowMediaOverlap: boolean = false
+    carouselOptions: object {4 keys}
+      speed: number = 500
+      autoplay: boolean = false
+      pauseOnHover: boolean = true
+      loop: boolean = false
+    dummy_image: string = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgAQMAAA…"
+    items: object {18 keys}
+      1: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 1
+        id: string = "838-1"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-1"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      2: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 2
+        id: string = "838-2"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-2"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      3: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 3
+        id: string = "838-3"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-3"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      4: object {13 keys}
+        title: string = "Video support"
+        type: string = "video"
+        videoType: string = "youtube"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 4
+        id: string = "838-4"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-4"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Video support"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      5: object {12 keys}
+        title: string = "Banners with links"
+        type: string = "link"
+        videoType: string = "youtube"
+        link: object {7 keys}
+          type: string = "page"
+          id: string = ""
+          href: string = "http://localhost:8080/index.php?route=product/special&amp;la…"
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 5
+        id: string = "838-5"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-5"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Banners with links"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/index.php?route=product/special&amp;la…"
+        items: array[0]
+      6: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 6
+        id: string = "838-6"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-6"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      7: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 7
+        id: string = "838-7"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-7"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      8: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 8
+        id: string = "838-8"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-8"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      9: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 9
+        id: string = "838-9"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-9"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      10: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 10
+        id: string = "838-10"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-10"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      11: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 11
+        id: string = "838-11"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-11"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      12: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 12
+        id: string = "838-12"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-12"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      13: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 13
+        id: string = "838-13"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-13"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      14: object {14 keys}
+        title: string = "Custom image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 14
+        id: string = "838-14"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-14"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Custom image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      15: object {14 keys}
+        title: string = "Image caption"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 15
+        id: string = "838-15"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-15"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Image caption"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      16: object {14 keys}
+        title: string = "Banner Link"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 16
+        id: string = "838-16"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-16"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Banner Link"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      17: object {14 keys}
+        title: string = "Banner Link"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 17
+        id: string = "838-17"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-17"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Banner Link"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
+      18: object {14 keys}
+        title: string = "Banner Link"
+        type: string = "image"
+        videoType: string = "html5"
+        link: object {7 keys}
+          type: string = ""
+          id: string = ""
+          href: string = ""
+          name: string = ""
+          total: null = null
+          attrs: array[0]
+          classes: array[0]
+        index: number = 18
+        id: string = "838-18"
+        classes: object {5 keys}
+          0: string = "module-item"
+          1: string = "module-item-18"
+          2: null = null
+          3: string = ""
+          swiper-slide: boolean = false
+        alt: string = "Banner Link"
+        thumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        thumb2x: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        popup2x: null = null
+        popupThumb: string = "http://localhost:8080/image/cache/catalog/journal3/placehold…"
+        items: array[0]
