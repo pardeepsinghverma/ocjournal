@@ -1,124 +1,90 @@
-import React, { useLayoutEffect, useMemo, useState } from 'react';
-import { View } from 'tamagui';
+import React, { useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { ActivityIndicator } from 'react-native';
+import { Text, View } from 'tamagui';
 import { XStack } from 'tamagui';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import ProductGrid from '../../modules/productGrid';
 import CatalogTopTabs from './CatalogTopTabs';
 import CatalogSidebar from './CatalogSidebar';
 import CatalogItemGrid from './CatalogItemGrid';
+import { getCategoryProducts } from '../../api/storefront';
 import { colors } from '../../utils/theme';
 
 /**
- * Expected shape of the catalog data:
+ * Catalog taxonomy.
  *
- * CATALOG_DATA: Array<{
- *   id: string,              // top-tab id (e.g. 'men')
- *   name: string,            // top-tab label (e.g. 'MEN')
- *   categories: Array<{
- *     id: string,            // sidebar row id (e.g. 'topwear')
- *     name: string,          // sidebar row label (e.g. 'Topwear')
- *     items: Array<{
- *       id: string,          // grid cell id
- *       name: string,        // grid cell label (e.g. 'All T-Shirts')
- *       image: string,       // circular thumbnail url
- *       categoryId: string,  // target category for product listing
- *     }>,
- *   }>,
- * }>
+ * `categoryId` on each leaf item is a REAL brandwik backend category id, so
+ * tapping a tile fetches that category's live products (see getCategoryProducts).
+ * Grouping below is a pragmatic 3-tab arrangement of the populated backend
+ * categories; adjust freely as the catalog grows.
+ *
+ * Shape: Array<{ id, name, categories: Array<{ id, name, items:
+ *   Array<{ id, name, image, categoryId }> }> }>
  */
 const CATALOG_DATA = [
   {
-    id: 'men',
-    name: 'Men',
+    id: 'electronics',
+    name: 'Electronics',
     categories: [
       {
-        id: 'men-topwear',
-        name: 'Topwear',
+        id: 'electronics-all',
+        name: 'Electronics',
         items: [
-          { id: 'm-tw-1', name: 'All Topwear', image: 'https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/stock-abstract-online-shop-logo-designs-template-illustration-graphic-of-smartphone-free-vector-350x350f.jpg', categoryId: '34' },
-          { id: 'm-tw-2', name: 'All T-Shirts', image: 'https://rukminim3.flixcart.com/image/388/494/xif0q/hand-messenger-bag/v/x/z/fashion-designer-custom-purses-ladies-bags-handbags-0082-hand-enriched-1-original-imaghq6mfcakugmu.jpeg', categoryId: '35' },
-          { id: 'm-tw-3', name: 'All Shirts', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '36' },
-          { id: 'm-tw-4', name: 'Polo T-Shirts', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '37' },
-          { id: 'm-tw-5', name: 'Oversized T-shirts', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '38' },
-          { id: 'm-tw-6', name: 'Classic Fit T-shirts', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '39' },
-          { id: 'm-tw-7', name: 'Half Sleeve T-Shirts', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '40' },
-          { id: 'm-tw-8', name: 'Printed T-Shirts', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '41' },
-          { id: 'm-tw-9', name: 'Plain T-Shirts', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '42' },
-          { id: 'm-tw-10', name: 'Sleeveless T-Shirts', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '43' },
+          { id: 'c-31', name: 'Electronics', image: '', categoryId: '31' },
+          { id: 'c-32', name: 'Appliances', image: '', categoryId: '32' },
+          { id: 'c-41', name: 'Audio & Headphones', image: '', categoryId: '41' },
+          { id: 'c-50', name: 'Computers', image: '', categoryId: '50' },
+          { id: 'c-80', name: 'Gadgets', image: '', categoryId: '80' },
+          { id: 'c-92', name: 'Gaming', image: '', categoryId: '92' },
+          { id: 'c-104', name: 'Mobile', image: '', categoryId: '104' },
+          { id: 'c-118', name: 'Photo & Video', image: '', categoryId: '118' },
+          { id: 'c-124', name: 'TVs', image: '', categoryId: '124' },
         ],
       },
-      { id: 'men-bottomwear', name: 'Bottomwear', items: [
-        { id: 'm-bw-1', name: 'All Bottomwear', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '44' },
-        { id: 'm-bw-2', name: 'Jeans', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '45' },
-        { id: 'm-bw-3', name: 'Trousers', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '46' },
-        { id: 'm-bw-4', name: 'Shorts', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '47' },
-      ]},
-      { id: 'men-winterwear', name: 'Winterwear', items: [
-        { id: 'm-ww-1', name: 'Jackets', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '48' },
-        { id: 'm-ww-2', name: 'Sweaters', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '49' },
-      ]},
-      { id: 'men-plus-size', name: 'Plus Size', items: [] },
-      { id: 'men-fandom', name: 'Shop by Fandom', items: [] },
-      { id: 'men-footwear', name: 'Footwear', items: [] },
-      { id: 'men-innerwear', name: 'Innerwear & Loungewear', items: [] },
-      { id: 'men-specials', name: 'Specials', items: [] },
-      { id: 'men-accessories', name: 'Accessories', items: [] },
     ],
   },
   {
-    id: 'women',
-    name: 'Women',
+    id: 'home',
+    name: 'Home & Furniture',
     categories: [
-      { id: 'women-ethnic', name: 'Ethnic', items: [
-        { id: 'w-e-1', name: 'All Ethnic', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '50' },
-        { id: 'w-e-2', name: 'Sarees', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '51' },
-        { id: 'w-e-3', name: 'Kurtas', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '52' },
-      ]},
-      { id: 'women-western', name: 'Western', items: [
-        { id: 'w-w-1', name: 'Dresses', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '53' },
-        { id: 'w-w-2', name: 'Tops', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '54' },
-      ]},
-      { id: 'women-footwear', name: 'Footwear', items: [] },
-      { id: 'women-accessories', name: 'Accessories', items: [] },
+      {
+        id: 'home-all',
+        name: 'Home & Furniture',
+        items: [
+          { id: 'c-450', name: 'Home & Furniture', image: '', categoryId: '450' },
+          { id: 'c-451', name: 'Bathroom', image: '', categoryId: '451' },
+          { id: 'c-467', name: 'Bedroom', image: '', categoryId: '467' },
+          { id: 'c-476', name: 'Dining Room', image: '', categoryId: '476' },
+          { id: 'c-485', name: 'Home Office', image: '', categoryId: '485' },
+          { id: 'c-504', name: 'Living Room', image: '', categoryId: '504' },
+          { id: 'c-512', name: 'Sofas', image: '', categoryId: '512' },
+          { id: 'c-514', name: 'Lighting', image: '', categoryId: '514' },
+          { id: 'c-540', name: 'Outdoor', image: '', categoryId: '540' },
+          { id: 'c-750', name: 'Furniture', image: '', categoryId: '750' },
+          { id: 'c-1144', name: 'Plant Decor', image: '', categoryId: '1144' },
+        ],
+      },
     ],
   },
   {
-    id: 'accessories',
-    name: 'Accessories',
+    id: 'beauty',
+    name: 'Beauty & Fashion',
     categories: [
-      { id: 'acc-bags', name: 'Bags', items: [
-        { id: 'a-b-1', name: 'Backpacks', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '60' },
-        { id: 'a-b-2', name: 'Handbags', image: 'https://image-test-sa.fathersolution.com/fs/no_image-350x350f.jpg', categoryId: '61' },
-      ]},
-      { id: 'acc-watches', name: 'Watches', items: [] },
-      { id: 'acc-jewelry', name: 'Jewelry', items: [] },
-      { id: 'acc-eyewear', name: 'Eyewear', items: [] },
+      {
+        id: 'beauty-all',
+        name: 'Beauty & Fashion',
+        items: [
+          { id: 'c-134', name: 'Fashion', image: '', categoryId: '134' },
+          { id: 'c-387', name: 'Health & Beauty', image: '', categoryId: '387' },
+          { id: 'c-389', name: 'Fragrance', image: '', categoryId: '389' },
+          { id: 'c-399', name: 'Beauty', image: '', categoryId: '399' },
+          { id: 'c-404', name: 'Skin Care', image: '', categoryId: '404' },
+          { id: 'c-1079', name: 'Accessories', image: '', categoryId: '1079' },
+        ],
+      },
     ],
   },
 ];
-
-/**
- * Dummy JSON shape consumed by <ProductGrid /> (legacy path, used when
- * the screen is opened with a `categoryId` route param). See
- * src/modules/productGrid for full rendering details.
- */
-const FALLBACK_PRODUCTS = {
-  '59': {
-    product_id: '59',
-    name: 'Zarikon Romanian bracelets for women, stainless steel, simple, engineering jewelry',
-    thumb: 'https://rukminim3.flixcart.com/image/388/494/xif0q/hand-messenger-bag/v/x/z/fashion-designer-custom-purses-ladies-bags-handbags-0082-hand-enriched-1-original-imaghq6mfcakugmu.jpeg',
-    thumb2x: 'https://image-test-sa.fathersolution.com/m/1/1541/0541/image/cache/catalog/stock-abstract-online-shop-logo-designs-template-illustration-graphic-of-smartphone-free-vector-700x700f.jpg',
-    price: 'SR.12.34',
-    tax: 'SR.12.34',
-    special: false,
-    quantity: '500',
-    stock_status: 'In Stock',
-    minimum: '1',
-    rating: 0,
-    labels: { 29: { type: 'custom', label: 'New', display: 'default' } },
-    href: '#',
-  },
-};
 
 export default function CatalogScreen() {
   const navigation = useNavigation();
@@ -141,6 +107,25 @@ export default function CatalogScreen() {
     activeGroup?.categories?.[0]?.id,
   );
 
+  // Live products for the category-listing mode. null = loading, [] = empty.
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    if (!categoryId) return;
+    let alive = true;
+    setProducts(null);
+    getCategoryProducts(categoryId)
+      .then(list => {
+        if (alive) setProducts(list);
+      })
+      .catch(() => {
+        if (alive) setProducts([]);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [categoryId]);
+
   const handleTopTabChange = nextId => {
     setActiveGroupId(nextId);
     const nextGroup = CATALOG_DATA.find(g => g.id === nextId);
@@ -162,17 +147,35 @@ export default function CatalogScreen() {
     });
   };
 
+  // ---- Category listing mode (opened with a categoryId) ----
   if (categoryId) {
+    if (products === null) {
+      return (
+        <View flex={1} alignItems="center" justifyContent="center" backgroundColor={colors.surface}>
+          <ActivityIndicator size="large" color={colors.brand} />
+        </View>
+      );
+    }
+    if (!products.length) {
+      return (
+        <View flex={1} alignItems="center" justifyContent="center" padding={24} backgroundColor={colors.surface}>
+          <Text color={colors.textSubtle} fontSize={14} textAlign="center">
+            No products found in {categoryName ?? 'this category'}.
+          </Text>
+        </View>
+      );
+    }
     return (
       <ProductGrid
         key={categoryId}
-        products={FALLBACK_PRODUCTS}
+        products={products}
         title={categoryName ?? ''}
         scroll={false}
       />
     );
   }
 
+  // ---- Browse mode (top tabs + sidebar + item grid) ----
   return (
     <View flex={1} backgroundColor={colors.surface}>
       <CatalogTopTabs

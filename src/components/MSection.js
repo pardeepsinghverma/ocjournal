@@ -3,14 +3,19 @@ import MTitle from './MTitle';
 import { ScrollView, View, XStack } from 'tamagui';
 
 const MSection = ({ title, titleLevel, ScrollDirection, ChildGap, children }) => {
+  const isHorizontal = ScrollDirection === 'horizontal';
   return (
-    <View marginBottom={10}>
+    // Vertical lists need a bounded height so the inner ScrollView can scroll;
+    // horizontal rails stay content-sized.
+    <View marginBottom={10} flex={isHorizontal ? undefined : 1}>
       {
         title && <MTitle title={title} level={titleLevel ?? '4'} />
       }
       <ScrollView
-        horizontal={ScrollDirection === 'horizontal'}
+        horizontal={isHorizontal}
         showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={isHorizontal ? undefined : { paddingBottom: 16 }}
       >
         <XStack flexWrap="wrap" gap={ChildGap ?? 8} alignItems="center">
           {children}

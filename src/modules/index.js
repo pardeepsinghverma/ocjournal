@@ -8,6 +8,12 @@ import Banner from './banner';
     // const Products = lazy(() => import('./Products'));
 import Title from './Title';
 import InfoBlocks from './InfoBlocks';
+import Marquee from './Marquee';
+import Manufacturers from './Manufacturers';
+import Testimonials from './Testimonials';
+import BlogPosts from './BlogPosts';
+import Gallery from './Gallery';
+import Grid from './Grid';
 
     const componentMap = {
         master_slider: MasterSlider,
@@ -15,8 +21,14 @@ import InfoBlocks from './InfoBlocks';
         products: Products,
         info_blocks: InfoBlocks,
         banners: Banner,
-        categories: Category, 
+        categories: Category,
         title: Title,
+        marquee: Marquee,
+        manufacturers: Manufacturers,
+        testimonials: Testimonials,
+        blog_posts: BlogPosts,
+        gallery: Gallery,
+        grid: Grid,
     };
 
     export default componentMap;

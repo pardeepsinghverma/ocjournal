@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { API_DOMAIN, STOREFRONT_APP_KEY } from './const';
 
 // Define the interface for API request parameters
 interface ApiRequestParams {
@@ -33,7 +34,7 @@ const apiRequest = async <T>({
   try {
     // Create an axios instance with default settings
     const axiosInstance = axios.create({
-      baseURL: 'https://dev301.fathershops-test.xyz/?mp=1', // Update with your API base URL
+      baseURL: API_DOMAIN, // storefront origin (see src/api/const.ts)
       timeout: 10000, // Set timeout for the request
     });
 
@@ -43,7 +44,12 @@ const apiRequest = async <T>({
       method,
       data,
       params,
-      headers,
+      headers: {
+        // Storefront content-negotiation header: makes the catalog URLs
+        // return JSON instead of HTML. Gate 1 rejects requests without it.
+        'X-OC-Storefront-App': STOREFRONT_APP_KEY,
+        ...headers,
+      },
     };
 
     // Make the request
