@@ -1,150 +1,276 @@
-import React, { memo } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Animated, { useAnimatedStyle } from 'react-native-reanimated';
+import React, { memo, useState } from 'react';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Plus } from '@tamagui/lucide-icons';
 import { useNavigation } from '@react-navigation/native';
-import { Button } from 'tamagui';
+import { RichText } from './RichText';
+import { getColorScheme } from './colorSchemes';
 
-const resolveSlideLink = (link) => {
-  if (!link) return null;
-  if (typeof link === 'string') return { type: 'url', url: link };
-  if (link.product_id) return { type: 'product', productId: link.product_id };
-  if (link.category_id) return { type: 'category', categoryId: link.category_id };
-  if (link.href) return { type: 'url', url: link.href };
-  return null;
-};
+// The slide data carries hotspots but no x/y coordinates (the web theme positions
+// them in the admin). We distribute up to three across the image at sensible spots
+// that echo the web reference (top-centre, lower-left, lower-right).
+const HOTSPOT_POS = [
+  { top: '40%', left: '52%' },
+  { top: '72%', left: '24%' },
+  { top: '70%', left: '72%' },
+];
 
-const navigateFromLink = (navigation, link) => {
-  const resolved = resolveSlideLink(link);
-  if (!resolved) return;
-  if (resolved.type === 'product') {
-    navigation.navigate('productView', { productId: resolved.productId });
-  } else if (resolved.type === 'category') {
-    navigation.navigate('catalog', { categoryId: resolved.categoryId });
+const navigateTo = (navigation, { link, productId, categoryId } = {}) => {
+  if (productId) return navigation.navigate('productView', { productId });
+  if (categoryId) return navigation.navigate('catalog', { categoryId });
+  if (link && typeof link === 'object') {
+    if (link.type === 'product' && link.id) {
+      return navigation.navigate('productView', { productId: link.id });
+    }
+    if (link.type === 'category' && link.id) {
+      return navigation.navigate('catalog', { categoryId: link.id });
+    }
   }
 };
 
-export const SlideItem = memo((props) => {
-  const {
-    style,
-    index = 0,
-    rounded = false,
-    slideData,
-    testID,
-    currentIndex,
-    ...animatedViewProps
-  } = props;
-
+const Hotspot = ({ spot, position, scheme, open, onToggle }) => {
   const navigation = useNavigation();
-
-  const animatedOpacityStyle = useAnimatedStyle(() => {
-    return {
-      // opacity: currentIndex.value === index ? 1 : 0.5,
-      opacity: 1,
-    };
-  });
-
-  const handleSlidePress = () => navigateFromLink(navigation, slideData?.link);
-
   return (
-    <Animated.View
-      testID={testID}
-      style={{ width: '95%', flex: 1 }}
-      {...animatedViewProps}
-    >
-      <TouchableOpacity activeOpacity={0.9} onPress={handleSlidePress} style={{ flex: 1 }}>
-        <Animated.Image
-          style={[
-            style,
-            styles.container,
-            rounded && { borderRadius: 15 },
-            animatedOpacityStyle,
-          ]}
-          source={{ uri: slideData.image }}
-          resizeMode="cover"
-        />
+    <View style={[styles.hotspotWrap, position]} pointerEvents="box-none">
+      <TouchableOpacity
+        activeOpacity={0.8}
+        onPress={onToggle}
+        style={[styles.hotspot, { borderColor: scheme.accent }]}
+      >
+        <Plus size={14} color={scheme.accent} />
       </TouchableOpacity>
-      {slideData?.children && (
-        <View style={styles.overlay}>
-          <View style={styles.overlayTextContainer}>
-            {slideData.children.map((child, childIndex) => (
-              <ChildItem
-                key={childIndex}
-                child={child}
-                childIndex={childIndex}
-                currentIndex={currentIndex}
-              />
-            ))}
-          </View>
-        </View>
+      {open && !!spot.content && (
+        <TouchableOpacity
+          activeOpacity={0.9}
+          onPress={() =>
+            navigateTo(navigation, { productId: spot.product, link: spot.link })
+          }
+          style={styles.tooltip}
+        >
+          <RichText html={spot.content} color="#fff" muted="#cfcfcf" fontSize={12} />
+        </TouchableOpacity>
       )}
-    </Animated.View>
+    </View>
   );
-});
+};
 
-const ChildItem = memo(({ child, childIndex, currentIndex }) => {
+const ContentLayer = ({ layer, scheme }) => {
   const navigation = useNavigation();
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      opacity: currentIndex.value === Number(childIndex) ? 1 : 0.5,
-    };
-  });
 
-  if (child.type === 'text') {
-    return <Text style={styles.overlayText}>{child.text}</Text>;
-  }
-  if (child.type === 'image') {
+  if (layer.kind === 'label') {
     return (
-      <Animated.Image
-        source={{ uri: child.data }}
-        style={[
-          {
-            width: 30,
-            height: 30,
-            borderRadius: 15,
-          },
-          animatedStyle,
-        ]}
+      <View style={styles.labelWrap}>
+        <RichText
+          html={layer.html}
+          color={scheme.text}
+          fontSize={13}
+          fontWeight="600"
+          style={styles.label}
+        />
+        <View style={[styles.divider, { backgroundColor: scheme.accent }]} />
+      </View>
+    );
+  }
+
+  if (layer.kind === 'heading') {
+    return (
+      <RichText
+        html={layer.html}
+        color={scheme.text}
+        fontSize={26}
+        fontWeight="800"
+        numberOfLines={2}
+        lineHeight={30}
+        style={styles.heading}
       />
     );
   }
-  if (child.type === 'button') {
+
+  if (layer.kind === 'price') {
     return (
-      <Button onPress={() => navigateFromLink(navigation, child.link || child.data)}>
-        {child.text}
-      </Button>
+      <RichText
+        html={layer.html}
+        color={scheme.text}
+        muted={scheme.muted}
+        fontSize={24}
+        fontWeight="800"
+        strikeSize={13}
+        style={styles.price}
+      />
     );
   }
-  return null;
+
+  if (layer.kind === 'buttons') {
+    return (
+      <View style={styles.buttonRow}>
+        {layer.buttons.map((button, i) => {
+          const outline = String(button.variant || '').includes('OUTLINE');
+          return (
+            <TouchableOpacity
+              key={i}
+              activeOpacity={0.85}
+              onPress={() => navigateTo(navigation, { link: button.link })}
+              style={[
+                styles.button,
+                outline
+                  ? { backgroundColor: 'transparent', borderWidth: 1.5, borderColor: scheme.text }
+                  : { backgroundColor: scheme.accent },
+              ]}
+            >
+              <RichText
+                html={button.text}
+                color={outline ? scheme.text : '#FFFFFF'}
+                fontSize={14}
+                fontWeight="700"
+              />
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    );
+  }
+
+  // caption / generic text
+  return <RichText html={layer.html} color={scheme.text} fontSize={14} style={styles.text} />;
+};
+
+export const SlideItem = memo(({ slide, imageHeight }) => {
+  const navigation = useNavigation();
+  const scheme = getColorScheme(slide.colorScheme);
+  const [openHotspot, setOpenHotspot] = useState(null);
+  const hotspots = slide.image?.hotspots || [];
+
+  return (
+    <View style={[styles.card, { backgroundColor: scheme.surface }]}>
+      <View style={[styles.imageWrap, { height: imageHeight }]}>
+        <TouchableOpacity
+          activeOpacity={0.95}
+          onPress={() => navigateTo(navigation, { link: slide.link })}
+          style={styles.imageTouch}
+        >
+          <Image
+            source={{ uri: slide.image?.uri }}
+            style={styles.image}
+            resizeMode="cover"
+          />
+        </TouchableOpacity>
+
+        {hotspots.map((spot, i) => (
+          <Hotspot
+            key={i}
+            spot={spot}
+            position={HOTSPOT_POS[i] || HOTSPOT_POS[0]}
+            scheme={scheme}
+            open={openHotspot === i}
+            onToggle={() => setOpenHotspot(openHotspot === i ? null : i)}
+          />
+        ))}
+      </View>
+
+      <View style={styles.content}>
+        {slide.content.map((layer, i) => (
+          <ContentLayer key={i} layer={layer} scheme={scheme} />
+        ))}
+      </View>
+    </View>
+  );
 });
 
+const RADIUS = 14;
+
 const styles = StyleSheet.create({
-  container: {
+  card: {
+    height: '100%',
+    width: '100%',
+    borderRadius: RADIUS,
+  },
+  imageWrap: {
+    width: '100%',
+    zIndex: 2,
+  },
+  imageTouch: {
+    flex: 1,
+    borderTopLeftRadius: RADIUS,
+    borderTopRightRadius: RADIUS,
+    overflow: 'hidden',
+  },
+  image: {
     width: '100%',
     height: '100%',
-    objectFit: 'cover',
   },
-  overlay: {
+  hotspotWrap: {
     position: 'absolute',
-    top: 0,
-    left: 10,
-    right: 0,
-    bottom: 30,
-    justifyContent: 'flex-end',
-    alignItems: 'baseline',
+    width: 28,
+    height: 28,
+    marginLeft: -14,
+    marginTop: -14,
+    alignItems: 'center',
+    zIndex: 10,
   },
-  overlayText: {
-    color: 'white',
-    fontSize: 14,
-    fontWeight: 'bold',
+  hotspot: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    shadowOffset: { width: 0, height: 1 },
+    elevation: 3,
   },
-  overlayTextContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    padding: 10,
-    borderRadius: 10,
-    minWidth: 40,
-    gap: 5,
-    minHeight: 40,
-    justifyContent: 'flex-start',
-    alignItems: 'baseline',
+  tooltip: {
+    position: 'absolute',
+    top: 34,
+    width: 150,
+    marginLeft: -61, // centre the 150-wide bubble on the 28-wide marker
+    backgroundColor: 'rgba(20,20,20,0.92)',
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 8,
+    zIndex: 30,
+    elevation: 6,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 18,
+    paddingTop: 16,
+    paddingBottom: 18,
+    justifyContent: 'center',
+  },
+  labelWrap: {
+    alignItems: 'flex-start',
+    marginBottom: 10,
+  },
+  label: {
+    letterSpacing: 0.5,
+  },
+  divider: {
+    marginTop: 6,
+    width: 34,
+    height: 2,
+    borderRadius: 2,
+  },
+  heading: {
+    marginBottom: 8,
+  },
+  price: {
+    marginBottom: 16,
+  },
+  text: {
+    marginBottom: 8,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    gap: 12,
+    marginTop: 4,
+  },
+  button: {
+    paddingHorizontal: 22,
+    paddingVertical: 11,
+    borderRadius: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
