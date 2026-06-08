@@ -19,7 +19,7 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState: {
         items: [],
-        notification: null,
+        pincode: null,
     },
     reducers: {
         addToCart: (state, action) => {
@@ -27,8 +27,10 @@ const cartSlice = createSlice({
             const {
                 productId,
                 name,
+                subtitle,
                 image,
                 price,
+                listPrice,
                 selectedOptions = {},
                 quantity = 1,
             } = action.payload;
@@ -37,24 +39,22 @@ const cartSlice = createSlice({
             if (existing) {
                 existing.quantity += quantity;
             } else {
+                const priceValue = parsePrice(price);
+                const listPriceValue = listPrice ? parsePrice(listPrice) : 0;
                 state.items.push({
                     key,
                     productId,
                     name,
+                    subtitle: subtitle ?? null,
                     image,
                     price,
-                    priceValue: parsePrice(price),
+                    priceValue,
+                    listPrice: listPrice ?? null,
+                    listPriceValue: listPriceValue > priceValue ? listPriceValue : 0,
                     selectedOptions,
                     quantity,
                 });
             }
-            state.notification = {
-                id: `${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
-                message: `Added to cart: ${name || 'Item'}`,
-            };
-        },
-        clearCartNotification: (state) => {
-            state.notification = null;
         },
         updateQuantity: (state, action) => {
             if (!Array.isArray(state.items)) state.items = [];
@@ -74,15 +74,36 @@ const cartSlice = createSlice({
         clearCart: (state) => {
             state.items = [];
         },
+        setPincode: (state, action) => {
+            state.pincode = action.payload || null;
+        },
     },
 });
 
-export const { addToCart, updateQuantity, removeFromCart, clearCart, clearCartNotification } = cartSlice.actions;
+export const {
+    addToCart,
+    updateQuantity,
+    removeFromCart,
+    clearCart,
+    setPincode,
+} = cartSlice.actions;
 
 export const selectCartCount = (state) =>
     (state.cart?.items ?? []).reduce((sum, i) => sum + i.quantity, 0);
 
 export const selectCartSubtotal = (state) =>
     (state.cart?.items ?? []).reduce((sum, i) => sum + i.priceValue * i.quantity, 0);
+
+export const selectCartListTotal = (state) =>
+    (state.cart?.items ?? []).reduce(
+        (sum, i) => sum + (i.listPriceValue || i.priceValue) * i.quantity,
+        0
+    );
+
+export const selectCartSavings = (state) => {
+    const list = selectCartListTotal(state);
+    const sub = selectCartSubtotal(state);
+    return Math.max(0, list - sub);
+};
 
 export default cartSlice.reducer;

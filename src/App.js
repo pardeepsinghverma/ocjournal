@@ -22,7 +22,7 @@ import Cart from './screens/checkout/Cart';
 import Notification from './screens/Notification';
 import { GestureHandlerRootView, TextInput } from 'react-native-gesture-handler';
 import SearchHeader from './components/HeaderSearch';
-import CartToast from './components/CartToast';
+import HeaderBackButton from './components/HeaderBackButton';
 
 function AppContainer() {
   const subDomainRedux = useSelector(state => state.data.subDomain);
@@ -45,7 +45,13 @@ function AppContainer() {
 
   return (
     <NavigationContainer linking={linking}>
-      <Stack.Navigator initialRouteName="main">
+      <Stack.Navigator
+        initialRouteName="main"
+        screenOptions={{
+          headerBackVisible: false,
+          headerLeft: () => <HeaderBackButton />,
+        }}
+      >
         <Stack.Screen name="main" component={DrawerNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="catalog" component={CatalogScreen} />
         <Stack.Screen name="productView" component={ProductView} options={{headerTitle: ""}} />
@@ -56,10 +62,9 @@ function AppContainer() {
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="search" component={SearchScreen} options={{headerTitle: () => <SearchHeader />}}/>
         <Stack.Screen name="wishlist" component={Wishlist} />
-        <Stack.Screen name="cart" component={Cart} />
+        <Stack.Screen name="cart" component={Cart} options={{ headerShown: false }} />
         <Stack.Screen name="notification" component={Notification} />
       </Stack.Navigator>
-      <CartToast />
     </NavigationContainer>
   );
 }

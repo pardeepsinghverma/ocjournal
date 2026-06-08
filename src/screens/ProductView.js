@@ -1,13 +1,17 @@
-import React, { useState, useRef, useMemo, useLayoutEffect } from 'react';
-import { Dimensions, ScrollView } from 'react-native';
+import React, { useEffect, useState, useRef, useMemo, useLayoutEffect } from 'react';
+import { Dimensions, Pressable, ScrollView } from 'react-native';
 import MTitle from '../components/MTitle';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DescriptionAccordion from '../components/DescriptionAccordion';
 import { Button, Image, Paragraph, Sheet, Text, View, XStack, YStack } from 'tamagui';
 import RenderProductOptions from '../components/options';
-import Carousel from 'react-native-reanimated-carousel';
+import OptionsSelector from '../components/OptionsSelector';
+import Confetti from '../components/Confetti';
+import { formatPrice, parsePrice } from '../utils/formatPrice';
+import { colors } from '../utils/theme';
+import ProductImageCarousel from '../components/Slider/ProductImageCarousel';
 import productData from './../data/productView.json';
-import { Heart, Star, TableOfContents, X } from '@tamagui/lucide-icons';
+import { Heart, ShoppingBag, Star, TableOfContents, X } from '@tamagui/lucide-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import HeaderActions from '../components/HeaderActions';
@@ -43,67 +47,6 @@ const stripHtml = (html) => {
     .trim();
 };
 
-// Component for the Product Image Carousel to isolate re-renders and fix Reanimated warnings
-const ProductImageCarousel = ({ slides }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const carouselRef = useRef(null);
-
-  return (
-    <>
-      <Carousel
-        ref={carouselRef}
-        loop={true}
-        width={Dimensions.get('window').width}
-        height={540}
-        mode="parallax"
-        modeConfig={{
-          parallaxScrollingScale: 1,
-          parallaxScrollingOffset: 10,
-          parallaxAdjacentItemScale: 1,
-        }}
-        spacing={10}
-        snapEnabled={true}
-        pagingEnabled={true}
-        autoPlayInterval={2000}
-        autoPlay={false}
-        quickSnap={true}
-        panGestureHandlerProps={{
-          activeOffsetX: [-10, 10],
-        }}
-        onSnapToItem={(index) => setActiveIndex(index)}
-        windowSize={3}
-        data={slides}
-        renderItem={({ item }) => (
-          <Image 
-            src={item.image} 
-            style={{ width: Dimensions.get('window').width, height: '100%' }} 
-          />
-        )}
-      />
-
-      {/* Pagination Dots */}
-      <XStack 
-        width="100%" 
-        justifyContent="center" 
-        gap={6}
-        paddingVertical={15}
-        backgroundColor="#ffffff"
-      >
-        {slides.map((_, index) => (
-          <View 
-            key={index}
-            onPress={() => carouselRef.current?.scrollTo({ index, animated: true })}
-            width={activeIndex === index ? 20 : 8}
-            height={8}
-            borderRadius={4}
-            backgroundColor={activeIndex === index ? '#000000' : '#00000040'}
-          />
-        ))}
-      </XStack>
-    </>
-  );
-};
-
 const ProductView = () => {
   const navigation = useNavigation();
   const route = useRoute();
@@ -114,33 +57,62 @@ const ProductView = () => {
   const [isWishlist, setIsWishlist] = useState(false);
   const [optionsSheetOpen, setOptionsSheetOpen] = useState(false);
   const [pendingAction, setPendingAction] = useState(null);
+  const [addedSignature, setAddedSignature] = useState(null);
+  const [confettiTrigger, setConfettiTrigger] = useState(0);
+  const [barSize, setBarSize] = useState({ width: 0, height: 0 });
 
-  const commitAddToCart = (options, { goToCart = false } = {}) => {
+  const hasSale = !!product.special && product.special !== product.price;
+  const saleValue = parsePrice(hasSale ? product.special : product.price);
+  const listValue = hasSale ? parsePrice(product.price) : 0;
+  const savings = listValue > saleValue ? listValue - saleValue : 0;
+
+  const optionSignature = useMemo(() => {
+    const keys = Object.keys(selectedOptions || {}).sort();
+    return keys.map((k) => {
+      const value = selectedOptions[k];
+      return `${k}:${Array.isArray(value) ? value.sort().join(',') : value ?? ''}`;
+    }).join('|');
+  }, [selectedOptions]);
+
+  const justAdded = addedSignature !== null && addedSignature === optionSignature;
+
+  useEffect(() => {
+    if (!confettiTrigger) return undefined;
+    const t = setTimeout(() => setConfettiTrigger(0), 2600);
+    return () => clearTimeout(t);
+  }, [confettiTrigger]);
+
+  const commitAddToCart = (options, signature) => {
     dispatch(addToCart({
       productId: productId ?? product.product_id,
       name: product.heading_title,
+      subtitle: product.model || product.sku || null,
       image: product.images?.[0]?.image || product.images?.[0]?.popup,
-      price: product.special || product.price,
+      price: hasSale ? product.special : product.price,
+      listPrice: hasSale ? product.price : null,
       selectedOptions: options,
       quantity: 1,
     }));
-    if (goToCart) {
-      navigation.navigate('cart');
-    }
+    setAddedSignature(signature);
+    setConfettiTrigger(Date.now());
   };
 
-  const handleAddToCart = ({ goToCart = false } = {}) => {
+  const handleAddToCart = () => {
+    if (justAdded) {
+      navigation.navigate('cart');
+      return;
+    }
     const missing = getMissingRequiredOptions(product.options, selectedOptions);
     if (missing.length > 0) {
-      setPendingAction({ goToCart });
+      setPendingAction({});
       setOptionsSheetOpen(true);
       return;
     }
-    commitAddToCart(selectedOptions, { goToCart });
+    commitAddToCart(selectedOptions, optionSignature);
   };
 
   const handleSheetConfirm = () => {
-    commitAddToCart(selectedOptions, pendingAction || {});
+    commitAddToCart(selectedOptions, optionSignature);
     setOptionsSheetOpen(false);
     setPendingAction(null);
   };
@@ -191,17 +163,21 @@ const ProductView = () => {
         <ProductImageCarousel slides={slides} />
 
         <XStack gap={5} justifyContent="flex-end" marginBottom={26} marginTop={-90} paddingRight={20} zIndex={20}>
-          <View 
-            padding={8} 
-            borderRadius={20} 
+          <Pressable
             onPress={() => setIsWishlist(!isWishlist)}
+            style={{ padding: 8, borderRadius: 20 }}
           >
-            <Heart 
-              size={26} 
-              fill={isWishlist ? '#ff0000' : 'transparent'} 
-              color={isWishlist ? '#ff0000' : '#000000'} 
-            />
-          </View>
+            <View width={26} height={26}>
+              <View position="absolute" top={-0.5} left={-0.5} opacity={0.5}>
+                <Heart size={28} color="#000000" />
+              </View>
+              <Heart
+                size={26}
+                fill={isWishlist ? '#ff0000' : 'transparent'}
+                color={isWishlist ? '#ff0000' : '#ffffff'}
+              />
+            </View>
+          </Pressable>
         </XStack>
 
 
@@ -242,10 +218,12 @@ const ProductView = () => {
         </YStack>
 
         <YStack padding={14} marginBottom={10}>
-          <RenderProductOptions
+          <OptionsSelector
             options={product.options}
             selectedOptions={selectedOptions}
             handleOptionChange={handleOptionChange}
+            onSizeGuidePress={() => console.log('Open size guide')}
+            onNotifyPress={() => console.log('Notify me tapped')}
           />
         </YStack>
         
@@ -330,51 +308,54 @@ const ProductView = () => {
       </ScrollView>
 
       {/* Sticky Bottom Bar */}
-      <XStack 
-        paddingHorizontal={14} 
-        paddingVertical={12} 
-        backgroundColor={'#ffffff'} 
-        borderTopWidth={1} 
-        borderTopColor={'#eeeeee'}
-        justifyContent="space-between" 
-        alignItems="center"
-        gap={12}
+      <View
+        backgroundColor={justAdded ? colors.coupon : colors.surface}
+        borderTopWidth={justAdded ? 0 : 1}
+        borderTopColor={colors.borderSoft}
+        borderTopLeftRadius={justAdded ? 16 : 0}
+        borderTopRightRadius={justAdded ? 16 : 0}
         elevation={10}
         shadowColor="#000"
         shadowOffset={{ width: 0, height: -2 }}
         shadowOpacity={0.1}
         shadowRadius={4}
+        paddingTop={justAdded ? 14 : 10}
+        paddingHorizontal={12}
+        paddingBottom={12}
+        overflow="hidden"
+        onLayout={(e) => setBarSize({ width: e.nativeEvent.layout.width, height: e.nativeEvent.layout.height })}
       >
-        <Button 
-          icon={<Heart size={20} fill={isWishlist ? '#ff0000' : 'transparent'} color={isWishlist ? '#ff0000' : '#000000'} />} 
-          circular 
-          backgroundColor={'#f5f5f5'} 
-          borderWidth={0}
-          onPress={() => setIsWishlist(!isWishlist)}
+        {justAdded ? (
+          <View alignItems="center" marginBottom={10}>
+            <Text color="#ffffff" fontSize={16} fontWeight="800">
+              Yay! FREE shipping unlocked
+            </Text>
+            {savings > 0 ? (
+              <Text color="#ffffff" fontSize={13} marginTop={2}>
+                You are saving {formatPrice(savings)} on this item
+              </Text>
+            ) : null}
+          </View>
+        ) : null}
+
+        <Button
+          height={52}
+          backgroundColor={colors.brand}
+          color={colors.text}
+          borderRadius={6}
+          fontWeight="800"
+          icon={<ShoppingBag size={18} color={colors.text} />}
+          onPress={handleAddToCart}
+        >
+          {justAdded ? 'ITEM ADDED TO BAG' : 'ADD TO BAG'}
+        </Button>
+
+        <Confetti
+          trigger={confettiTrigger}
+          width={barSize.width}
+          height={barSize.height}
         />
-        <XStack flex={1} gap={10}>
-          <Button
-            flex={1}
-            backgroundColor={'#000000'}
-            color="#ffffff"
-            borderRadius={10}
-            fontWeight="600"
-            onPress={() => handleAddToCart()}
-          >
-            Add to Cart
-          </Button>
-          <Button
-            flex={1}
-            backgroundColor={'#febf00'}
-            color="#000000"
-            borderRadius={10}
-            fontWeight="600"
-            onPress={() => handleAddToCart({ goToCart: true })}
-          >
-            Buy Now
-          </Button>
-        </XStack>
-      </XStack>
+      </View>
 
       <Sheet
         modal
@@ -388,36 +369,52 @@ const ProductView = () => {
       >
         <Sheet.Overlay />
         <Sheet.Handle />
-        <Sheet.Frame padding="$4" backgroundColor="#ffffff">
-          <XStack justifyContent="space-between" alignItems="center" marginBottom={10}>
-            <Text fontSize={16} fontWeight="700">
+        <Sheet.Frame padding="$4" backgroundColor={colors.surface}>
+          <XStack justifyContent="space-between" alignItems="center" marginBottom={16}>
+            <Text fontSize={16} fontWeight="700" color={colors.text}>
               {missingInSheet.length > 0
-                ? `Select ${missingInSheet.map((o) => o.name).join(' & ')}`
+                ? `Select ${missingInSheet[0].name}`
                 : 'Confirm options'}
             </Text>
             <View onPress={() => setOptionsSheetOpen(false)}>
-              <X size={22} color="#000" />
+              <X size={22} color={colors.text} />
             </View>
           </XStack>
 
-          <ScrollView style={{ maxHeight: 360 }}>
-            <RenderProductOptions
+          <View
+            height={1}
+            backgroundColor={colors.borderSoft}
+            marginBottom={16}
+          />
+
+          <ScrollView style={{ maxHeight: 420 }}>
+            <OptionsSelector
               options={product.options}
               selectedOptions={selectedOptions}
-              handleOptionChange={(name, value) => setSelectedOptions((prev) => ({ ...prev, [name]: value }))}
+              handleOptionChange={(name, value) =>
+                setSelectedOptions((prev) => ({ ...prev, [name]: value }))
+              }
+              onSizeGuidePress={() => console.log('Open size guide')}
+              onNotifyPress={() => console.log('Notify me tapped')}
             />
           </ScrollView>
 
+          <View
+            height={1}
+            backgroundColor={colors.borderSoft}
+            marginVertical={16}
+          />
+
           <Button
-            marginTop={16}
-            backgroundColor={canConfirmInSheet ? '#febf00' : '#f0e1a8'}
-            color="#000000"
-            borderRadius={10}
+            backgroundColor={canConfirmInSheet ? colors.brand : colors.brandSoft}
+            color={colors.text}
+            borderRadius={8}
             fontWeight="700"
+            height={52}
             disabled={!canConfirmInSheet}
             onPress={handleSheetConfirm}
           >
-            {`ADD TO BAG ${product.special || product.price}`}
+            {`ADD TO BAG ${formatPrice(product.special || product.price)}`}
           </Button>
         </Sheet.Frame>
       </Sheet>

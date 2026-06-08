@@ -3,6 +3,7 @@ import { ScrollView } from 'react-native';
 import { Image, Text, View, XStack, YStack } from 'tamagui';
 import { useSelector } from 'react-redux';
 import NoData from '../../components/NoData';
+import { formatPrice } from '../../utils/formatPrice';
 
 const formatDate = (ts) => {
   const d = new Date(ts);
@@ -75,7 +76,7 @@ const OrderCard = ({ order }) => (
       <Text fontSize={13} color="#666">
         {order.items.length} item{order.items.length === 1 ? '' : 's'}
       </Text>
-      <Text fontSize={14} fontWeight="700">SAR {Number(order.total ?? 0).toFixed(2)}</Text>
+      <Text fontSize={14} fontWeight="700">{formatPrice(order.total ?? 0)}</Text>
     </XStack>
   </View>
 );

@@ -88,11 +88,14 @@ export default function HomeScreen() {
           const ModuleComponent = componentMap[mType];
           
           return ModuleComponent ? (
-            <ModuleComponent
-              key={mId}
-              data={item.item.data.items || []}
-              options={item.item.data}
-            />
+            <View marginTop={10}>
+              
+              <ModuleComponent
+                key={mId}
+                data={item.item.data.items || []}
+                options={item.item.data}
+              />
+            </View>
           ) : null;
         });
       });

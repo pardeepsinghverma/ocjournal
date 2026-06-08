@@ -5,12 +5,13 @@ import pageSlice from "./pageSlice";
 import dataSlice from "./dataSlice";
 import authSlice from "./authSlice";
 import cartSlice from "./cartSlice";
+import couponSlice from "./couponSlice";
 import { combineReducers } from "redux";
 
 const persistConfig = {
     key: "root",
     storage: AsyncStorage,
-    whitelist: ["data", "auth", "cart"], // Persist data + auth + cart
+    whitelist: ["data", "auth", "cart", "coupon"],
 };
 
 const rootReducer = combineReducers({
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     data: dataSlice,
     auth: authSlice,
     cart: cartSlice,
+    coupon: couponSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
