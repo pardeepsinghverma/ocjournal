@@ -1,5 +1,40 @@
 import apiRequest from './apiclient';
 import { STOREFRONT_ROUTE, API_ENDPOINTS } from './const';
+import { registerTenantSchemes } from '../components/common/colorSchemes';
+
+// Maps Journal3 DB color-slot names → RN palette keys used by getColorScheme()
+const SLOT_MAP = {
+  background_primary:  'surface',
+  body_background:     'body',
+  foreground_primary:  'text',
+  foreground_secondary:'muted',
+  brand_primary:       'accent',
+  button_background:   'buttonBg',
+  button_foreground:   'buttonText',
+  neutral_background:  'neutral',
+};
+
+/**
+ * Converts _storefront.theme.color_schemes (hex strings keyed by slot name)
+ * into RN palette objects and registers them so every module picks up the
+ * merchant's actual Journal3 colors instead of the hardcoded fallbacks.
+ */
+function applyThemeFromStorefront(theme) {
+  const raw = theme?.color_schemes;
+  if (!raw) return;
+
+  const rnSchemes = {};
+  for (const [schemeName, slots] of Object.entries(raw)) {
+    const palette = {};
+    for (const [slot, hex] of Object.entries(slots)) {
+      const key = SLOT_MAP[slot];
+      if (key) palette[key] = hex;
+    }
+    if (Object.keys(palette).length > 0) rnSchemes[schemeName] = palette;
+  }
+
+  registerTenantSchemes(rnSchemes);
+}
 
 /**
  * Storefront product helpers for the brandwik OpenCart (Journal3) backend.
@@ -53,6 +88,9 @@ export const getHomeLayout = async () => {
   }
 
   const layout = (data._storefront && data._storefront.layout) || {};
+
+  applyThemeFromStorefront(data._storefront?.theme);
+
   return {
     top: (layout.top && layout.top.rows) || {},
     bottom: (layout.bottom && layout.bottom.rows) || {},
@@ -126,4 +164,51 @@ export const getCategoryProducts = async (categoryId, { limit = 12 } = {}) => {
     .map(detailToCard);
 };
 
-export default { getCategoryProducts, getHomeLayout };
+/**
+ * Fetch a single product by id.
+ * Returns the raw product/product response (heading_title, description, images[],
+ * price, special, tax, options[], reviews[], rating, model, sku, …).
+ *
+ * @param {string|number} productId
+ * @returns {Promise<object|null>}
+ */
+export const getProduct = async (productId) => {
+  if (!productId) return null;
+  const { data, error } = await apiRequest({
+    url: `${route(API_ENDPOINTS.PRODUCT)}&product_id=${productId}`,
+  });
+  return (error || !data) ? null : data;
+};
+
+/**
+ * Search for products by keyword.
+ * Journal3 renders search results as HTML just like category pages, so we use
+ * the same HTML→ids→detail bridge as getCategoryProducts.
+ *
+ * @param {string} query
+ * @param {{ limit?: number }} options
+ * @returns {Promise<Array>} array of product-card objects
+ */
+export const searchProducts = async (query, { limit = 12 } = {}) => {
+  if (!query || !query.trim()) return [];
+
+  const { data, error } = await apiRequest({
+    url: `${route(API_ENDPOINTS.PRODUCT_SEARCH)}&search=${encodeURIComponent(query.trim())}`,
+  });
+  if (error || !data) return [];
+
+  // Future-proof: backend already returns a structured array.
+  if (Array.isArray(data.products) && data.products.length) {
+    return data.products;
+  }
+
+  const ids = extractProductIds(data.products, limit);
+  if (!ids.length) return [];
+
+  const results = await Promise.all(
+    ids.map(id => apiRequest({ url: `${route(API_ENDPOINTS.PRODUCT)}&product_id=${id}` })),
+  );
+  return results.map(r => r.data).filter(Boolean).map(detailToCard);
+};
+
+export default { getCategoryProducts, getHomeLayout, getProduct, searchProducts };

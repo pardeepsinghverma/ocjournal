@@ -1,28 +1,76 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { API_DOMAIN, STOREFRONT_APP_KEY } from './const';
+import { getAuthHeaders, isAuthExpired, extractSessionCookie } from './authProvider';
+import store from '../store/store';
+import { setSessionCookie, clearSession } from '../store/authSlice';
 
-// Define the interface for API request parameters
 interface ApiRequestParams {
-  url: string; // API endpoint
-  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'; // HTTP methods (default is GET)
-  data?: Record<string, any> | null; // Request body (optional)
-  params?: Record<string, any> | null; // Query parameters (optional)
-  headers?: Record<string, string>; // Custom headers (optional)
+  url: string;
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+  data?: Record<string, any> | null;
+  params?: Record<string, any> | null;
+  headers?: Record<string, string>;
 }
 
-// Define the interface for the response or error structure
 interface ApiResponse<T = any> {
-  data?: T; // Response data
-  error?: string; // Error message
-  status?: number; // HTTP status code (optional)
+  data?: T;
+  error?: string;
+  status?: number;
 }
 
 /**
- * API Helper Function
- * Handles all API requests with Axios
- * 
- * @param {ApiRequestParams} options - The API request options
- * @returns {Promise<ApiResponse<T>>} - API response or error object
+ * Shared Axios instance — created once so interceptors only register once.
+ *
+ * Interceptors handle two cross-cutting concerns so individual API functions
+ * don't have to think about them:
+ *
+ *   Request:  attach X-OC-Storefront-App + auth credentials (cookie or JWT).
+ *             Auth logic lives entirely in authProvider.js — swap AUTH_MODE
+ *             there to switch from cookie to JWT without touching this file.
+ *
+ *   Response: (a) capture renewed Set-Cookie and persist to Redux;
+ *             (b) detect session/token expiry and dispatch clearSession().
+ */
+const axiosInstance: AxiosInstance = axios.create({
+  baseURL: API_DOMAIN,
+  timeout: 10000,
+});
+
+// ── Request interceptor ──────────────────────────────────────────────────────
+axiosInstance.interceptors.request.use((config) => {
+  // Storefront content-negotiation header (makes catalog URLs return JSON).
+  config.headers['X-OC-Storefront-App'] = STOREFRONT_APP_KEY;
+
+  // Auth credentials — delegate to authProvider so the mechanism is swappable.
+  const authState = store.getState().auth;
+  Object.assign(config.headers, getAuthHeaders(authState));
+
+  return config;
+});
+
+// ── Response interceptor ─────────────────────────────────────────────────────
+axiosInstance.interceptors.response.use(
+  (response) => {
+    // Cookie mode: persist any refreshed PHPSESSID that arrives on any response.
+    const cookie = extractSessionCookie(response.headers['set-cookie']);
+    if (cookie) store.dispatch(setSessionCookie(cookie));
+
+    // Auth expiry detection (works for both cookie redirects and JWT 401s).
+    if (isAuthExpired(response)) store.dispatch(clearSession());
+
+    return response;
+  },
+  (error) => {
+    // Hard 401 — JWT mode mainly, but also guards against unexpected 401s.
+    if (error.response?.status === 401) store.dispatch(clearSession());
+    return Promise.reject(error);
+  },
+);
+
+/**
+ * Performs an API request using the shared Axios instance.
+ * Extra headers passed via the `headers` param are merged on top of the
+ * interceptor-added ones — use this for one-off overrides, not for auth.
  */
 const apiRequest = async <T>({
   url,
@@ -32,46 +80,14 @@ const apiRequest = async <T>({
   headers = {},
 }: ApiRequestParams): Promise<ApiResponse<T>> => {
   try {
-    // Create an axios instance with default settings
-    const axiosInstance = axios.create({
-      baseURL: API_DOMAIN, // storefront origin (see src/api/const.ts)
-      timeout: 10000, // Set timeout for the request
-    });
-
-    // Axios request configuration
-    const config: AxiosRequestConfig = {
-      url,
-      method,
-      data,
-      params,
-      headers: {
-        // Storefront content-negotiation header: makes the catalog URLs
-        // return JSON instead of HTML. Gate 1 rejects requests without it.
-        'X-OC-Storefront-App': STOREFRONT_APP_KEY,
-        ...headers,
-      },
-    };
-
-    // Make the request
+    const config: AxiosRequestConfig = { url, method, data, params, headers };
     const response: AxiosResponse<T> = await axiosInstance(config);
-
-    // Return the response data
     return { data: response.data };
   } catch (error: any) {
-    // Handle errors
-    if (axios.isCancel(error)) {
-      return { error: 'Request canceled' };
-    }
-    if (error.response) {
-      // Server responded with a status outside the range 2xx
-      return { error: error.response.data || 'Server error', status: error.response.status };
-    } else if (error.request) {
-      // Request was made, but no response received
-      return { error: 'No response from server' };
-    } else {
-      // Other errors (e.g., setup issues)
-      return { error: error.message || 'Something went wrong' };
-    }
+    if (axios.isCancel(error)) return { error: 'Request canceled' };
+    if (error.response) return { error: error.response.data || 'Server error', status: error.response.status };
+    if (error.request)  return { error: 'No response from server' };
+    return { error: error.message || 'Something went wrong' };
   }
 };
 

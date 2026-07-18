@@ -56,6 +56,9 @@ export default function HomeScreen() {
 
     return Object.keys(sectionRows).map((key) => {
       const row = sectionRows[key];
+      const rowScheme = row.color_scheme || null;
+      const rowBackground = row.background || null;
+      const isFullWidth = !!(row.classes && row.classes['fullwidth-row']);
       const columns = row.columns;
 
       return Object.keys(columns).map((columnKey) => {
@@ -72,6 +75,9 @@ export default function HomeScreen() {
               <ModuleComponent
                 data={item.item.data.items || []}
                 options={item.item.data}
+                rowScheme={rowScheme}
+                rowBackground={rowBackground}
+                isFullWidth={isFullWidth}
               />
             </View>
           ) : null;

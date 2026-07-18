@@ -65,13 +65,17 @@ const MarqueeItem = ({ item, textColor, separatorChar }) => {
  * MarqueeView
  *
  * Props:
- *   items        – array of { id, title (HTML), link }
- *   speed        – pixels per second the strip scrolls (from options.speed)
- *   direction    – 'ltr' | 'rtl' (default 'ltr' = scroll leftward)
- *   separator    – string placed between items (may be empty)
- *   scheme       – { surface, text, accent, muted } from getColorScheme()
+ *   items           – array of { id, title (HTML), link }
+ *   speed           – pixels per second the strip scrolls (from options.speed)
+ *   direction       – 'ltr' | 'rtl' (default 'ltr' = scroll leftward)
+ *   separator       – string placed between items (may be empty)
+ *   scheme          – { surface, text, accent, muted } from getColorScheme()
+ *   backgroundColor – resolved row background color (from resolveRowBackground); falls
+ *                     back to scheme.surface when null
+ *   isFullWidth     – when true the strip applies negative horizontal margins to bleed
+ *                     past HomeScreen's paddingHorizontal={14}
  */
-const MarqueeView = ({ items, speed, direction, separator, scheme }) => {
+const MarqueeView = ({ items, speed, direction, separator, scheme, backgroundColor, isFullWidth }) => {
   const translateX = useRef(new Animated.Value(0)).current;
   const [contentWidth, setContentWidth] = useState(0);
 
@@ -125,9 +129,16 @@ const MarqueeView = ({ items, speed, direction, separator, scheme }) => {
     </View>
   );
 
+  // backgroundColor prop takes priority; null → fall back to scheme.surface.
+  const stripBg = backgroundColor ?? scheme.surface;
+
   return (
     <View
-      style={[styles.strip, { backgroundColor: scheme.surface }]}
+      style={[
+        styles.strip,
+        { backgroundColor: stripBg },
+        isFullWidth && styles.fullWidth,
+      ]}
     >
       <Animated.View
         style={[styles.track, { transform: [{ translateX }] }]}
@@ -144,6 +155,10 @@ const styles = StyleSheet.create({
     height: 40,
     overflow: 'hidden',
     justifyContent: 'center',
+  },
+  // Cancels HomeScreen's paddingHorizontal={14} so the strip bleeds to screen edges.
+  fullWidth: {
+    marginHorizontal: -14,
   },
   track: {
     flexDirection: 'row',

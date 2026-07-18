@@ -16,6 +16,7 @@ import MyOrders from './screens/profile/MyOrders';
 import MyAddresses from './screens/profile/MyAddresses';
 import MyProfile from './screens/profile/MyProfile';
 import Login from './screens/auth/Login';
+import Register from './screens/auth/Register';
 import SearchScreen from './screens/SearchScreen';
 import Wishlist from './screens/Wishlist';
 import Cart from './screens/checkout/Cart';
@@ -60,6 +61,7 @@ function AppContainer() {
         <Stack.Screen name="myaddresses" component={MyAddresses} />
         <Stack.Screen name="myprofile" component={MyProfile} />
         <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="register" component={Register} options={{ headerTitle: 'Create Account' }} />
         <Stack.Screen name="search" component={SearchScreen} options={{headerTitle: () => <SearchHeader />}}/>
         <Stack.Screen name="wishlist" component={Wishlist} />
         <Stack.Screen name="cart" component={Cart} options={{ headerShown: false }} />

@@ -22,39 +22,78 @@ const resolveCategoryImage = (cat, imgW, imgH) => {
 };
 
 /**
- * Parse the itemsPerRow config to pick a sensible mobile column count.
+ * Derive phone-appropriate column count from options.itemsPerRow.
  *
- * itemsPerRow is structured as:
- *   { c0: { "0": { items: 4, spacing: 20 }, "500": {...}, ... }, c1: {...}, sc: [...] }
+ * Journal3 breakpoint keys:
+ *   sc  = small/phone (array form: [{ items, spacing }])  ← preferred on mobile
+ *   c0  = desktop column 0 (breakpoint-object: { "0":{...}, "500":{...}, ... })
+ *   c1, c2 = wider column tiers (same breakpoint-object form)
  *
- * For a phone in portrait (< 500 CSS px ≈ smallest breakpoint) we use the
- * c0["500"].items value — that is what Journal3 applies at 500-wide containers
- * (which maps approximately to phone portrait). If absent we fall back to
- * c0["0"].items, then 2.
+ * API value for categories: sc[0].items = 1 (single column on phone).
+ *
+ * Strategy:
+ *   1. Read sc[0].items directly — sc is always array form per Journal3 spec.
+ *   2. Fall back to c0 breakpoint object: pick largest key <= 430 px.
+ *   3. Hard fallback: 2 columns.
  */
 const mobileColumns = (itemsPerRow) => {
   if (!itemsPerRow || typeof itemsPerRow !== 'object') return 2;
+
+  // 1. Prefer sc (small/phone) — always array form.
+  const sc = itemsPerRow.sc;
+  if (Array.isArray(sc) && sc.length > 0 && sc[0] && typeof sc[0].items === 'number') {
+    return Math.max(1, sc[0].items);
+  }
+
+  // 2. Fall back to c0 breakpoint-object: largest key <= 430 px.
   const c0 = itemsPerRow.c0;
   if (!c0 || typeof c0 !== 'object') return 2;
-  // Try the 500-breakpoint entry first (closest to a phone width)
-  const bp500 = c0['500'];
-  if (bp500 && bp500.items) return Math.max(1, bp500.items);
-  const bp0 = c0['0'];
-  if (bp0 && bp0.items) return Math.max(1, bp0.items);
+  const PHONE_WIDTH = 430;
+  const keys = Object.keys(c0)
+    .map(Number)
+    .filter((k) => !Number.isNaN(k))
+    .sort((a, b) => a - b);
+  let chosen = keys[0] !== undefined ? String(keys[0]) : null;
+  for (const k of keys) {
+    if (k <= PHONE_WIDTH) chosen = String(k);
+    else break;
+  }
+  const entry = chosen !== null ? c0[chosen] : null;
+  if (entry && typeof entry.items === 'number') return Math.max(1, entry.items);
   return 2;
 };
 
 /**
- * Derive gap size in px from itemsPerRow config.
+ * Derive phone-appropriate gap size from options.itemsPerRow.
+ *
+ * Mirrors mobileColumns: prefers sc[0].spacing, then c0 breakpoint-object.
+ * API value for categories: sc[0].spacing = 20.
+ * Hard fallback: 12 px.
  */
 const mobileGap = (itemsPerRow) => {
   if (!itemsPerRow || typeof itemsPerRow !== 'object') return 12;
+
+  // 1. Prefer sc (small/phone) — always array form.
+  const sc = itemsPerRow.sc;
+  if (Array.isArray(sc) && sc.length > 0 && sc[0] && typeof sc[0].spacing === 'number') {
+    return sc[0].spacing;
+  }
+
+  // 2. Fall back to c0 breakpoint-object.
   const c0 = itemsPerRow.c0;
   if (!c0) return 12;
-  const bp500 = c0['500'];
-  if (bp500 && bp500.spacing != null) return bp500.spacing;
-  const bp0 = c0['0'];
-  if (bp0 && bp0.spacing != null) return bp0.spacing;
+  const PHONE_WIDTH = 430;
+  const keys = Object.keys(c0)
+    .map(Number)
+    .filter((k) => !Number.isNaN(k))
+    .sort((a, b) => a - b);
+  let chosen = keys[0] !== undefined ? String(keys[0]) : null;
+  for (const k of keys) {
+    if (k <= PHONE_WIDTH) chosen = String(k);
+    else break;
+  }
+  const entry = chosen !== null ? c0[chosen] : null;
+  if (entry && typeof entry.spacing === 'number') return entry.spacing;
   return 12;
 };
 
@@ -97,7 +136,9 @@ const Category = ({ data, options = {} }) => {
 
   if (!categories.length) return null;
 
-  // Derive columns and gap for the mobile (phone portrait) breakpoint
+  // Derive columns and gap for the phone breakpoint.
+  // mobileColumns() prefers itemsPerRow.sc[0].items (API value: 1 on phone).
+  // mobileGap() prefers itemsPerRow.sc[0].spacing (API value: 20 on phone).
   const columns = mobileColumns(options.itemsPerRow);
   const gapSize = mobileGap(options.itemsPerRow);
 

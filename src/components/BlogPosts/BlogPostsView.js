@@ -17,8 +17,18 @@ const USABLE_WIDTH = Dimensions.get('window').width - 28;
  *
  * Props:
  *   tabs        — array of { key, title, active, posts[] }
- *   settings    — { columns, spacing, imageWidth, imageHeight, hasTabs }
+ *   settings    — {
+ *                   columns   : number  — from itemsPerRow.sc[0].items (API: 1 on phone)
+ *                   spacing   : number  — from itemsPerRow.sc[0].spacing (API: 20)
+ *                   imageWidth  : number
+ *                   imageHeight : number
+ *                   hasTabs   : boolean
+ *                 }
  *   onPressPost — (post) => void
+ *
+ * cardWidth  = (USABLE_WIDTH - spacing * (columns - 1)) / columns
+ * The grid gap must match `spacing` exactly so the rendered gap is consistent
+ * with the computed cardWidth.
  */
 const BlogPostsView = ({ tabs, settings, onPressPost }) => {
   const { columns, spacing, imageWidth, imageHeight, hasTabs } = settings;
@@ -35,7 +45,7 @@ const BlogPostsView = ({ tabs, settings, onPressPost }) => {
   const posts = activeTab ? activeTab.posts : [];
 
   // Card width: split usable width into `columns` slots with `spacing` gaps between them.
-  // E.g. columns=2, spacing=20: cardWidth = (usableWidth - 20) / 2
+  // E.g. columns=1, spacing=20: cardWidth = usableWidth (one full-width card).
   const col = Math.max(1, columns);
   const cardWidth = (USABLE_WIDTH - spacing * (col - 1)) / col;
   const imgHeight = cardWidth * (imageHeight / (imageWidth || 1));
@@ -68,9 +78,10 @@ const BlogPostsView = ({ tabs, settings, onPressPost }) => {
         </ScrollView>
       )}
 
-      {/* Post grid */}
+      {/* Post grid — gap matches `spacing` so the rendered gap is consistent
+          with the cardWidth computed above. */}
       {posts.length === 0 ? null : (
-        <View style={styles.grid}>
+        <View style={[styles.grid, { gap: spacing }]}>
           {posts.map((post) => (
             <BlogPostCard
               key={post.post_id}
@@ -118,7 +129,7 @@ const styles = StyleSheet.create({
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 14,
+    // gap is set inline from settings.spacing — do NOT add a static gap here.
   },
 });
 

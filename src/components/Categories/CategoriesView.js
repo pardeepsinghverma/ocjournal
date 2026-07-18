@@ -16,7 +16,22 @@ const USABLE_WIDTH = Dimensions.get('window').width - 28;
  *
  * Props:
  *   categories  — normalized array of category view-models
- *   settings    — derived config object from the module entry
+ *   settings    — derived config object from the module entry:
+ *     columns      : from itemsPerRow.sc[0].items (API: 1 on phone) or
+ *                    c0 breakpoint → "500"=1.  Both paths yield 1 for phone.
+ *     gapSize      : from itemsPerRow.sc[0].spacing (API: 20 on phone).
+ *     imageRatio   : imgH / imgW from options.imageDimensions.
+ *     carousel     : boolean.
+ *
+ * Card width formula (grid mode):
+ *   cardWidth = (USABLE_WIDTH - gapSize * (cols - 1)) / cols
+ *
+ * The gap between FlatList columns is applied via columnWrapperStyle.gap so it
+ * only applies between items, NOT on the outer edges of the row.  Using
+ * marginHorizontal on each item would add outer-edge padding and cause the row
+ * to overflow USABLE_WIDTH by exactly gapSize.
+ *
+ * SeparatorGap height matches gapSize (not hardcoded) so row gaps are uniform.
  */
 const CategoriesView = ({ categories, settings }) => {
   const {
@@ -34,7 +49,7 @@ const CategoriesView = ({ categories, settings }) => {
 
   const cols = Math.max(1, Math.round(columns));
 
-  // Total horizontal space consumed by gaps between cols
+  // Total horizontal space consumed by gaps *between* cols (outer edges excluded).
   const totalGap = gapSize * (cols - 1);
   const cardWidth = (USABLE_WIDTH - totalGap) / cols;
   const imageHeight = Math.round(cardWidth * imageRatio);
@@ -51,14 +66,16 @@ const CategoriesView = ({ categories, settings }) => {
 
   const keyExtractor = useCallback((item) => String(item.categoryId), []);
 
+  // No marginHorizontal here — column gaps are handled by columnWrapperStyle.gap
+  // so the outer edges of each row remain flush with USABLE_WIDTH.
   const renderItem = useCallback(
     ({ item }) => (
-      <View style={{ width: cardWidth, marginHorizontal: gapSize / 2 }}>
+      <View style={{ width: cardWidth }}>
         <CategoryItem category={item} cardWidth={cardWidth} {...sharedItemProps} />
       </View>
     ),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [cardWidth, gapSize, imageHeight, moduleCategory, showCount, countText, showDescription, descLimit, colorScheme],
+    [cardWidth, imageHeight, moduleCategory, showCount, countText, showDescription, descLimit, colorScheme],
   );
 
   // Guard after hooks — hooks must be called unconditionally
@@ -86,23 +103,29 @@ const CategoriesView = ({ categories, settings }) => {
     );
   }
 
-  // Grid — FlatList with row separators applied via item margin
+  // Grid — FlatList with columnWrapperStyle.gap for inter-column spacing and
+  // a SeparatorGap sized to gapSize for inter-row spacing.
+  const columnWrapper = cols > 1 ? [styles.row, { gap: gapSize }] : undefined;
+  // Stable component reference for the row separator — FlatList sees the same
+  // type every render so it does not needlessly unmount/remount separators.
+  const RowSeparator = useCallback(
+    () => <View style={{ height: gapSize }} />,
+    [gapSize],
+  );
+
   return (
     <FlatList
       data={categories}
       keyExtractor={keyExtractor}
       numColumns={cols}
       scrollEnabled={false}
-      columnWrapperStyle={cols > 1 ? styles.row : undefined}
+      columnWrapperStyle={columnWrapper}
       renderItem={renderItem}
-      ItemSeparatorComponent={SeparatorGap}
+      ItemSeparatorComponent={RowSeparator}
       contentContainerStyle={styles.gridContent}
     />
   );
 };
-
-// Defined outside the component so React sees a stable type
-const SeparatorGap = () => <View style={styles.separator} />;
 
 const styles = StyleSheet.create({
   scrollContent: {
@@ -110,12 +133,10 @@ const styles = StyleSheet.create({
   },
   row: {
     justifyContent: 'flex-start',
+    // gap is injected inline from gapSize — do NOT add a static gap here.
   },
   gridContent: {
     paddingHorizontal: 0,
-  },
-  separator: {
-    height: 12,
   },
 });
 

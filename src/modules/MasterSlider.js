@@ -83,7 +83,23 @@ const parseSlide = (slide, dims) => {
   };
 };
 
+/**
+ * MasterSlider — Journal3 full-width hero slider (types: master_slider, slider).
+ *
+ * HomeScreen calls:
+ *   <MasterSlider data={item.item.data.items || []} options={item.item.data} />
+ *
+ * `data`    = keyed object of slide entries {"1":{...},"2":{...}} (or [] when empty)
+ * `options` = full data config object
+ *
+ * Status guard: if options.status === false the module is disabled — render null.
+ *
+ * itemsPerRow does not apply to this module (it is always full-width).
+ */
 const MasterSlider = ({ data, options = {} }) => {
+  // Guard: respect the module-level visibility flag (consistent with all other modules).
+  if (options.status === false) return null;
+
   const layerDims = options.slidesLayersImageDimensions || {};
   const dims = {
     imageWidth: layerDims.width || options.width || 700,

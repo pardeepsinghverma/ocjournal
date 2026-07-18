@@ -79,7 +79,12 @@ const Products = ({ data, options = {} }) => {
   // -------------------------------------------------------------------------
   // Derive layout settings from options (all tenant-variable, never hardcoded)
   // -------------------------------------------------------------------------
-  const cols = gridColumnsFromStyle(options.autoGridStyle);
+  // Prefer itemsPerRow.sc (phone breakpoint) from the API; fall back to autoGridStyle.
+  const scRow = options.itemsPerRow?.sc;
+  const cols =
+    Array.isArray(scRow) && scRow[0]?.items > 0
+      ? scRow[0].items
+      : gridColumnsFromStyle(options.autoGridStyle);
   const cardWidth = (USABLE_WIDTH - CARD_GAP * (cols - 1)) / cols;
 
   // Image dimensions from options, falling back to a square equal to cardWidth.

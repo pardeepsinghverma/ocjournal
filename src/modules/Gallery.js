@@ -49,15 +49,21 @@ const deriveCols = (itemsPerRow) => {
 
 /**
  * Derive spacing (gap) for the phone breakpoint.
+ *
+ * Journal3 breakpoint key used: sc (small/phone — array form).
+ * API value for gallery: sc[0].spacing = 0 → rendered as true zero gap.
+ *
+ * IMPORTANT: spacing=0 in the API means the tenant explicitly wants no gap.
+ * Do NOT substitute a non-zero default for 0; pass it through as-is.
+ * Hard fallback (sc absent): 8 px.
  */
 const deriveGap = (itemsPerRow) => {
   if (!itemsPerRow || typeof itemsPerRow !== 'object') return 8;
   const sc = itemsPerRow.sc;
   if (Array.isArray(sc) && sc.length > 0 && sc[0]) {
     const spacing = sc[0].spacing;
-    // spacing === 0 means "no gap" per Journal3 convention — use 4 so cells don't
-    // bleed into each other visually on a real device.
-    return typeof spacing === 'number' && spacing > 0 ? spacing : 4;
+    // Pass through 0 (explicit "no gap") and any positive value unchanged.
+    return typeof spacing === 'number' ? spacing : 8;
   }
   return 8;
 };

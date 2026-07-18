@@ -14,9 +14,10 @@ import BlogPostsView from '../components/BlogPosts/BlogPostsView';
  * Data shape (per schema):
  *   options.status            boolean — render nothing when false
  *   options.sectionsDisplay   string  — "tabs" → show tab bar
- *   options.itemsPerRow       object  — responsive column config keyed by tier (c0/c1/c2/sc)
- *                                       each tier is an object keyed by breakpoint px ("0","500","900","1200")
- *                                       value: { items: number, spacing: number }
+ *   options.itemsPerRow       object  — responsive column config keyed by tier
+ *                                       sc  = small/phone (array form: [{ items: 1, spacing: 20 }]) ← used on mobile
+ *                                       c0/c1/c2 = wider tiers (breakpoint-object form: { "0":{...}, "500":{...} })
+ *                                       getColumnsForPhone() reads sc[0].items first, then falls back to c0 breakpoints.
  *   options.image_width       number  — thumbnail width hint
  *   options.image_height      number  — thumbnail height hint
  *   options.default_index     number  — 1-based index of the initially active tab
@@ -43,19 +44,35 @@ import BlogPostsView from '../components/BlogPosts/BlogPostsView';
  * wired but no-op until a BlogPost screen is added.
  */
 
-// Pick the best column count for a phone-width viewport.
-// itemsPerRow is keyed by column tier (c0, c1, c2, sc); within each tier,
-// keys are breakpoint strings like "0", "500", "900", "1200".
-// We want the entry for the *largest* breakpoint that is <= the phone width.
-// Phone widths are typically 320–430 px, so breakpoint "500" (items=1) applies.
+/**
+ * Derive phone-appropriate column count from options.itemsPerRow.
+ *
+ * Journal3 breakpoint keys:
+ *   sc = small/phone (array form: [{ items, spacing }])  ← preferred on mobile
+ *   c0 = desktop column 0 (breakpoint-object form: { "0": {...}, "500": {...} })
+ *   c1, c2 = wider column tiers (same breakpoint-object form)
+ *
+ * API value for blog_posts: sc[0].items = 1 (one card wide on phone).
+ *
+ * Strategy:
+ *   1. If sc is an array with items, read sc[0].items directly.
+ *   2. Otherwise fall back to the c0/c1/c2 breakpoint-object form, picking
+ *      the largest breakpoint key that is <= 430 px (typical phone width).
+ *   3. Hard fallback: 1 (single column on phone).
+ */
 const getColumnsForPhone = (itemsPerRow) => {
-  if (!itemsPerRow || typeof itemsPerRow !== 'object') return 2;
+  if (!itemsPerRow || typeof itemsPerRow !== 'object') return 1;
 
-  // Prefer the first responsive tier (c0), then c1, then c2, then sc.
+  // 1. Prefer sc (small/phone) — always the array form per Journal3 spec.
+  const sc = itemsPerRow.sc;
+  if (Array.isArray(sc) && sc.length > 0 && sc[0] && typeof sc[0].items === 'number') {
+    return Math.max(1, sc[0].items);
+  }
+
+  // 2. Fall back to the breakpoint-object tiers (c0 → c1 → c2).
   const tier = itemsPerRow.c0 || itemsPerRow.c1 || itemsPerRow.c2;
-  if (!tier || typeof tier !== 'object') return 2;
+  if (!tier || typeof tier !== 'object') return 1;
 
-  // Pick the largest breakpoint <= 430 (typical phone width).
   const PHONE_WIDTH = 430;
   const keys = Object.keys(tier)
     .map(Number)
@@ -72,12 +89,26 @@ const getColumnsForPhone = (itemsPerRow) => {
   if (entry && typeof entry.items === 'number') {
     return Math.max(1, entry.items);
   }
-  return 2;
+  return 1;
 };
 
+/**
+ * Derive phone-appropriate grid spacing from options.itemsPerRow.
+ *
+ * Mirrors getColumnsForPhone: prefers sc[0].spacing, then c0/c1/c2 breakpoints.
+ * API value for blog_posts: sc[0].spacing = 20.
+ * Hard fallback: 14 px.
+ */
 const getSpacingForPhone = (itemsPerRow) => {
   if (!itemsPerRow || typeof itemsPerRow !== 'object') return 14;
 
+  // 1. Prefer sc (small/phone) — always the array form.
+  const sc = itemsPerRow.sc;
+  if (Array.isArray(sc) && sc.length > 0 && sc[0] && typeof sc[0].spacing === 'number') {
+    return sc[0].spacing;
+  }
+
+  // 2. Fall back to the breakpoint-object tiers.
   const tier = itemsPerRow.c0 || itemsPerRow.c1 || itemsPerRow.c2;
   if (!tier || typeof tier !== 'object') return 14;
 

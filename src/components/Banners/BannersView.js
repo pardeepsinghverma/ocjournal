@@ -6,18 +6,25 @@ import BannerItem from './BannerItem';
 const USABLE_WIDTH = () => Dimensions.get('window').width - 28;
 
 // Resolve items-per-row + spacing from Journal3 `itemsPerRow` config object.
-// The API uses a breakpoint map: c0 = mobile, c1 = tablet, c2 = desktop, sc = small.
-// On mobile we read c0 (the smallest breakpoint). Each key maps to an array whose
-// first element carries { items, spacing }.
+//
+// Journal3 layout context keys:
+//   c0 = homepage / full-width container (no sidebars) — this is what the web
+//        homepage always uses regardless of screen width. Use c0 for banners.
+//   c1, c2 = 1 or 2 sidebar columns present
+//   sc = narrow sidebar column (NOT a phone-size breakpoint)
+//
+// For banners the API returns c0: [{ items: 2, spacing: 20 }], meaning 2 per row
+// in a full-width layout — which is what the web renders at any viewport.
+// sc: [{ items: 1 }] only applies when the module is placed in a sidebar.
 const resolveRowConfig = (itemsPerRow) => {
   const fallback = { items: 1, spacing: 10 };
   if (!itemsPerRow) return fallback;
 
-  // Prefer c0 (mobile), fall back to first key present.
-  const candidate = itemsPerRow.c0 || Object.values(itemsPerRow)[0];
+  // Use c0 (full-width homepage context), then sc, then first key present.
+  const candidate = itemsPerRow.c0 || itemsPerRow.sc || Object.values(itemsPerRow)[0];
   if (!candidate) return fallback;
 
-  // c0 may be an array (standard) or a plain object (breakpoint map variant).
+  // c0 is a flat array [{ items, spacing }] for banners.
   if (Array.isArray(candidate)) {
     const cfg = candidate[0] || {};
     return {
@@ -52,9 +59,50 @@ const resolveRowConfig = (itemsPerRow) => {
   return fallback;
 };
 
-// BannersView — renders banners in a responsive flex-row grid.
-// It supports both grid layout (carousel:false) and horizontal scroll
-// carousel layout (carousel:true or swiper_carousel:true).
+// Compute bento (mosaic) layout for each banner item.
+//
+// The web uses item image_width ratios to assign column spans — an item whose
+// image_width is 2× the smallest item gets span=2 (full row), while same-sized
+// items get span=1. This produces the characteristic Journal3 bento grid where
+// one wide banner fills an entire row above two half-width banners.
+//
+// Algorithm:
+//   unitWidth = (usableWidth - spacing * (perRow - 1)) / perRow
+//   minImgW   = min(image_width) across all items in this module
+//   span      = clamp(round(item.image_width / minImgW), 1, perRow)
+//   cardWidth = span * unitWidth + (span - 1) * spacing
+//   cardHeight = cardWidth * (image_height / image_width)
+//
+// Example — Module 1 (Living/SALE/Decor), perRow=2, unitWidth=171px:
+//   Living (480×240): span=2 → cardWidth=362px (full row)
+//   SALE   (240×240): span=1 → cardWidth=171px
+//   Decor  (240×240): span=1 → cardWidth=171px
+const computeBentoItems = (banners, unitWidth, spacing, perRow) => {
+  if (!banners.length) return [];
+
+  // Find the smallest valid image width to use as the 1-column reference unit.
+  const validWidths = banners.map(b => b.imageWidth).filter(w => w > 0);
+  const minImgW = validWidths.length ? Math.min(...validWidths) : unitWidth;
+
+  return banners.map((banner) => {
+    const imgW = banner.imageWidth > 0 ? banner.imageWidth : minImgW;
+    const imgH = banner.imageHeight > 0 ? banner.imageHeight : imgW;
+    const span = Math.min(perRow, Math.max(1, Math.round(imgW / minImgW)));
+    const cardWidth = Math.floor(span * unitWidth + (span - 1) * spacing);
+    const cardHeight = Math.round(cardWidth * (imgH / imgW));
+    return { ...banner, cardWidth, cardHeight };
+  });
+};
+
+// BannersView — renders banners in a bento grid or horizontal carousel.
+//
+// Grid mode (carousel:false):
+//   Each item's column span is derived from its image_width relative to the
+//   smallest image in the module. Items with 2× the minimum width span 2
+//   columns (full-row), matching the Journal3 web layout exactly.
+//
+// Carousel mode (carousel:true or swiper_carousel:true):
+//   Items scroll horizontally; each item is rendered at full usable width.
 const BannersView = memo(({ banners, options }) => {
   if (!banners || banners.length === 0) return null;
 
@@ -62,31 +110,13 @@ const BannersView = memo(({ banners, options }) => {
   const { items: perRow, spacing } = resolveRowConfig(options.itemsPerRow);
 
   const usableWidth = USABLE_WIDTH();
-  // cardWidth = (usableWidth - spacing between cards) / perRow
-  const totalGap = spacing * (perRow - 1);
-  const cardWidth = (usableWidth - totalGap) / perRow;
-
-  // Card height: use the module-level imageDimensions aspect ratio when available,
-  // else fall back to the per-item dimensions, else square.
-  const computeCardHeight = (banner) => {
-    const modW = options.imageDimensions?.width || options.width;
-    const modH = options.imageDimensions?.height || options.height;
-    if (modW && modH) {
-      return Math.round(cardWidth * (modH / modW));
-    }
-    const itemW = banner.imageWidth;
-    const itemH = banner.imageHeight;
-    if (itemW && itemH) {
-      return Math.round(cardWidth * (itemH / itemW));
-    }
-    return cardWidth; // square fallback
-  };
+  const unitWidth = (usableWidth - spacing * (perRow - 1)) / perRow;
 
   const globalScheme = options.color_scheme || '';
 
   if (isCarousel) {
-    // Horizontal scroll carousel — each card is full-width (perRow = 1 for carousel UX)
-    const carouselCardWidth = usableWidth;
+    // Carousel: all items are full-width, paged horizontally.
+    // Bento span logic doesn't apply — the carousel pager controls visibility.
     return (
       <ScrollView
         horizontal
@@ -95,13 +125,15 @@ const BannersView = memo(({ banners, options }) => {
         contentContainerStyle={[styles.carouselContent, { gap: spacing }]}
       >
         {banners.map((banner) => {
-          const height = computeCardHeight(banner);
+          const imgW = banner.imageWidth || usableWidth;
+          const imgH = banner.imageHeight || imgW;
+          const cardHeight = Math.round(usableWidth * (imgH / imgW));
           return (
             <BannerItem
               key={banner.id}
               item={banner}
-              cardWidth={carouselCardWidth}
-              cardHeight={height}
+              cardWidth={usableWidth}
+              cardHeight={cardHeight}
               colorScheme={globalScheme}
             />
           );
@@ -110,26 +142,21 @@ const BannersView = memo(({ banners, options }) => {
     );
   }
 
-  // Grid layout — flex-row wrap
+  // Grid layout — bento flex-wrap.
+  // Each item carries its own cardWidth/cardHeight derived from image_width span.
+  const bentoItems = computeBentoItems(banners, unitWidth, spacing, perRow);
+
   return (
-    <View
-      style={[
-        styles.grid,
-        { columnGap: spacing, rowGap: spacing },
-      ]}
-    >
-      {banners.map((banner) => {
-        const height = computeCardHeight(banner);
-        return (
-          <BannerItem
-            key={banner.id}
-            item={banner}
-            cardWidth={cardWidth}
-            cardHeight={height}
-            colorScheme={globalScheme}
-          />
-        );
-      })}
+    <View style={[styles.grid, { gap: spacing }]}>
+      {bentoItems.map((banner) => (
+        <BannerItem
+          key={banner.id}
+          item={banner}
+          cardWidth={banner.cardWidth}
+          cardHeight={banner.cardHeight}
+          colorScheme={globalScheme}
+        />
+      ))}
     </View>
   );
 });

@@ -4,12 +4,27 @@ import { RichText } from '../Slider/RichText';
 import { getColorScheme } from '../Slider/colorSchemes';
 import InfoBlockItem from './InfoBlockItem';
 
-// Journal3 "Info Blocks / Site Features" — a vertical stack of feature rows,
-// each row showing an icon circle + title + optional description text.
-// The web SIMPLE style renders them in a horizontal strip (desktop) or stacked
-// column (mobile). We mirror the mobile layout: full-width cards stacked
-// vertically, with a thin separator between items.
-const InfoBlocksView = ({ items, moduleColorScheme, moduleTitle, moduleDescription }) => {
+/**
+ * Journal3 "Info Blocks / Site Features" — a vertical stack of feature rows,
+ * each row showing an icon circle + title + optional description text.
+ * The web SIMPLE style renders them in a horizontal strip (desktop) or stacked
+ * column (mobile). We mirror the mobile layout: full-width cards stacked
+ * vertically, with a thin separator between items.
+ *
+ * Props:
+ *   items              — normalized item array
+ *   columns            — column count derived from options.itemsPerRow.sc[0].items
+ *                        (API value: 1 on phone → full-width vertical stack, which is
+ *                        exactly what this component renders)
+ *   moduleColorScheme  — module-level color scheme key string
+ *   moduleTitle        — optional module heading (HTML)
+ *   moduleDescription  — optional module subheading (HTML)
+ *
+ * NOTE: `columns` is currently always 1 on phone per the Journal3 API.
+ * The prop is accepted so the view can adapt if the API ever returns columns > 1.
+ */
+// eslint-disable-next-line no-unused-vars
+const InfoBlocksView = ({ items, columns = 1, moduleColorScheme, moduleTitle, moduleDescription }) => {
   if (!items || items.length === 0) {
     return null;
   }
